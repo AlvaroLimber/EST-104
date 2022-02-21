@@ -4,10 +4,13 @@ historia
 tarea-de-repaso.
 conceptos-importantes
 población
+muestra
 variable
+tipos-de-variables
 cualitativos-cualidades
 cuantitativos-cantidad
 ordenando-los-datos
+frecuencias-absolutas-relativas-y-porcentajes
 medidas-de-tendencia-central
 moda-mo
 mediana-me

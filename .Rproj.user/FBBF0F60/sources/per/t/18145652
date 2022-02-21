@@ -1,28 +1,28 @@
 {
-    "id": "147AA717",
+    "id": "18145652",
     "path": "~/GitHub/EST-104/1_descriptiva.Rmd",
     "project_path": "1_descriptiva.Rmd",
     "type": "r_markdown",
-    "hash": "2395071057",
+    "hash": "4264730469",
     "contents": "",
     "dirty": false,
-    "created": 1644798757225.0,
+    "created": 1645185142045.0,
     "source_on_save": false,
-    "relative_order": 3,
+    "relative_order": 1,
     "properties": {
         "chunk_output_type": "console",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "23,11",
-        "scrollLine": "17",
-        "docOutlineVisible": "1"
+        "cursorPosition": "181,0",
+        "scrollLine": "176",
+        "docOutlineVisible": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1644587772,
+    "lastKnownWriteTime": 1645192247,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1644587772,
+    "last_content_update": 1645192247645,
     "read_only": false,
     "read_only_alternatives": []
 }

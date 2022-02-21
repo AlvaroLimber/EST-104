@@ -47,13 +47,17 @@ Buscar que tipo de bases de datos se utilizan en la biología en general y en Bo
 
 Una colección de objetos/elementos, por ejemplo; personas, cosas, animales, etc.
 
-Sea la población o universo de estudio identificado como $U$. Debemos distinguir entre las poblaciones finitas y poblaciones infinitas, en este capítulo se trabaja sobre universos finitos.
+Sea la población o universo de estudio identificado como $U$. Debemos distinguir entre las **poblaciones finitas** y **poblaciones infinitas**, en este capítulo se trabaja sobre universos finitos.
 
-$$U=\{u_1, u_2, \ldots u_i,\ldots, u_N \}$$
+$$U=\{u_1, u_2, \ldots ,u_i,\ldots, u_N \}$$
+
+Vamos a utilizar la letra $N$ para referirnos al tamaño del universo.
+
 ### Muestra 
+
 Es un sub conjunto del universo, lo vamos a denotar con $s$. $s \subset U$.
 
-$$s=\{u_{(1)}, u_{(2), \ldots}, u_{(n)} \}$$
+$$s=\{u_{(1)}, u_{(2)}, \ldots, u_{(n)} \}$$
 
 Donde $u_{(i)} \in U$.
 
@@ -62,8 +66,6 @@ Nota: El tamaño del universo o la población sera denotado por $N$, y $n$ al ta
 ### Variable
 
 Una variable en estadística expresa una característica asociado a algún elemento en la población. Normalmente esta se la denota con $X$ e $Y$.
-
-Por ejemplo, en la población de estudiantes inscritos en la materia de EST-133(c) el tamaño es $N=90$ los elementos de esta población corresponden a estudiantes de la carrera de informática algunas variables en esta población pueden ser:
 
   * ($X$) Edad 
   * ($Y$) Sexo
@@ -74,12 +76,24 @@ Por ejemplo, en la población de estudiantes inscritos en la materia de EST-133(
 Las variables asociadas a un elemento en la población, la podemos denotar de la siguiente forma:
 
 $$u_i=\{X_{i1}, X_{i2},\ldots, X_{ip} \}$$
-Siguiendo el ejemplo:
 
-$$u_{Juana}=\{ 23, Mujer, 5, Cafe, 77777777 \}$$
+> Ejercicio: Definan una población de estudio con sus elementos y listen las variables asociadas a esos elementos
+
+  * $U:$ Vegetales verdes
+  * $U=\{Lechuga, espinaca, brocoli, etc\}$
+  * Peso,  ...
+  
+  * Población de estudio: personas en sala de meet de estadística
+  * Unidad/elemento: Personas {Naya, Wara, Vania, etc}
+  * Variables: tienen o no foto de perfil,está su rostro o no, nombre 
+
 ## Tipos de variables
 
+  * Cualitativas
+  * Cuantitativas
+
 ### Cualitativos (cualidades) 
+
 No se pueden realizar operaciones algebraicas sobre este tipo de variables.
 
 Estas tienen una sub clasificación:
@@ -87,33 +101,33 @@ Estas tienen una sub clasificación:
   * Nominales: Las categorías de la variable no tienen un orden de jerarquía (el orden no importa)
   * Ordinales: Las categorías de la variable tienen un orden de jerarquía (el orden importa)
     
-Ejercicio de clase.
+> Ejercicio
 
-  1. Definan una población, sus elementos y liste al menos 3 variables cualitativas nominales y 2 variables cualitativas ordinales.
+De un ejemplo de una variable nominal y una ordinal
 
-Resp. 1: Universo, Doctores que vivan en el municipio de La Paz, elemento: Doctor/a.
-    
-  * nominales: lugar de trabajo, si tiene familia, apellido
-  * ordinales: nivel de postgrado, cargo, especialidad (si, no)
+  * Variable nominal= Color de piel.
+  * Variable ordinal= Grado de escolaridad.
+  
+  * Nominal= Colores; rojo, amarillo 
+  * Ordinal= Dolor; Leve, moderado
 
-Resp. 2: Universo, clase de estudiantes de colegio, sus elementos, los alumnos que conforman la clase.  
+  * Variables nominales : nacionalidad , boliviana , argentino , brasileño , ecuatoriano ...
+  * Variable ordinal medallas , oro , plata , bronce
 
-  * cualitativas nominales apellido, nombre, género
-  * cualitativas ordinales: cargo dentro del gobierno estudiantil, rendimiento escolar (malo, regular, bueno)
 
-Resp. 3: universo: televisores que están en venta en la ciudad de La Paz; elementos los diferentes tipos de televisores que existan ;
-  * variables cualitativas nominales -> color, material; 
-  * variables cualitativas ordinales -> modelo, garantía, marca. 
-    
 ### Cuantitativos (cantidad) 
-Se pueden realizar operaciones algebraicas. Estas se dividen en 2.
 
-  * Discretas: Numerables, ejemplos; edad en años, precio de un televisor, peso en kilogramos, la altura en cm, la cantidad de personas es un evento.
-  * Continuas: No numerables; edad de una persona, cualquier variables definida en los números reales.
+Se pueden realizar operaciones algebraicas de utilidad. Estas se dividen en 3.
+
+  * Discretas: Numerables (unidad de medida), ejemplos; edad en años, precio de un televisor en Bs., peso en kilogramos, la altura en cm, la cantidad de personas es un evento.
+  * Continuas: No numerables; edad de una persona, cualquier variables definida en los números reales. (Volumen, distancia, tiempo)
+  * Intervalos: Variables que se describen como un rango de números. Por ejemplo; Rangos de edad 0-15, 16-49, 50+, tiempo en horas de un día; 0 a 8:00, 8:01 a 15:00, 15+
   
 Nota: Las variables continuas se pueden volver variables discretas (discretizar una variable)
 
-Nota: Todo el contenido de la materia en adelante esta mas relacionado con variables cuantitativas.
+> Tarea: 
+
+Definición y diferencia de precisión y exactitud.
 
 ## Ordenando los datos
 
@@ -121,34 +135,48 @@ La idea de este punto es conocer las formas en las que se puede manejar las info
 
 Podemos observar tres formas de ordenar la información proveniente de una sola variable. 
 
-Imaginar que tenemos la información de edades de una población de 1000 personas.
-
-```{r,echo=F}
-library(dplyr)
-set.seed(1234)
-x<-round(runif(1000,0,100))
-load(url("https://github.com/AlvaroLimber/EST-383/raw/master/data/oct20.RData"))
-bd<-computo %>% filter(Elección==unique(Elección)[1])
+  * Mantenerlos en su forma **simple** (Datos no ordenados, datos simples).
+  
+  * Tenerlos en una tabla de **frecuencias**, es una tabla que para cada valor de la variable se realiza un proceso de conteo.
+  
+  * Tener los datos en una tabla de **frecuencias con intervalos** de clase.
+  
+```{r}
+bd<-read.csv("bd.csv")
+#simple
+bd$Edad
+bd$Sexo
+#frecuencia simples
+table(bd$Edad)
+table(bd$Sexo)
+#frecuencias por intervalos
+#Edad    f
+#17-19   21
+#20-22   12
+#23-31   3
 ```
 
-  * Mantenerlos en su forma simple (Datos no ordenados, datos simples).
-  
-```{r,echo=F}
-x
-```
-  
-  * Tenerlos en una tabla de frecuencias, es una tabla que para cada valor de la variable se realiza un proceso de conteo.
-  
-```{r,echo=FALSE}
-as.data.frame(table(x))
-```
-  
-  * Tener los datos en una tabla de frecuencias con intervalos de clase.
-  
-```{r,echo=FALSE}
-t1<-as.data.frame(table(cut(x,seq(0,100,10))))
-t1
-```
+## Frecuencias absolutas, relativas y porcentajes
+
+La frecuencia absoluta se refiere al conteo en las unidades de medida correspondiente, se denota por:
+
+$$f_i$$
+Estas cumplen:
+
+$$\sum_{i=1}^k f_i=N \quad; \text{En } U$$
+$$\sum_{i=1}^k f_i=n \quad \text{En } s$$
+La frecuencia relativa se define como:
+
+$$r_i=\frac{f_i}{N}  \quad; \text{en } U$$
+
+$$r_i=\frac{f_i}{n}  \quad; \text{en } s$$
+
+Como propiedad:
+
+$$\sum_{i=1}^k r_i=\sum_{i=1}^k \frac{f_i}{N}=\frac{1}{N}\sum_{i=1}^k f_i=\frac{N}{N}=1$$
+El porcentaje de una frecuencia relativa se define como:
+
+$$\%(i)=r_i\%= r_i*100$$
 
 ## Medidas de tendencia central
 
