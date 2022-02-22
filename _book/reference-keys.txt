@@ -15,12 +15,4 @@ medidas-de-tendencia-central
 moda-mo
 mediana-me
 media-promedio-media-aritmética
-propiedades-de-la-media
-medidas-de-dispersión
-rango
-varianza-poblacional
-varianza-muestral-cuasivarianza
-gráficos
-boxplot-diagramas-de-caja
-histograma
-densidad
+media-geométrica

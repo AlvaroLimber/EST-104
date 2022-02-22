@@ -24,7 +24,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-02-20" />
+<meta name="date" content="2022-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -188,19 +188,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#moda-mo"><i class="fa fa-check"></i><b>1.7.1</b> Moda (Mo)</a></li>
 <li class="chapter" data-level="1.7.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#mediana-me"><i class="fa fa-check"></i><b>1.7.2</b> Mediana (Me)</a></li>
 <li class="chapter" data-level="1.7.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-promedio-media-aritmética"><i class="fa fa-check"></i><b>1.7.3</b> Media, Promedio, Media aritmética</a></li>
-<li class="chapter" data-level="1.7.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#propiedades-de-la-media"><i class="fa fa-check"></i><b>1.7.4</b> Propiedades de la media</a></li>
-</ul></li>
-<li class="chapter" data-level="1.8" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-dispersión"><i class="fa fa-check"></i><b>1.8</b> Medidas de dispersión</a>
-<ul>
-<li class="chapter" data-level="1.8.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango"><i class="fa fa-check"></i><b>1.8.1</b> Rango</a></li>
-<li class="chapter" data-level="1.8.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#varianza-poblacional"><i class="fa fa-check"></i><b>1.8.2</b> Varianza poblacional</a></li>
-<li class="chapter" data-level="1.8.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#varianza-muestral-cuasivarianza"><i class="fa fa-check"></i><b>1.8.3</b> Varianza muestral (cuasivarianza)</a></li>
-</ul></li>
-<li class="chapter" data-level="1.9" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#gráficos"><i class="fa fa-check"></i><b>1.9</b> Gráficos</a>
-<ul>
-<li class="chapter" data-level="1.9.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#boxplot-diagramas-de-caja"><i class="fa fa-check"></i><b>1.9.1</b> Boxplot (Diagramas de caja)</a></li>
-<li class="chapter" data-level="1.9.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#histograma"><i class="fa fa-check"></i><b>1.9.2</b> Histograma</a></li>
-<li class="chapter" data-level="1.9.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#densidad"><i class="fa fa-check"></i><b>1.9.3</b> Densidad</a></li>
+<li class="chapter" data-level="1.7.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-geométrica"><i class="fa fa-check"></i><b>1.7.4</b> Media geométrica</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -364,10 +352,10 @@ div.csl-indent {
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tema-1-estadística-descriptiva.html#cb3-1" aria-hidden="true" tabindex="-1"></a>bd<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;bd.csv&quot;</span>)</span>
 <span id="cb3-2"><a href="tema-1-estadística-descriptiva.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#simple</span></span>
 <span id="cb3-3"><a href="tema-1-estadística-descriptiva.html#cb3-3" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Edad</span></code></pre></div>
-<pre><code>##  [1] 19 18 18 21 23 18 18 19 20 28 18
-## [12] 21 21 18 18 18 17 31 17 17 20 21
-## [23] 19 19 22 18 22 17 17 19 20 17 20
-## [34] 20 20 19</code></pre>
+<pre><code>##  [1] 19 18 18 21 23 18 18 19 20 28
+## [11] 18 21 21 18 18 18 17 31 17 17
+## [21] 20 21 19 19 22 18 22 17 17 19
+## [31] 20 17 20 20 20 19</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tema-1-estadística-descriptiva.html#cb5-1" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Sexo</span></code></pre></div>
 <pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot; 
 ##  [4] &quot;Hombre&quot; &quot;Hombre&quot; &quot;Mujer&quot; 
@@ -413,150 +401,78 @@ El porcentaje de una frecuencia relativa se define como:</p>
 </div>
 <div id="medidas-de-tendencia-central" class="section level2" number="1.7">
 <h2><span class="header-section-number">1.7</span> Medidas de tendencia central</h2>
-<p>Imaginemos que tenemos los siguientes números: 2,2,3,3,3,4,4.</p>
+<p>Imaginemos que tenemos los siguientes números:</p>
+<p>17 17 17 17 17 17 18 18 18 18 18 18 18 18 18 19 19 19 19 19 19 20 20 20 20 20 20 21 21 21 21 22 22 23 28 31</p>
 <div id="moda-mo" class="section level3" number="1.7.1">
 <h3><span class="header-section-number">1.7.1</span> Moda (Mo)</h3>
 <p>La moda es el número que aparece con mas frecuencia en la serie de datos.</p>
-<p>En los números descritos la moda es <span class="math inline">\(Mo=3\)</span>. Si la serie de números ahora es: 2,2,2,3,3,3,4,4. ¿Cuál es la moda?, en este caso se tienen 2 modas, el 2 y 3 (bi-modal).</p>
+<p>En los números descritos la moda es <span class="math inline">\(Mo=18\)</span>. Si la serie de números es: 1 1 1 2 3 3 3 . ¿Cuál es la moda?, en este caso se tienen 2 modas, el 1 y 3 (bi-modal).</p>
 <p>Nota: Si todos los números aparecen la misma cantidad de veces, no hay moda</p>
 </div>
 <div id="mediana-me" class="section level3" number="1.7.2">
 <h3><span class="header-section-number">1.7.2</span> Mediana (Me)</h3>
-<p>La mediana corresponde al valor que se encuentra en el centro, de la serie de números ordenados.</p>
+<p>La mediana corresponde al valor que se encuentra en el <strong>centro</strong>, de la serie de números <strong>ordenados</strong>.</p>
 <p>Es el número que deja la misma cantidad de información tanto a la derecha como a la izquierda.</p>
-<p>En el ejemplo: 2,2,3,3,3,4,4. La mediana es igual a <span class="math inline">\(Me=3\)</span>. Veamos los siguientes ejemplos:</p>
+<p>Imagine los siguientes datos:</p>
 <ul>
-<li>9,5,2,6,2,4,8. Ordenando, 2, 2, 4, 5, 6, 8, 9. Así <span class="math inline">\(Me=5\)</span>, <span class="math inline">\(Mo=2\)</span></li>
-<li>4,2,7,7,4,3,2,9. Ordenando, 2, 2, 3, 4, 4, 7, 7, 9. Así <span class="math inline">\(Me=4\)</span>, <span class="math inline">\(Mo=2,4,7\)</span></li>
-<li>1,2,3,4,5,5,5,90. Ordenando, 1, 2, 3, 4, 5, 5, 5, 90. Así <span class="math inline">\(Me=\frac{4+5}{2}=4.5\)</span>, <span class="math inline">\(Mo=5\)</span>.</li>
+<li>1 1 2 2 3 4 4 5 5 <span class="math inline">\(Me=3\)</span> <span class="math inline">\(N=9\)</span> <span class="math inline">\(X_{4+1}=X_5\)</span></li>
+<li>1 1 2 2 3 4 5 5 6 6 <span class="math inline">\(Me=3.5\)</span></li>
 </ul>
 <p>Para obtener el valor de la mediana se debe tomar el cuenta si la cantidad de datos es impar o par.</p>
-<p>Si <span class="math inline">\(N\)</span> es impar:
-<span class="math display">\[Me= X_{||N/2||+1}\]</span>
+<p>Si <span class="math inline">\(N\)</span> es impar:</p>
+<p><span class="math display">\[Me= X_{||N/2||+1}\]</span>
 <span class="math display">\[Me= X_{(N+1)/2}\]</span></p>
-<ul>
-<li>En el ejemplo: 2, 2, 4, 5, 6, 8, 9. Corresponden a este conjunto (<span class="math inline">\(X_1,X_2,X_3,X_4,X_5,X_6,X_7\)</span>). Entonces <span class="math inline">\(Me=X_{||N/2||+1}=X_{||7/2||+1}=X_{||3.5||+1}=X_{3+1}=X_4=5\)</span></li>
-</ul>
-<p>Si <span class="math inline">\(N\)</span> es par:
-<span class="math display">\[Me=\frac{X_{N/2}+X_{N/2+1}}{2} \]</span></p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>2, 2, 4, 5, 6, 8, 9. Corresponden a este conjunto (<span class="math inline">\(X_1,X_2,X_3,X_4,X_5,X_6,X_7\)</span>). Entonces:</p>
+<p><span class="math display">\[Me=X_{||N/2||+1}=X_{||7/2||+1}=X_{||3.5||+1}=X_{3+1}=X_4=5\]</span></p>
+<p><span class="math display">\[Me= X_{(N+1)/2}=X_{(7+1)/2}=X_4=5\]</span></p>
+<p>Si <span class="math inline">\(N\)</span> es par:</p>
+<p><span class="math display">\[Me=\frac{X_{N/2}+X_{N/2+1}}{2}\]</span></p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>1 1 2 2 3 4 5 5 6 6, <span class="math inline">\(N=10\)</span></p>
+<p><span class="math display">\[Me=\frac{X_{N/2}+X_{N/2+1}}{2}=\frac{X_5+X_6}{2}=\frac{3+4}{2}=3.5\]</span></p>
+<p>Una característica positiva de la mediana es que no le afecta demasiado los valores <strong>atípicos</strong></p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>Imagine que se tiene el dato de 10 personas reunidas, con las edades:</p>
+<p>17 17 18 18 18 19 19 19 20 80</p>
+<p><span class="math display">\[Me=18.5\]</span>
+Una desventaja de la mediana es que no participan todos los datos en su calculo.</p>
 </div>
 <div id="media-promedio-media-aritmética" class="section level3" number="1.7.3">
 <h3><span class="header-section-number">1.7.3</span> Media, Promedio, Media aritmética</h3>
 <p>Esta medida se caracteriza en que su construcción depende de todas las observaciones en los datos, (democrática).</p>
-<p><span class="math display">\[\bar{x}=\frac{\sum_{i=1}^N {x_i}}{N}=\frac{x_1}{N}+\frac{x_2}{N}+\ldots+\frac{x_N}{N}\]</span></p>
+<p><span class="math display">\[\bar{x}=\frac{\sum_{i=1}^N {x_i}}{N}=\frac{x_1+x_2+\ldots+x_N}{N}=\frac{x_1}{N}+\frac{x_2}{N}+\ldots+\frac{x_N}{N}\]</span></p>
 <p>Ejemplo,</p>
 <ul>
-<li>9,5,2,6,2,4,8. <span class="math inline">\(\bar{x}=\frac{36}{7}=5.14\)</span></li>
-<li>4,2,7,7,4,3,2,9. <span class="math inline">\(\bar{x}=\frac{38}{8}=4.75\)</span></li>
-<li>1,2,3,4,5,5,5,90. <span class="math inline">\(\bar{x}=\frac{115}{8}=14.38\)</span></li>
+<li>A: 3 3 3 3 3 3 3 3 3 3 <span class="math inline">\(\bar{x}=3 \quad Me=3 \quad Mo=3\)</span></li>
+<li>B: 9 9 8 8 7 7 6 6 5 5 2 2 <span class="math inline">\(\bar{x}=74/12=6.17 \quad Me=6.5 \quad Mo=NoExiste\)</span></li>
+<li>C: 100 99 50 1 3 <span class="math inline">\(\bar{x}=253/5=50.6 \quad Me=50 \quad Mo=NoExiste\)</span></li>
 </ul>
 <p>Nota: La media es una medida sensible a los números atípicos. (Grandes)</p>
-<p>La media para datos agrupados:</p>
-<pre><code>##   xi fi
-## 1  2  2
-## 2  3  1
-## 3  4  2
-## 4  7  2
-## 5  9  1</code></pre>
-<p>Donde <span class="math inline">\(f_i\)</span> se conoce como frecuencia absoluta (conteo). <span class="math inline">\(\sum_{i=1}^k{f_i}=N\)</span>. Donde <span class="math inline">\(k\)</span> es la cantidad de filas en la tabla de frecuencias.</p>
-<p><span class="math display">\[\bar{x}=\frac{\sum_{i=1}^k{x_i*f_i}}{N}\]</span></p>
-<p>En el ejemplo:</p>
-<p><span class="math display">\[\bar{x}=\frac{2*2+3*1+4*2+7*2+9*1}{8}=\frac{38}{8}=4.75\]</span></p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>Sean los números: 2 2 3 3 4 4 5 900, encontrar la media:</p>
+<p><span class="math display">\[\bar{x}=\frac{923}{8}=115.38\]</span></p>
+<p><span class="math display">\[Me=3.5\]</span></p>
+<p>De ahora en adelante vamos a distinguir la media de una población de la media de una muestra.</p>
+<p><span class="math display">\[\mu_x=\frac{\sum_{i=1}^N x_i}{N}\]</span>
+Esta se conoce como la media poblacional, y</p>
+<p><span class="math display">\[\bar{x}=\frac{\sum_{i=1}^n x_i}{n}\]</span></p>
+<p>Es la media de la muestral o la media muestral. De ahora en adelante vamos a suponer que trabajamos sobre muestras.</p>
 </div>
-<div id="propiedades-de-la-media" class="section level3" number="1.7.4">
-<h3><span class="header-section-number">1.7.4</span> Propiedades de la media</h3>
-<p>Sea <span class="math inline">\(x\)</span> la variable de interés, y <span class="math inline">\(a, b\)</span> contantes.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="tema-1-estadística-descriptiva.html#cb13-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span>
-<span id="cb13-2"><a href="tema-1-estadística-descriptiva.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)<span class="sc">/</span><span class="dv">7</span></span></code></pre></div>
-<pre><code>## [1] 4.857143</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="tema-1-estadística-descriptiva.html#cb15-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">+</span><span class="dv">2</span></span></code></pre></div>
-<pre><code>## [1]  5  5  6  8  6  8 10</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tema-1-estadística-descriptiva.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">+</span><span class="dv">2</span>)<span class="sc">/</span><span class="dv">7</span></span></code></pre></div>
-<pre><code>## [1] 6.857143</code></pre>
-<ul>
-<li><span class="math inline">\(y=x+a\)</span>, entonces, <span class="math inline">\(\bar{y}=\bar{x}+a\)</span></li>
-</ul>
-<p>Demostración</p>
-<p><span class="math display">\[\bar{y}=\frac{\sum_{i=1}^N {y_i}}{N}=\frac{\sum_{i=1}^N {(x_i+a)}}{N}=\frac{\sum {x_i}+\sum a}{N}=\frac{\sum {x_i}}{N}+\frac{N a}{N}=\bar{x}+a\]</span></p>
-<ul>
-<li><span class="math inline">\(\bar{a}=a\)</span></li>
-<li><span class="math inline">\(y=ax\)</span>, entonces, <span class="math inline">\(\bar{y}=a\bar{x}\)</span></li>
-</ul>
-<p>Demostración</p>
-<p><span class="math display">\[\bar{y}=\frac{\sum_{i=1}^N {y_i}}{N}=\frac{\sum_{i=1}^N {a*x_i}}{N}=a*\frac{\sum_{i=1}^N {x_i}}{N}=a \bar{x}\]</span></p>
-<ul>
-<li><span class="math inline">\(y=a+bx\)</span>, entonces, <span class="math inline">\(\bar{y}=a+b\bar{x}\)</span></li>
-</ul>
-<p>Ejemplo:</p>
-<p>En 2020 de un grupo de 30 trabajadores, existen 15 obreros que tienen un salario de 2000 Bs, 10 técnicos tienen un salario de 4000 Bs. y 5 gerentes un salario de 7000 Bs. Para 2021 se decide darles un incremento de 500 Bs a todos, más un incremento del 15% sobre su salario del 2020. ¿Cuál es el promedio de salario de estos trabajadores para la gestión 2021?</p>
-<p>Solución,</p>
-<p><span class="math inline">\(N=30=15+10+5=N_{obr}+N_{tec}+N_{ger}\)</span>, definamos la variable salario <span class="math inline">\(S\)</span>.</p>
-<p><span class="math display">\[\bar{S}_{2020}=\frac{\sum_{i=1}^{30}{s_i}}{30}=\frac{2000*15+4000*10+7000*5}{30}=\frac{105000}{30}=3500\]</span></p>
-<p><span class="math display">\[\bar{S}_{2021}=500+1.15*\bar{S}_{2020}=500+1.15*3500=4525\]</span></p>
-</div>
-</div>
-<div id="medidas-de-dispersión" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Medidas de dispersión</h2>
-<p>Son medidas que tienen el objetivo de brindar información respecto la variabilidad de la información.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tema-1-estadística-descriptiva.html#cb19-1" aria-hidden="true" tabindex="-1"></a>s<span class="ot">&lt;-</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">4000</span>,<span class="dv">7000</span>),<span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">10</span>,<span class="dv">5</span>))</span>
-<span id="cb19-2"><a href="tema-1-estadística-descriptiva.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">12</span>),<span class="dv">0</span>)</span></code></pre></div>
-<pre><code>##  [1] 11 12 10 10 10 11 10 11 10 11 11
-## [12] 12 11 11 10 11 10 11 10 11</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tema-1-estadística-descriptiva.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">20</span>),<span class="dv">0</span>)</span></code></pre></div>
-<pre><code>##  [1] 17 16 13 14 19 12 16 13 16 18 12
-## [12] 16 11 15 11 11 13 12 13 11</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tema-1-estadística-descriptiva.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">20</span>,<span class="dv">10</span>,<span class="dv">100</span>),<span class="dv">0</span>)</span></code></pre></div>
-<pre><code>##  [1] 25 97 92 14 80 54 69 61 76 96 28
-## [12] 39 41 33 96 99 56 93 93 65</code></pre>
-<div id="rango" class="section level3" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> Rango</h3>
-<p><span class="math display">\[R=X_{max}-X_{min}\]</span>
-En el ejemplo de los salarios: <span class="math inline">\(R=7000-2000=5000\)</span></p>
-</div>
-<div id="varianza-poblacional" class="section level3" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> Varianza poblacional</h3>
-<p><span class="math display">\[\sigma^2_x=\frac{\sum_{i=1}^N{(x_i-\bar{x})^2}}{N}\]</span></p>
-<p>Para el ejemplo de salarios. <span class="math inline">\(\sigma_s^2=3250000\)</span>.</p>
-<p>Nota: La varianza es una medida estadística poco informativa y nada interpretable. Por ello, existe otra medida derivada de la varianza, conocida como la desviación estándar.</p>
-<p><span class="math display">\[\sigma_x=\sqrt{\sigma_x^2}=\sqrt{\frac{\sum_{i=1}^N{(x_i-\bar{x})^2}}{N}}\]</span>
-Para el ejemplo, <span class="math inline">\(\sigma_s=\sqrt{3250000 (Bs.^2)}=1802.78 (Bs)\)</span></p>
-<p>Existe una medida relativa, para conocer la dispersión. Esta se llama el coeficiente de variación.</p>
-<p><span class="math display">\[CV(x)=CV_x=\frac{\sigma_x}{\bar{x}}\]</span>
-Una interpretación de esta medida se refiere al porcentaje de elementos que no se sienten representados por el promedio. (<span class="math inline">\(\%CV=CV_x*100\)</span>)</p>
-<p>En el ejemplo de los salarios, <span class="math inline">\(CV_s=\frac{1802.78}{3500}=0.51\)</span>, en porcentaje es 51%.</p>
-<p>Nota: Mientras <span class="math inline">\(\%CV_x \rightarrow 0\)</span> la información es menos dispersa, en otro caso, la información es mucho más dispersa <span class="math inline">\(\%CV_x \rightarrow 100\)</span></p>
-</div>
-<div id="varianza-muestral-cuasivarianza" class="section level3" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> Varianza muestral (cuasivarianza)</h3>
-<p><span class="math display">\[S^2_x=\frac{\sum_{i=1}^N{(x_i-\bar{x})^2}}{N-1}\]</span></p>
-<p><span class="math display">\[S^2_x=\frac{\sum_{i=1}^n{(x_i-\bar{x})^2}}{n-1}\]</span></p>
-<p>En el ejemplo de salarios, <span class="math inline">\(S^2_s=\frac{97500000}{29}=3362069\)</span>.</p>
-</div>
-</div>
-<div id="gráficos" class="section level2" number="1.9">
-<h2><span class="header-section-number">1.9</span> Gráficos</h2>
-<div id="boxplot-diagramas-de-caja" class="section level3" number="1.9.1">
-<h3><span class="header-section-number">1.9.1</span> Boxplot (Diagramas de caja)</h3>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tema-1-estadística-descriptiva.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(s)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tema-1-estadística-descriptiva.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
-</div>
-<div id="histograma" class="section level3" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> Histograma</h3>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="tema-1-estadística-descriptiva.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(s)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tema-1-estadística-descriptiva.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">200</span>,<span class="dv">40</span>,<span class="dv">6</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tema-1-estadística-descriptiva.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">rchisq</span>(<span class="dv">200</span>,<span class="dv">4</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
-</div>
-<div id="densidad" class="section level3" number="1.9.3">
-<h3><span class="header-section-number">1.9.3</span> Densidad</h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tema-1-estadística-descriptiva.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb30-2"><a href="tema-1-estadística-descriptiva.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">rchisq</span>(<span class="dv">200</span>,<span class="dv">4</span>)))</span>
-<span id="cb30-3"><a href="tema-1-estadística-descriptiva.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">rchisq</span>(<span class="dv">200</span>,<span class="dv">4</span>)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<div id="media-geométrica" class="section level3" number="1.7.4">
+<h3><span class="header-section-number">1.7.4</span> Media geométrica</h3>
+<p><span class="math display">\[\bar{X}_G=\sqrt[n]{x_1x_2\ldots x_n}=\sqrt[n]{\prod_{i=1}^n x_i}\]</span>
+### Media armónica</p>
+<p><span class="math display">\[\bar{X}_H=\frac{1}{\frac{1}{n}\sum_{i=1}^n \frac{1}{x_i}}=\frac{n}{\sum_{i=1}^n \frac{1}{x_i}}\]</span></p>
+<p>Tarea: Buscar el uso de la media geométrica y armónica usualmente, y el uso para la biología.</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">
