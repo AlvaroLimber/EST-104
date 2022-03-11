@@ -24,7 +24,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-02-22" />
+<meta name="date" content="2022-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,6 +189,18 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#mediana-me"><i class="fa fa-check"></i><b>1.7.2</b> Mediana (Me)</a></li>
 <li class="chapter" data-level="1.7.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-promedio-media-aritmética"><i class="fa fa-check"></i><b>1.7.3</b> Media, Promedio, Media aritmética</a></li>
 <li class="chapter" data-level="1.7.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-geométrica"><i class="fa fa-check"></i><b>1.7.4</b> Media geométrica</a></li>
+<li class="chapter" data-level="1.7.5" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-armónica"><i class="fa fa-check"></i><b>1.7.5</b> Media armónica</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-tendencia-central-para-tablas-de-frecuencias"><i class="fa fa-check"></i><b>1.8</b> Medidas de tendencia central para tablas de frecuencias</a></li>
+<li class="chapter" data-level="1.9" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-variabilidad"><i class="fa fa-check"></i><b>1.9</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango"><i class="fa fa-check"></i><b>1.9.1</b> Rango</a></li>
+<li class="chapter" data-level="1.9.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#desviación-media"><i class="fa fa-check"></i><b>1.9.2</b> Desviación Media</a></li>
+<li class="chapter" data-level="1.9.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#varianza"><i class="fa fa-check"></i><b>1.9.3</b> Varianza</a></li>
+<li class="chapter" data-level="1.9.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#desviación-estándar"><i class="fa fa-check"></i><b>1.9.4</b> Desviación estándar</a></li>
+<li class="chapter" data-level="1.9.5" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#coeficiente-de-variación"><i class="fa fa-check"></i><b>1.9.5</b> Coeficiente de variación</a></li>
+<li class="chapter" data-level="1.9.6" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango-intercuartílico-boxplot"><i class="fa fa-check"></i><b>1.9.6</b> Rango intercuartílico (boxplot)</a></li>
+<li class="chapter" data-level="1.9.7" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#índice-de-diversidad"><i class="fa fa-check"></i><b>1.9.7</b> Índice de diversidad</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -352,23 +364,30 @@ div.csl-indent {
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tema-1-estadística-descriptiva.html#cb3-1" aria-hidden="true" tabindex="-1"></a>bd<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;bd.csv&quot;</span>)</span>
 <span id="cb3-2"><a href="tema-1-estadística-descriptiva.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#simple</span></span>
 <span id="cb3-3"><a href="tema-1-estadística-descriptiva.html#cb3-3" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Edad</span></code></pre></div>
-<pre><code>##  [1] 19 18 18 21 23 18 18 19 20 28
-## [11] 18 21 21 18 18 18 17 31 17 17
-## [21] 20 21 19 19 22 18 22 17 17 19
-## [31] 20 17 20 20 20 19</code></pre>
+<pre><code>##  [1] 19 18 18 21 23 18 18 19
+##  [9] 20 28 18 21 21 18 18 18
+## [17] 17 31 17 17 20 21 19 19
+## [25] 22 18 22 17 17 19 20 17
+## [33] 20 20 20 19</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tema-1-estadística-descriptiva.html#cb5-1" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Sexo</span></code></pre></div>
-<pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot; 
-##  [4] &quot;Hombre&quot; &quot;Hombre&quot; &quot;Mujer&quot; 
-##  [7] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [10] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;
-## [13] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [16] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [19] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [22] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot;
-## [25] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot;
-## [28] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [31] &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot; 
-## [34] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;</code></pre>
+<pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot; 
+##  [3] &quot;Mujer&quot;  &quot;Hombre&quot;
+##  [5] &quot;Hombre&quot; &quot;Mujer&quot; 
+##  [7] &quot;Mujer&quot;  &quot;Mujer&quot; 
+##  [9] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [11] &quot;Mujer&quot;  &quot;Hombre&quot;
+## [13] &quot;Hombre&quot; &quot;Mujer&quot; 
+## [15] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [17] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [19] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [21] &quot;Mujer&quot;  &quot;Hombre&quot;
+## [23] &quot;Mujer&quot;  &quot;Hombre&quot;
+## [25] &quot;Hombre&quot; &quot;Mujer&quot; 
+## [27] &quot;Hombre&quot; &quot;Mujer&quot; 
+## [29] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [31] &quot;Mujer&quot;  &quot;Hombre&quot;
+## [33] &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [35] &quot;Mujer&quot;  &quot;Hombre&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tema-1-estadística-descriptiva.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#frecuencia simples</span></span>
 <span id="cb7-2"><a href="tema-1-estadística-descriptiva.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bd<span class="sc">$</span>Edad)</span></code></pre></div>
 <pre><code>## 
@@ -470,9 +489,231 @@ Esta se conoce como la media poblacional, y</p>
 <div id="media-geométrica" class="section level3" number="1.7.4">
 <h3><span class="header-section-number">1.7.4</span> Media geométrica</h3>
 <p><span class="math display">\[\bar{X}_G=\sqrt[n]{x_1x_2\ldots x_n}=\sqrt[n]{\prod_{i=1}^n x_i}\]</span>
-### Media armónica</p>
-<p><span class="math display">\[\bar{X}_H=\frac{1}{\frac{1}{n}\sum_{i=1}^n \frac{1}{x_i}}=\frac{n}{\sum_{i=1}^n \frac{1}{x_i}}\]</span></p>
-<p>Tarea: Buscar el uso de la media geométrica y armónica usualmente, y el uso para la biología.</p>
+Es recomendable cuando se trabaja con <strong>razones</strong> (ratio).</p>
+<blockquote>
+<p>Ejemplo,</p>
+</blockquote>
+<p>Calcule la media geométrica para la razón de cambio de la población por década de los siguientes datos.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tema-1-estadística-descriptiva.html#cb12-1" aria-hidden="true" tabindex="-1"></a>t1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">dec=</span><span class="dv">0</span><span class="sc">:</span><span class="dv">5</span>,<span class="at">pob=</span><span class="fu">c</span>(<span class="dv">1000</span>,<span class="dv">1100</span>,<span class="dv">1400</span>,<span class="dv">1450</span>,<span class="dv">1600</span>,<span class="dv">1700</span>))</span>
+<span id="cb12-2"><a href="tema-1-estadística-descriptiva.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#razón de cambio</span></span>
+<span id="cb12-3"><a href="tema-1-estadística-descriptiva.html#cb12-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span>t1<span class="sc">$</span>pob[<span class="sc">-</span><span class="dv">1</span>]<span class="sc">/</span>t1<span class="sc">$</span>pob[<span class="sc">-</span><span class="dv">6</span>]</span>
+<span id="cb12-4"><a href="tema-1-estadística-descriptiva.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#media geométrica</span></span>
+<span id="cb12-5"><a href="tema-1-estadística-descriptiva.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(x)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 1.111962</code></pre>
+</div>
+<div id="media-armónica" class="section level3" number="1.7.5">
+<h3><span class="header-section-number">1.7.5</span> Media armónica</h3>
+<p><span class="math display">\[\bar{X}_H=\frac{1}{\frac{1}{n}\sum_{i=1}^n \frac{1}{x_i}}=\frac{n}{\sum_{i=1}^n \frac{1}{x_i}}\]</span>
+Es recomendable cuando se trabaja con distancias, <strong>velocidades</strong></p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>Se tiene la información de 3 autos que recorrieron la misma ruta con las siguientes velocidades: 40km/h, 30km/h y 55km/h (la ruta tiene una distancia de 20km)</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tema-1-estadística-descriptiva.html#cb14-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">30</span>,<span class="dv">55</span>)</span>
+<span id="cb14-2"><a href="tema-1-estadística-descriptiva.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#promedio</span></span>
+<span id="cb14-3"><a href="tema-1-estadística-descriptiva.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 41.66667</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tema-1-estadística-descriptiva.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#armónica</span></span>
+<span id="cb16-2"><a href="tema-1-estadística-descriptiva.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">/</span><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">/</span>x)</span></code></pre></div>
+<pre><code>## [1] 39.20792</code></pre>
+<p>Nota: existe una relación entre el media aritmética, la geométrica y la armónica. (si los datos son positivos y distintos)</p>
+<p><span class="math display">\[\bar{X}_H&lt;\bar{X}_G&lt;\bar{X}\]</span></p>
+</div>
+</div>
+<div id="medidas-de-tendencia-central-para-tablas-de-frecuencias" class="section level2" number="1.8">
+<h2><span class="header-section-number">1.8</span> Medidas de tendencia central para tablas de frecuencias</h2>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>Para los siguientes 80 datos.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tema-1-estadística-descriptiva.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff,
+##     setequal, union</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tema-1-estadística-descriptiva.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>)</span>
+<span id="cb22-2"><a href="tema-1-estadística-descriptiva.html#cb22-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">80</span>,<span class="dv">15</span>,<span class="dv">35</span>),<span class="dv">0</span>)</span>
+<span id="cb22-3"><a href="tema-1-estadística-descriptiva.html#cb22-3" aria-hidden="true" tabindex="-1"></a>t1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x)</span>
+<span id="cb22-4"><a href="tema-1-estadística-descriptiva.html#cb22-4" aria-hidden="true" tabindex="-1"></a>t1<span class="ot">&lt;-</span>t1 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(x) <span class="sc">%&gt;%</span> <span class="fu">count</span>(<span class="at">name=</span><span class="st">&quot;fi&quot;</span>)</span></code></pre></div>
+<p>Calcule, la moda, la mediana y el promedio.</p>
+<p>Para el promedio:</p>
+<p><span class="math display">\[\bar{X}=\frac{\sum_{i=1}^k x_i*f_i}{n}\]</span>
+Para la moda se debe buscar la frecuencia absoluta más alta y el valor de <span class="math inline">\(x\)</span> asociada a esa frecuencia es la moda. Es posible tener más de una moda.</p>
+<p>Para la mediana, se inicia calculando la frecuencia absoluta acumulada <span class="math inline">\(F_i\)</span>.</p>
+<p><span class="math display">\[F_i=\sum_{j=1}^{j=i} f_j\]</span></p>
+<p>Luego se sigue el criterio de <span class="math inline">\(n\)</span> par o impar, y se busca la posición como el valor más cercano por arriba dentro de las frecuencias absolutas acumuladas.</p>
+<blockquote>
+<p>Ejemplo, para la tabla anterior</p>
+</blockquote>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tema-1-estadística-descriptiva.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(t1<span class="sc">$</span>x<span class="sc">*</span>t1<span class="sc">$</span>fi)<span class="sc">/</span><span class="dv">80</span><span class="co">#promedio</span></span></code></pre></div>
+<pre><code>## [1] 24.9125</code></pre>
+<p>Es bi-modal en los números 31 y 32</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="tema-1-estadística-descriptiva.html#cb25-1" aria-hidden="true" tabindex="-1"></a>t1<span class="sc">$</span>Fi<span class="ot">&lt;-</span><span class="fu">cumsum</span>(t1<span class="sc">$</span>fi)</span></code></pre></div>
+<p>Las posiciones son 40 y 41 ya que n es par, se busca estos valores en <span class="math inline">\(Fi\)</span>, y se encuentra que la mediana es 26, ya que la <span class="math inline">\(F_{12}=45\)</span> <span class="math inline">\(x_{12}=26\)</span>.</p>
+<p><span class="math display">\[Me=\frac{X_{40}+X_{41}}{2}=\frac{26+26}{2}=26\]</span>
+## Medidas de tendencia central para tablas de frecuencias por intervalo</p>
+<p>Para una tabla con intervalos, se tiene como elementos nuevos los limites inferiores y superiores de los intervalos:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tema-1-estadística-descriptiva.html#cb26-1" aria-hidden="true" tabindex="-1"></a>t2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">lils=</span><span class="fu">cut</span>(x,<span class="dv">5</span>,<span class="at">include.lowest =</span> T,<span class="at">right =</span> F))</span>
+<span id="cb26-2"><a href="tema-1-estadística-descriptiva.html#cb26-2" aria-hidden="true" tabindex="-1"></a>t2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(lils) <span class="sc">%&gt;%</span> <span class="fu">count</span>(<span class="at">name=</span><span class="st">&quot;fi&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 5 x 2
+## # Groups:   lils [5]
+##   lils       fi
+##   &lt;fct&gt;   &lt;int&gt;
+## 1 [15,19)    17
+## 2 [19,23)    12
+## 3 [23,27)    16
+## 4 [27,31)    15
+## 5 [31,35]    20</code></pre>
+<p>Para calcular la media en este tipo de tablas, primero se debe obtener al representante de clase/intervalo, de la siguiente forma:</p>
+<p><span class="math display">\[x_i=\frac{LS_i+LI_i}{2}\]</span>
+Teniendo al representante de clase se procede de forma similar a las tablas de frecuencia.</p>
+<p><span class="math display">\[\bar{X}=\frac{\sum_{i=1}^k x_i*f_i}{n}\]</span>
+Para la moda se tiene identificado lo que vamos a denominar un intervalo modal, este corresponde al intervalo que tiene la frecuencia absoluta más alta <span class="math inline">\(Max(f_{i})\)</span>, el representante de clase de este intervalo modal puede ser tomado como la moda.</p>
+<p>Para la mediana se deben seguir 2 pasos:</p>
+<ol style="list-style-type: decimal">
+<li>Encontrar la clase que contiene a la mediana, para ello se calcula <span class="math inline">\(n/2\)</span>, esta clase se encuentra en la <span class="math inline">\(F\)</span> más cercana al valor calculado.</li>
+<li>Usando la información de la clase que contiene la mediana, se calcula:</li>
+</ol>
+<p><span class="math display">\[Me=LI_{med}+\left(\frac{0.5*n-F_{med-1}}{f_{med}}\right)*(LS_{med}-LI_{med})\]</span></p>
+<p><span class="math display">\[Me=23+\left(\frac{40-29}{16}\right)*4=23+\frac{11*4}{16}=25.75\]</span></p>
+<p>Del ejemplo de excel</p>
+<p><span class="math display">\[Me=10+\left(\frac{52.5-15}{60}\right)*10=16.25\]</span></p>
+</div>
+<div id="medidas-de-variabilidad" class="section level2" number="1.9">
+<h2><span class="header-section-number">1.9</span> Medidas de variabilidad</h2>
+<ul>
+<li>5 5 5 5 5 5 5: Media es 5, la moda es 5 y la mediana es 5</li>
+<li>3 3 4 5 6 7 7: Media es 5, la moda es 3, 7 y la mediana es 5<br />
+</li>
+<li>1 1 2 5 8 9 9: Media es 5, la moda es 1, 9 y la mediana es 5</li>
+</ul>
+<p>Son medidas que nos indican el nivel de variabilidad o dispersión en el conjunto de datos, la mayoría de las medidas nos reflejan la concentración al rededor de la media.</p>
+<div id="rango" class="section level3" number="1.9.1">
+<h3><span class="header-section-number">1.9.1</span> Rango</h3>
+<p><span class="math display">\[R=X_{max}-X_{min}\]</span>
+Esta medida calcula la distancia entre el valor más grande y el valor más pequeño del conjunto de datos.</p>
+</div>
+<div id="desviación-media" class="section level3" number="1.9.2">
+<h3><span class="header-section-number">1.9.2</span> Desviación Media</h3>
+<p><span class="math display">\[DM=\frac{\sum_s |x_i-\bar{x}|}{n}; \quad DM=\frac{\sum_{i=1}^{k} |x_i-\bar{x}|*f_i}{n}\]</span>
+Esta medida devuelve el promedio de las distancias de los datos a su promedio.</p>
+<p>Ejemplo:</p>
+<ul>
+<li>5 5 5 5 5 5 5: <span class="math inline">\(DM=0\)</span></li>
+<li>3 3 4 5 6 7 7: <span class="math inline">\(DM=1.43\)</span></li>
+<li>1 1 2 5 8 9 9: <span class="math inline">\(DM=3.14\)</span></li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tema-1-estadística-descriptiva.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grupo 1</span></span>
+<span id="cb28-2"><a href="tema-1-estadística-descriptiva.html#cb28-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb28-3"><a href="tema-1-estadística-descriptiva.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">abs</span>(x<span class="sc">-</span><span class="fu">mean</span>(x)))<span class="sc">/</span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tema-1-estadística-descriptiva.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grupo 2</span></span>
+<span id="cb30-2"><a href="tema-1-estadística-descriptiva.html#cb30-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb30-3"><a href="tema-1-estadística-descriptiva.html#cb30-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">-</span><span class="fu">mean</span>(x)<span class="co">#distancias</span></span></code></pre></div>
+<pre><code>## [1] -2 -2 -1  0  1  2  2</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tema-1-estadística-descriptiva.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="co">#valor absoluto</span></span></code></pre></div>
+<pre><code>## [1] 2 2 1 0 1 2 2</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tema-1-estadística-descriptiva.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">abs</span>(x<span class="sc">-</span><span class="fu">mean</span>(x)))<span class="sc">/</span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] 1.428571</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="tema-1-estadística-descriptiva.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grupo 3</span></span>
+<span id="cb36-2"><a href="tema-1-estadística-descriptiva.html#cb36-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>)</span>
+<span id="cb36-3"><a href="tema-1-estadística-descriptiva.html#cb36-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">-</span><span class="fu">mean</span>(x)<span class="co">#distancias</span></span></code></pre></div>
+<pre><code>## [1] -4 -4 -3  0  3  4  4</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tema-1-estadística-descriptiva.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abs</span>(x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="co">#valor absoluto</span></span></code></pre></div>
+<pre><code>## [1] 4 4 3 0 3 4 4</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="tema-1-estadística-descriptiva.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">abs</span>(x<span class="sc">-</span><span class="fu">mean</span>(x)))<span class="sc">/</span><span class="dv">7</span></span></code></pre></div>
+<pre><code>## [1] 3.142857</code></pre>
+</div>
+<div id="varianza" class="section level3" number="1.9.3">
+<h3><span class="header-section-number">1.9.3</span> Varianza</h3>
+<p>La varianza es la medida más usual en la estadística, esta medida en si misma no tiene interpretación pero se la utiliza para obtener otras medias como la desviación estándar y el coeficiente de variación que si tienen una interpretación.</p>
+<ul>
+<li>Varianza poblacional (N)</li>
+</ul>
+<p><span class="math display">\[V(x)=\sigma^2=\frac{\sum_U (x_i-\bar{x})^2}{N}\]</span></p>
+<ul>
+<li>Varianza muestral (n)</li>
+</ul>
+<p><span class="math display">\[v(x)=s^2=\frac{\sum_s (x_i-\bar{x})^2}{n-1}\]</span></p>
+<ul>
+<li>5 5 5 5 5 5 5: <span class="math inline">\(s^2=0\)</span></li>
+<li>3 3 4 5 6 7 7: <span class="math inline">\(s^2=3\)</span></li>
+<li>1 1 2 5 8 9 9: <span class="math inline">\(s^2=13.67\)</span></li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="tema-1-estadística-descriptiva.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grupo 2</span></span>
+<span id="cb42-2"><a href="tema-1-estadística-descriptiva.html#cb42-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb42-3"><a href="tema-1-estadística-descriptiva.html#cb42-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">-</span><span class="fu">mean</span>(x)<span class="co">#distancias</span></span></code></pre></div>
+<pre><code>## [1] -2 -2 -1  0  1  2  2</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="tema-1-estadística-descriptiva.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span><span class="co">#distancias al cuadrado</span></span></code></pre></div>
+<pre><code>## [1] 4 4 1 0 1 4 4</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="tema-1-estadística-descriptiva.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="co">#numerador</span></span></code></pre></div>
+<pre><code>## [1] 18</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="tema-1-estadística-descriptiva.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">7-1</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="tema-1-estadística-descriptiva.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#grupo 3</span></span>
+<span id="cb50-2"><a href="tema-1-estadística-descriptiva.html#cb50-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>)</span>
+<span id="cb50-3"><a href="tema-1-estadística-descriptiva.html#cb50-3" aria-hidden="true" tabindex="-1"></a>x<span class="sc">-</span><span class="fu">mean</span>(x)<span class="co">#distancias</span></span></code></pre></div>
+<pre><code>## [1] -4 -4 -3  0  3  4  4</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="tema-1-estadística-descriptiva.html#cb52-1" aria-hidden="true" tabindex="-1"></a>(x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span><span class="co">#distancias al cuadrado</span></span></code></pre></div>
+<pre><code>## [1] 16 16  9  0  9 16 16</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="tema-1-estadística-descriptiva.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="co">#numerador</span></span></code></pre></div>
+<pre><code>## [1] 82</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tema-1-estadística-descriptiva.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">7-1</span>)</span></code></pre></div>
+<pre><code>## [1] 13.66667</code></pre>
+<p>Formula corta para la varianza muestral</p>
+<p><span class="math display">\[v(x)=s^2=\frac{\sum_s x_i^2-n \bar{x}^2}{n-1}\]</span></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="tema-1-estadística-descriptiva.html#cb58-1" aria-hidden="true" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1]  1  1  4 25 64 81 81</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="tema-1-estadística-descriptiva.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## [1] 257</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tema-1-estadística-descriptiva.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="dv">7</span><span class="sc">*</span><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span><span class="co">#numerador</span></span></code></pre></div>
+<pre><code>## [1] 82</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="tema-1-estadística-descriptiva.html#cb64-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="dv">7</span><span class="sc">*</span><span class="fu">mean</span>(x)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(<span class="dv">7-1</span>)</span></code></pre></div>
+<pre><code>## [1] 13.66667</code></pre>
+</div>
+<div id="desviación-estándar" class="section level3" number="1.9.4">
+<h3><span class="header-section-number">1.9.4</span> Desviación estándar</h3>
+<ul>
+<li>Desviación estándar poblacional</li>
+</ul>
+<p><span class="math display">\[\sigma=\sqrt{\sigma^2}\]</span></p>
+<ul>
+<li>Desviación estándar muestral</li>
+</ul>
+<p><span class="math display">\[s=\sqrt{s^2}\]</span></p>
+<p>Esta medida ya se puede interpretar a diferencia de la varianza ya que la unidad de medida ya no se encuentra elevada al cuadrado. El valor obtenido normalmente es cercano a la desviación media.</p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<ul>
+<li>5 5 5 5 5 5 5: <span class="math inline">\(s=0\)</span></li>
+<li>3 3 4 5 6 7 7: <span class="math inline">\(s=1.73\)</span></li>
+<li>1 1 2 5 8 9 9: <span class="math inline">\(s=3.70\)</span></li>
+</ul>
+</div>
+<div id="coeficiente-de-variación" class="section level3" number="1.9.5">
+<h3><span class="header-section-number">1.9.5</span> Coeficiente de variación</h3>
+<p><span class="math display">\[cv=\frac{s}{\bar{x}}; \quad cv\%=\frac{s}{\bar{x}}*100\]</span>
+Es la única medida de variabilidad <strong>relativa</strong> (carece de unidad de medida). Se puede interpretar como el porcentaje en los datos que no se sienten representados por la media.</p>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<ul>
+<li>5 5 5 5 5 5 5: <span class="math inline">\(cv=0/5=0\)</span></li>
+<li>3 3 4 5 6 7 7: <span class="math inline">\(cv=1.73/5=0.346\rightarrow 34.6\%\)</span></li>
+<li>1 1 2 5 8 9 9: <span class="math inline">\(cv=3.70/5=0.74\rightarrow 74\%\)</span></li>
+</ul>
+</div>
+<div id="rango-intercuartílico-boxplot" class="section level3" number="1.9.6">
+<h3><span class="header-section-number">1.9.6</span> Rango intercuartílico (boxplot)</h3>
+</div>
+<div id="índice-de-diversidad" class="section level3" number="1.9.7">
+<h3><span class="header-section-number">1.9.7</span> Índice de diversidad</h3>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">

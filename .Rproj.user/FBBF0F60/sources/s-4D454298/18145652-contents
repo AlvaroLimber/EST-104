@@ -273,13 +273,230 @@ Es la media de la muestral o la media muestral. De ahora en adelante vamos a sup
 ### Media geométrica
 
 $$\bar{X}_G=\sqrt[n]{x_1x_2\ldots x_n}=\sqrt[n]{\prod_{i=1}^n x_i}$$
+Es recomendable cuando se trabaja con **razones** (ratio).
+
+> Ejemplo, 
+
+Calcule la media geométrica para la razón de cambio de la población por década de los siguientes datos.
+
+```{r}
+t1<-data.frame(dec=0:5,pob=c(1000,1100,1400,1450,1600,1700))
+#razón de cambio
+x<-t1$pob[-1]/t1$pob[-6]
+#media geométrica
+prod(x)^(1/5)
+```
+
 ### Media armónica
 
 $$\bar{X}_H=\frac{1}{\frac{1}{n}\sum_{i=1}^n \frac{1}{x_i}}=\frac{n}{\sum_{i=1}^n \frac{1}{x_i}}$$
+Es recomendable cuando se trabaja con distancias, **velocidades**
 
-Tarea: Buscar el uso de la media geométrica y armónica usualmente, y el uso para la biología.
+> Ejemplo
+
+Se tiene la información de 3 autos que recorrieron la misma ruta con las siguientes velocidades: 40km/h, 30km/h y 55km/h (la ruta tiene una distancia de 20km)
+
+```{r}
+x<-c(40,30,55)
+#promedio
+sum(x)/3
+#armónica
+3/sum(1/x)
+```
+
+Nota: existe una relación entre el media aritmética, la geométrica y la armónica. (si los datos son positivos y distintos)
+
+$$\bar{X}_H<\bar{X}_G<\bar{X}$$
+
+## Medidas de tendencia central para tablas de frecuencias
+
+> Ejemplo
+
+Para los siguientes 80 datos.
+
+```{r}
+library(dplyr)
+set.seed(999)
+x<-round(runif(80,15,35),0)
+t1<-data.frame(x)
+t1<-t1 %>% group_by(x) %>% count(name="fi")
+```
+
+Calcule, la moda, la mediana y el promedio.
+
+Para el promedio:
+
+$$\bar{X}=\frac{\sum_{i=1}^k x_i*f_i}{n}$$
+Para la moda se debe buscar la frecuencia absoluta más alta y el valor de $x$ asociada a esa frecuencia es la moda. Es posible tener más de una moda.
+
+Para la mediana, se inicia calculando la frecuencia absoluta acumulada $F_i$.
+
+$$F_i=\sum_{j=1}^{j=i} f_j$$
+
+Luego se sigue el criterio de $n$ par o impar, y se busca la posición como el valor más cercano por arriba dentro de las frecuencias absolutas acumuladas. 
+
+> Ejemplo, para la tabla anterior
+
+```{r}
+sum(t1$x*t1$fi)/80#promedio
+```
+
+Es bi-modal en los números 31 y 32
+
+```{r}
+t1$Fi<-cumsum(t1$fi)
+```
+
+Las posiciones son 40 y 41 ya que n es par, se busca estos valores en $Fi$, y se encuentra que la mediana es 26, ya que la $F_{12}=45$ $x_{12}=26$.
+
+$$Me=\frac{X_{40}+X_{41}}{2}=\frac{26+26}{2}=26$$
+## Medidas de tendencia central para tablas de frecuencias por intervalo
+
+Para una tabla con intervalos, se tiene como elementos nuevos los limites inferiores y superiores de los intervalos:
+
+```{r}
+t2<-data.frame(lils=cut(x,5,include.lowest = T,right = F))
+t2 %>% group_by(lils) %>% count(name="fi")
+```
+
+Para calcular la media en este tipo de tablas, primero se debe obtener al representante de clase/intervalo, de la siguiente forma:
+
+$$x_i=\frac{LS_i+LI_i}{2}$$
+Teniendo al representante de clase se procede de forma similar a las tablas de frecuencia.
+
+$$\bar{X}=\frac{\sum_{i=1}^k x_i*f_i}{n}$$
+Para la moda se tiene identificado lo que vamos a denominar un intervalo modal, este corresponde al intervalo que tiene la frecuencia absoluta más alta $Max(f_{i})$, el representante de clase de este intervalo modal puede ser tomado como la moda. 
+
+Para la mediana se deben seguir 2 pasos:
+
+  1. Encontrar la clase que contiene a la mediana, para ello se calcula $n/2$, esta clase se encuentra en la $F$ más cercana al valor calculado.
+  2. Usando la información de la clase que contiene la mediana, se calcula:
+  
+$$Me=LI_{med}+\left(\frac{0.5*n-F_{med-1}}{f_{med}}\right)*(LS_{med}-LI_{med})$$
+  
+$$Me=23+\left(\frac{40-29}{16}\right)*4=23+\frac{11*4}{16}=25.75$$
+  
+Del ejemplo de excel  
+  
+$$Me=10+\left(\frac{52.5-15}{60}\right)*10=16.25$$
+
+## Medidas de variabilidad
+
+  -  5 5 5 5 5 5 5: Media es 5, la moda es 5 y la mediana es 5
+  -  3 3 4 5 6 7 7: Media es 5, la moda es 3, 7 y la mediana es 5    
+  -  1 1 2 5 8 9 9: Media es 5, la moda es 1, 9 y la mediana es 5    
+
+Son medidas que nos indican el nivel de variabilidad o dispersión en el conjunto de datos, la mayoría de las medidas nos reflejan la concentración al rededor de la media.
+
+### Rango
+
+$$R=X_{max}-X_{min}$$
+Esta medida calcula la distancia entre el valor más grande y el valor más pequeño del conjunto de datos.
+
+### Desviación Media
+
+$$DM=\frac{\sum_s |x_i-\bar{x}|}{n}; \quad DM=\frac{\sum_{i=1}^{k} |x_i-\bar{x}|*f_i}{n}$$
+Esta medida devuelve el promedio de las distancias de los datos a su promedio.
+
+Ejemplo:
+
+  -  5 5 5 5 5 5 5: $DM=0$
+  -  3 3 4 5 6 7 7: $DM=1.43$
+  -  1 1 2 5 8 9 9: $DM=3.14$
+
+```{r}
+#grupo 1
+x<-c(5,5,5,5,5,5,5)
+sum(abs(x-mean(x)))/7
+#grupo 2
+x<-c(3,3,4,5,6,7,7)
+x-mean(x)#distancias
+abs(x-mean(x))#valor absoluto
+sum(abs(x-mean(x)))/7
+#grupo 3
+x<-c(1,1,2,5,8,9,9)
+x-mean(x)#distancias
+abs(x-mean(x))#valor absoluto
+sum(abs(x-mean(x)))/7
+```
+
+
+### Varianza
+
+La varianza es la medida más usual en la estadística, esta medida en si misma no tiene interpretación pero se la utiliza para obtener otras medias como la desviación estándar y el coeficiente de variación que si tienen una interpretación. 
+
+  - Varianza poblacional (N)
+
+$$V(x)=\sigma^2=\frac{\sum_U (x_i-\bar{x})^2}{N}$$  
+  
+  - Varianza muestral (n)
+  
+$$v(x)=s^2=\frac{\sum_s (x_i-\bar{x})^2}{n-1}$$  
+
+  -  5 5 5 5 5 5 5: $s^2=0$
+  -  3 3 4 5 6 7 7: $s^2=3$
+  -  1 1 2 5 8 9 9: $s^2=13.67$
+
+```{r}
+#grupo 2
+x<-c(3,3,4,5,6,7,7)
+x-mean(x)#distancias
+(x-mean(x))^2#distancias al cuadrado
+sum((x-mean(x))^2)#numerador
+sum((x-mean(x))^2)/(7-1)
+#grupo 3
+x<-c(1,1,2,5,8,9,9)
+x-mean(x)#distancias
+(x-mean(x))^2#distancias al cuadrado
+sum((x-mean(x))^2)#numerador
+sum((x-mean(x))^2)/(7-1)
+```
+
+Formula corta para la varianza muestral
+  
+$$v(x)=s^2=\frac{\sum_s x_i^2-n \bar{x}^2}{n-1}$$
+```{r}
+x^2
+sum(x^2)
+sum(x^2)-7*mean(x)^2#numerador
+(sum(x^2)-7*mean(x)^2)/(7-1)
+```
+
+### Desviación estándar
+
+  - Desviación estándar poblacional
+  
+$$\sigma=\sqrt{\sigma^2}$$  
+  
+  - Desviación estándar muestral
+
+$$s=\sqrt{s^2}$$
+
+Esta medida ya se puede interpretar a diferencia de la varianza ya que la unidad de medida ya no se encuentra elevada al cuadrado. El valor obtenido normalmente es cercano a la desviación media.
+
+> Ejemplo
+
+  -  5 5 5 5 5 5 5: $s=0$
+  -  3 3 4 5 6 7 7: $s=1.73$
+  -  1 1 2 5 8 9 9: $s=3.70$
+
+### Coeficiente de variación
+
+$$cv=\frac{s}{\bar{x}}; \quad cv\%=\frac{s}{\bar{x}}*100$$
+Es la única medida de variabilidad **relativa** (carece de unidad de medida). Se puede interpretar como el porcentaje en los datos que no se sienten representados por la media.
+
+> Ejemplo
+
+  -  5 5 5 5 5 5 5: $cv=0/5=0$
+  -  3 3 4 5 6 7 7: $cv=1.73/5=0.346\rightarrow 34.6\%$
+  -  1 1 2 5 8 9 9: $cv=3.70/5=0.74\rightarrow 74\%$
+
+### Rango intercuartílico (boxplot)
+
+### Índices de diversidad
 
 
 
 
 
+  

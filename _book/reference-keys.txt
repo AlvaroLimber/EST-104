@@ -16,3 +16,13 @@ moda-mo
 mediana-me
 media-promedio-media-aritmética
 media-geométrica
+media-armónica
+medidas-de-tendencia-central-para-tablas-de-frecuencias
+medidas-de-variabilidad
+rango
+desviación-media
+varianza
+desviación-estándar
+coeficiente-de-variación
+rango-intercuartílico-boxplot
+índice-de-diversidad

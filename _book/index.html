@@ -24,7 +24,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-02-22" />
+<meta name="date" content="2022-03-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,6 +189,18 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#mediana-me"><i class="fa fa-check"></i><b>1.7.2</b> Mediana (Me)</a></li>
 <li class="chapter" data-level="1.7.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-promedio-media-aritmética"><i class="fa fa-check"></i><b>1.7.3</b> Media, Promedio, Media aritmética</a></li>
 <li class="chapter" data-level="1.7.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-geométrica"><i class="fa fa-check"></i><b>1.7.4</b> Media geométrica</a></li>
+<li class="chapter" data-level="1.7.5" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#media-armónica"><i class="fa fa-check"></i><b>1.7.5</b> Media armónica</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-tendencia-central-para-tablas-de-frecuencias"><i class="fa fa-check"></i><b>1.8</b> Medidas de tendencia central para tablas de frecuencias</a></li>
+<li class="chapter" data-level="1.9" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-variabilidad"><i class="fa fa-check"></i><b>1.9</b> Medidas de variabilidad</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango"><i class="fa fa-check"></i><b>1.9.1</b> Rango</a></li>
+<li class="chapter" data-level="1.9.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#desviación-media"><i class="fa fa-check"></i><b>1.9.2</b> Desviación Media</a></li>
+<li class="chapter" data-level="1.9.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#varianza"><i class="fa fa-check"></i><b>1.9.3</b> Varianza</a></li>
+<li class="chapter" data-level="1.9.4" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#desviación-estándar"><i class="fa fa-check"></i><b>1.9.4</b> Desviación estándar</a></li>
+<li class="chapter" data-level="1.9.5" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#coeficiente-de-variación"><i class="fa fa-check"></i><b>1.9.5</b> Coeficiente de variación</a></li>
+<li class="chapter" data-level="1.9.6" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango-intercuartílico-boxplot"><i class="fa fa-check"></i><b>1.9.6</b> Rango intercuartílico (boxplot)</a></li>
+<li class="chapter" data-level="1.9.7" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#índice-de-diversidad"><i class="fa fa-check"></i><b>1.9.7</b> Índice de diversidad</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -212,7 +224,7 @@ div.csl-indent {
 <h1 class="title">Estadística</h1>
 <h2 class="subtitle"><em>EST-104</em></h2>
 <p class="author"><em>MSc. Alvaro Chirino Gutierrez</em></p>
-<p class="date"><em>2022-02-22</em></p>
+<p class="date"><em>2022-03-11</em></p>
 </div>
 <div id="prefacio" class="section level1 unnumbered">
 <h1>Prefacio</h1>
@@ -250,22 +262,34 @@ div.csl-indent {
 ## system code page: 65001
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices
-## [4] utils     datasets  methods  
+## [1] stats     graphics 
+## [3] grDevices utils    
+## [5] datasets  methods  
 ## [7] base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bookdown_0.24   digest_0.6.28  
-##  [3] R6_2.5.1        jsonlite_1.7.2 
-##  [5] magrittr_2.0.1  evaluate_0.14  
-##  [7] highr_0.9       stringi_1.7.5  
-##  [9] rlang_0.4.11    rstudioapi_0.13
-## [11] jquerylib_0.1.4 bslib_0.3.1    
-## [13] rmarkdown_2.11  tools_4.1.2    
-## [15] stringr_1.4.0   xfun_0.26      
-## [17] yaml_2.2.1      fastmap_1.1.0  
-## [19] compiler_4.1.2  htmltools_0.5.2
-## [21] knitr_1.36      sass_0.4.0</code></pre>
+##  [1] bookdown_0.24  
+##  [2] digest_0.6.28  
+##  [3] R6_2.5.1       
+##  [4] jsonlite_1.7.2 
+##  [5] magrittr_2.0.1 
+##  [6] evaluate_0.14  
+##  [7] highr_0.9      
+##  [8] stringi_1.7.5  
+##  [9] rlang_0.4.11   
+## [10] rstudioapi_0.13
+## [11] jquerylib_0.1.4
+## [12] bslib_0.3.1    
+## [13] rmarkdown_2.11 
+## [14] tools_4.1.2    
+## [15] stringr_1.4.0  
+## [16] xfun_0.26      
+## [17] yaml_2.2.1     
+## [18] fastmap_1.1.0  
+## [19] compiler_4.1.2 
+## [20] htmltools_0.5.2
+## [21] knitr_1.36     
+## [22] sass_0.4.0</code></pre>
 </div>
 <div id="bases-de-datos" class="section level2 unnumbered">
 <h2>Bases de datos</h2>
