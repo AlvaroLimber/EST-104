@@ -24,7 +24,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-03-11" />
+<meta name="date" content="2022-03-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="probabilidad-y-distribuciones-de-variables-aleatorias.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -202,6 +202,20 @@ div.csl-indent {
 <li class="chapter" data-level="1.9.6" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#rango-intercuartílico-boxplot"><i class="fa fa-check"></i><b>1.9.6</b> Rango intercuartílico (boxplot)</a></li>
 <li class="chapter" data-level="1.9.7" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#índice-de-diversidad"><i class="fa fa-check"></i><b>1.9.7</b> Índice de diversidad</a></li>
 </ul></li>
+<li class="chapter" data-level="1.10" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#medidas-de-forma"><i class="fa fa-check"></i><b>1.10</b> Medidas de forma</a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#asimetría"><i class="fa fa-check"></i><b>1.10.1</b> Asimetría</a></li>
+<li class="chapter" data-level="1.10.2" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#kurtosis"><i class="fa fa-check"></i><b>1.10.2</b> Kurtosis</a></li>
+<li class="chapter" data-level="1.10.3" data-path="tema-1-estadística-descriptiva.html"><a href="tema-1-estadística-descriptiva.html#cuantiles"><i class="fa fa-check"></i><b>1.10.3</b> Cuantiles</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html"><i class="fa fa-check"></i><b>2</b> Probabilidad y distribuciones de variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#conceptos"><i class="fa fa-check"></i><b>2.1</b> Conceptos</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#experimento-aleatorio"><i class="fa fa-check"></i><b>2.1.1</b> Experimento aleatorio</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#espacio-muestral"><i class="fa fa-check"></i><b>2.1.2</b> Espacio muestral</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -364,30 +378,19 @@ div.csl-indent {
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tema-1-estadística-descriptiva.html#cb3-1" aria-hidden="true" tabindex="-1"></a>bd<span class="ot">&lt;-</span><span class="fu">read.csv</span>(<span class="st">&quot;bd.csv&quot;</span>)</span>
 <span id="cb3-2"><a href="tema-1-estadística-descriptiva.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#simple</span></span>
 <span id="cb3-3"><a href="tema-1-estadística-descriptiva.html#cb3-3" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Edad</span></code></pre></div>
-<pre><code>##  [1] 19 18 18 21 23 18 18 19
-##  [9] 20 28 18 21 21 18 18 18
-## [17] 17 31 17 17 20 21 19 19
-## [25] 22 18 22 17 17 19 20 17
-## [33] 20 20 20 19</code></pre>
+<pre><code>##  [1] 19 18 18 21 23 18 18 19 20 28 18 21
+## [13] 21 18 18 18 17 31 17 17 20 21 19 19
+## [25] 22 18 22 17 17 19 20 17 20 20 20 19</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tema-1-estadística-descriptiva.html#cb5-1" aria-hidden="true" tabindex="-1"></a>bd<span class="sc">$</span>Sexo</span></code></pre></div>
-<pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot; 
-##  [3] &quot;Mujer&quot;  &quot;Hombre&quot;
-##  [5] &quot;Hombre&quot; &quot;Mujer&quot; 
-##  [7] &quot;Mujer&quot;  &quot;Mujer&quot; 
-##  [9] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [11] &quot;Mujer&quot;  &quot;Hombre&quot;
-## [13] &quot;Hombre&quot; &quot;Mujer&quot; 
-## [15] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [17] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [19] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [21] &quot;Mujer&quot;  &quot;Hombre&quot;
-## [23] &quot;Mujer&quot;  &quot;Hombre&quot;
-## [25] &quot;Hombre&quot; &quot;Mujer&quot; 
-## [27] &quot;Hombre&quot; &quot;Mujer&quot; 
-## [29] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [31] &quot;Mujer&quot;  &quot;Hombre&quot;
-## [33] &quot;Mujer&quot;  &quot;Mujer&quot; 
-## [35] &quot;Mujer&quot;  &quot;Hombre&quot;</code></pre>
+<pre><code>##  [1] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;
+##  [5] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
+##  [9] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;
+## [13] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [17] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot; 
+## [21] &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot;
+## [25] &quot;Hombre&quot; &quot;Mujer&quot;  &quot;Hombre&quot; &quot;Mujer&quot; 
+## [29] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;
+## [33] &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Mujer&quot;  &quot;Hombre&quot;</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tema-1-estadística-descriptiva.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#frecuencia simples</span></span>
 <span id="cb7-2"><a href="tema-1-estadística-descriptiva.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bd<span class="sc">$</span>Edad)</span></code></pre></div>
 <pre><code>## 
@@ -534,8 +537,8 @@ Es recomendable cuando se trabaja con distancias, <strong>velocidades</strong></
 ##     filter, lag</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
-##     intersect, setdiff,
-##     setequal, union</code></pre>
+##     intersect, setdiff, setequal,
+##     union</code></pre>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tema-1-estadística-descriptiva.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">999</span>)</span>
 <span id="cb22-2"><a href="tema-1-estadística-descriptiva.html#cb22-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">80</span>,<span class="dv">15</span>,<span class="dv">35</span>),<span class="dv">0</span>)</span>
 <span id="cb22-3"><a href="tema-1-estadística-descriptiva.html#cb22-3" aria-hidden="true" tabindex="-1"></a>t1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x)</span>
@@ -711,27 +714,124 @@ Es la única medida de variabilidad <strong>relativa</strong> (carece de unidad 
 </div>
 <div id="rango-intercuartílico-boxplot" class="section level3" number="1.9.6">
 <h3><span class="header-section-number">1.9.6</span> Rango intercuartílico (boxplot)</h3>
+<p>Se tiene los siguientes 100 datos de una población de personas respecto su peso.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="tema-1-estadística-descriptiva.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb66-2"><a href="tema-1-estadística-descriptiva.html#cb66-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">5</span>),<span class="dv">1</span>)</span>
+<span id="cb66-3"><a href="tema-1-estadística-descriptiva.html#cb66-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>##   [1] 51.2 48.3 48.4 38.5 49.1 50.7 42.5
+##   [8] 44.9 45.3 47.5 49.1 48.0 59.2 52.0
+##  [15] 54.0 42.2 49.6 48.2 44.0 51.8 51.8
+##  [22] 51.7 50.9 49.2 51.6 53.0 40.8 63.6
+##  [29] 51.0 43.5 34.4 45.3 57.0 41.9 38.7
+##  [36] 55.8 49.4 51.7 46.9 43.5 44.1 44.4
+##  [43] 43.2 52.4 53.7 50.1 51.7 53.2 62.4
+##  [50] 59.8 51.0 57.8 54.6 51.8 50.9 45.8
+##  [57] 54.9 59.0 50.6 49.4 48.9 57.2 52.0
+##  [64] 54.6 57.2 48.1 51.0 46.0 51.5 57.0
+##  [71] 55.1 52.4 46.6 50.8 48.1 54.7 46.8
+##  [78] 49.5 55.2 51.9 43.7 46.1 52.1 48.1
+##  [85] 43.9 55.1 52.2 43.8 47.0 53.3 60.3
+##  [92] 52.5 41.3 53.6 50.1 43.0 56.3 49.4
+##  [99] 46.4 43.9</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="tema-1-estadística-descriptiva.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">111</span>)</span>
+<span id="cb68-2"><a href="tema-1-estadística-descriptiva.html#cb68-2" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">1</span>),<span class="dv">1</span>)</span>
+<span id="cb68-3"><a href="tema-1-estadística-descriptiva.html#cb68-3" aria-hidden="true" tabindex="-1"></a>z<span class="ot">&lt;-</span><span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">50</span>,<span class="dv">15</span>),<span class="dv">1</span>)</span>
+<span id="cb68-4"><a href="tema-1-estadística-descriptiva.html#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span>
+<span id="cb68-5"><a href="tema-1-estadística-descriptiva.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fu">median</span>(x),<span class="at">col=</span><span class="st">&quot;red&quot;</span>,<span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="tema-1-estadística-descriptiva.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="tema-1-estadística-descriptiva.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb70-2"><a href="tema-1-estadística-descriptiva.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(x,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">65</span>))</span>
+<span id="cb70-3"><a href="tema-1-estadística-descriptiva.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(y,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">65</span>))</span>
+<span id="cb70-4"><a href="tema-1-estadística-descriptiva.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(z,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">30</span>,<span class="dv">65</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-3.png" width="672" /></p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="tema-1-estadística-descriptiva.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<pre><code>## null device 
+##           1</code></pre>
 </div>
 <div id="índice-de-diversidad" class="section level3" number="1.9.7">
 <h3><span class="header-section-number">1.9.7</span> Índice de diversidad</h3>
+<p>Este se utiliza para variables cualitativas a diferencia de todas las medidas de variabilidad vistas anteriormente.</p>
+<p>Este índice nos ayuda a medir la <strong>homogeneidad</strong> y <strong>heterogeneidad</strong> de las categorías observadas en nuestra variable cualitativa.</p>
+<p><span class="math display">\[H&#39;=\frac{n log (n)-\sum_{i=1}^k f_i log(f_i)}{n}\]</span>
+<span class="math display">\[H&#39;_{max}= log(k)\]</span>
+<span class="math display">\[J&#39;=\frac{H&#39;}{H&#39;_{max}}\]</span></p>
+<p><span class="math inline">\(J&#39;\)</span> es una medida de homogeneidad:</p>
+<p><span class="math display">\[0\leq J&#39;\leq 1\]</span></p>
+<ul>
+<li><span class="math inline">\(J&#39; \rightarrow 1\)</span> Alta homogeneidad</li>
+<li><span class="math inline">\(J&#39; \rightarrow 0\)</span> Alta heterogeneidad</li>
+</ul>
+<blockquote>
+<p>Ejemplo</p>
+</blockquote>
+<p>Tenemos los datos de una muestra de 20 gorriones y sus sitios de nidos.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="tema-1-estadística-descriptiva.html#cb73-1" aria-hidden="true" tabindex="-1"></a>nidos<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;vides&quot;</span>,<span class="st">&quot;alero&quot;</span>,<span class="st">&quot;ramas&quot;</span>,<span class="st">&quot;cueva&quot;</span>)</span>
+<span id="cb73-2"><a href="tema-1-estadística-descriptiva.html#cb73-2" aria-hidden="true" tabindex="-1"></a>f<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>)</span>
+<span id="cb73-3"><a href="tema-1-estadística-descriptiva.html#cb73-3" aria-hidden="true" tabindex="-1"></a>t1<span class="ot">&lt;-</span><span class="fu">data.frame</span>(nidos,<span class="at">fi=</span>f)</span>
+<span id="cb73-4"><a href="tema-1-estadística-descriptiva.html#cb73-4" aria-hidden="true" tabindex="-1"></a>t1</span></code></pre></div>
+<pre><code>##   nidos fi
+## 1 vides  5
+## 2 alero  5
+## 3 ramas  5
+## 4 cueva  5</code></pre>
+<p><span class="math display">\[H&#39;=\frac{20 log (20)-(5log(5)+5log(5)+5log(5)+5log(5))}{20}\]</span></p>
+<p><span class="math display">\[H&#39;=0.60206\]</span>
+<span class="math display">\[H&#39;_{max}=log(k)=log(4)=0.60206\]</span></p>
+<p><span class="math display">\[J&#39;=\frac{H&#39;}{H&#39;_{max}}=\frac{0.60206}{0.60206}=1\]</span></p>
+<blockquote>
+<p>Ejercicios</p>
+</blockquote>
+<p>Para las siguientes 2 muestras de gorriones calcule el índice de diversidad <span class="math inline">\(J&#39;\)</span></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="tema-1-estadística-descriptiva.html#cb75-1" aria-hidden="true" tabindex="-1"></a>f<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">16</span>)</span>
+<span id="cb75-2"><a href="tema-1-estadística-descriptiva.html#cb75-2" aria-hidden="true" tabindex="-1"></a>t2<span class="ot">&lt;-</span><span class="fu">data.frame</span>(nidos,<span class="at">fi=</span>f)</span>
+<span id="cb75-3"><a href="tema-1-estadística-descriptiva.html#cb75-3" aria-hidden="true" tabindex="-1"></a>f<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">8</span>)</span>
+<span id="cb75-4"><a href="tema-1-estadística-descriptiva.html#cb75-4" aria-hidden="true" tabindex="-1"></a>t3<span class="ot">&lt;-</span><span class="fu">data.frame</span>(nidos,<span class="at">fi=</span>f)</span>
+<span id="cb75-5"><a href="tema-1-estadística-descriptiva.html#cb75-5" aria-hidden="true" tabindex="-1"></a>t2</span></code></pre></div>
+<pre><code>##   nidos fi
+## 1 vides  1
+## 2 alero  1
+## 3 ramas  2
+## 4 cueva 16</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="tema-1-estadística-descriptiva.html#cb77-1" aria-hidden="true" tabindex="-1"></a>t3</span></code></pre></div>
+<pre><code>##   nidos fi
+## 1 vides  4
+## 2 alero  4
+## 3 ramas  4
+## 4 cueva  8</code></pre>
+<p>Para t2</p>
+<p><span class="math display">\[J&#39;=0.51\]</span>
+Para t3</p>
+<p><span class="math display">\[J&#39;=0.96\]</span>
+Nota:
+- Si <span class="math inline">\(J&#39;&gt;0.9\)</span> Alta homogenidad
+- Si <span class="math inline">\(J&#39;&lt;0.6\)</span> Heterogeneidad
+- Si <span class="math inline">\(J&#39;&lt;0.5\)</span> Alta Heterogeneidad</p>
+</div>
+</div>
+<div id="medidas-de-forma" class="section level2" number="1.10">
+<h2><span class="header-section-number">1.10</span> Medidas de forma</h2>
+<div id="asimetría" class="section level3" number="1.10.1">
+<h3><span class="header-section-number">1.10.1</span> Asimetría</h3>
+<p><span class="math display">\[As_{Fisher}=\frac{\mu_3}{s^3}\]</span>
+<span class="math display">\[\mu_3=\frac{\sum_s (x_i-\bar{x})^3}{n}\]</span></p>
+</div>
+<div id="kurtosis" class="section level3" number="1.10.2">
+<h3><span class="header-section-number">1.10.2</span> Kurtosis</h3>
+<p><span class="math display">\[k=\frac{\mu_4}{s^4}\]</span></p>
+<p><span class="math display">\[\mu_4=\frac{\sum_s (x_i-\bar{x})^4}{n}\]</span></p>
+</div>
+<div id="cuantiles" class="section level3" number="1.10.3">
+<h3><span class="header-section-number">1.10.3</span> Cuantiles</h3>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="tema-1-estadística-descriptiva.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x,<span class="fl">0.99</span>)</span></code></pre></div>
+<pre><code>##    99% 
+## 62.412</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="tema-1-estadística-descriptiva.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x,<span class="fl">0.70</span>)</span></code></pre></div>
+<pre><code>##   70% 
+## 52.13</code></pre>
+<p>Tarea: Del libro guía del capítulo de probabilidades leer los puntos 1, 2 y 3.</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Gentleman, Robert, Kurt Hornik, and Giovanni G Parmigiani. 2008. <em><span class="nocase">Biostatistics with R</span></em>. <a href="https://doi.org/10.1007/978-0-387-78171-6">https://doi.org/10.1007/978-0-387-78171-6</a>.
-</div>
-<div class="csl-entry">
-Jerrold, Zar. 2010. <span>“<span>Biostatistical Analysis</span>.”</span>
-</div>
-<div class="csl-entry">
-Lawrence L., Kupper, Brian Neelon H., and Sean Obrien M. 2011. <span>“<span class="nocase">Exercises and Solutions in Biostatistical Theory</span>.”</span>
-</div>
-<div class="csl-entry">
-Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis Using R: A Practical Guide</span></em>. <a href="https://doi.org/10.1002/9781444319620">https://doi.org/10.1002/9781444319620</a>.
-</div>
-<div class="csl-entry">
-Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -740,8 +840,8 @@ Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

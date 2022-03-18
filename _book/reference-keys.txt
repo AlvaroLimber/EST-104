@@ -26,3 +26,11 @@ desviación-estándar
 coeficiente-de-variación
 rango-intercuartílico-boxplot
 índice-de-diversidad
+medidas-de-forma
+asimetría
+kurtosis
+cuantiles
+probabilidad-y-distribuciones-de-variables-aleatorias
+conceptos
+experimento-aleatorio
+espacio-muestral

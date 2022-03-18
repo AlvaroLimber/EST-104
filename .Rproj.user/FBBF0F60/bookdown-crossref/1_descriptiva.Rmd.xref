@@ -26,5 +26,9 @@ h3:varianza Varianza
 h3:desviación-estándar Desviación estándar
 h3:coeficiente-de-variación Coeficiente de variación
 h3:rango-intercuartílico-boxplot Rango intercuartílico (boxplot)
-h3:índices-de-diversidad Índices de diversidad
+h3:índice-de-diversidad Índice de diversidad
+h2:medidas-de-forma Medidas de forma
+h3:asimetría Asimetría
+h3:kurtosis Kurtosis
+h3:cuantiles Cuantiles
 

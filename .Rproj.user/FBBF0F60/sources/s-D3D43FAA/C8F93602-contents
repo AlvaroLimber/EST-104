@@ -1,0 +1,51 @@
+# Probabilidad y distribuciones de variables aleatorias
+
+> ¿Qué es la probabilidad?
+
+"Es el estudio de la incertidumbre"
+
+> ¿Desde cuándo se empieza a hablar de probabilidad?
+
+
+
+> ¿Para qué sirve?
+
+Predicciones, 
+
+## Conceptos
+
+### Experimento aleatorio 
+
+Es un proceso en el cual no se conoce previamente su resultado
+
+Ejemplos:
+
+  - Lanzar un dado, dos dados, 5 dados
+  - Lanzar una moneda
+  - Jugar a la loteria
+  - Una apuesta, cartas
+  - Notas del primer parcial, las notas de una materia. ¿Cuál es la probabilidad de aprobar una materia?
+  - Tiempo que van a dormir la noche del sabado 19 de marzo 
+  - El sexo, número de crías en un nacimiento, el tiempo de vida de un animal
+  
+### Espacio muestral
+
+$$\Omega$$
+Es un conjunto que agrupa todos los resultados posibles de un experimento aleatorio  
+  
+> Ejemplos  
+
+  - $\Omega=\{1,2,3,4,5,6\}$, $\Omega=\{(1,1),(1,2),\ldots,(6,6)\}$
+  - $\Omega=\{C,S\}$, Lanzar un dado y una moneda $\Omega=\{(1,C),(1,S),(2,C),(2,S),\ldots,(6,S)\}$
+  - Tiempo de vida $\Omega=\{x>0, x\in IR\}$
+
+> Ejercicio. Definir el espacio muestral para los siguientes experimentos
+
+  1. Elegir 4 personas de un grupo de 30 (Combinatoria)
+  2. Si existen 20 mujeres y 10 hombres, elegir 2 mujeres y 2 hombres. (Combinatoria)
+  3. Se tienen 5 libros; biología, estadística, matemática, álgebra y una novela. Se quiere ordenar los libros en un estante. (Permutación)
+
+Tarea. Buscar los tipos de probabilidad. (Clásica, frecuentista, bayesiana; priori, pesteriori, etc.)
+  
+  
+  
