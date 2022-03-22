@@ -34,3 +34,6 @@ probabilidad-y-distribuciones-de-variables-aleatorias
 conceptos
 experimento-aleatorio
 espacio-muestral
+definición-de-probabilidad
+propiedades-de-las-probabilidades
+probabilidad-condicional
