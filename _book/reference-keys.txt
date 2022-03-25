@@ -36,4 +36,6 @@ experimento-aleatorio
 espacio-muestral
 definición-de-probabilidad
 propiedades-de-las-probabilidades
+independencia-en-eventos
 probabilidad-condicional
+definición

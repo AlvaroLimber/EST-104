@@ -23,7 +23,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-03-22" />
+<meta name="date" content="2022-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -217,7 +217,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#definición-de-probabilidad"><i class="fa fa-check"></i><b>2.2</b> Definición de probabilidad<span></span></a></li>
 <li class="chapter" data-level="2.3" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#propiedades-de-las-probabilidades"><i class="fa fa-check"></i><b>2.3</b> Propiedades de las probabilidades<span></span></a></li>
-<li class="chapter" data-level="2.4" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#probabilidad-condicional"><i class="fa fa-check"></i><b>2.4</b> Probabilidad condicional<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#independencia-en-eventos"><i class="fa fa-check"></i><b>2.4</b> Independencia en eventos<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#probabilidad-condicional"><i class="fa fa-check"></i><b>2.5</b> Probabilidad condicional<span></span></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="probabilidad-y-distribuciones-de-variables-aleatorias.html"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#definición"><i class="fa fa-check"></i><b>2.5.1</b> Definición<span></span></a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -285,9 +289,9 @@ Es un conjunto que agrupa todos los resultados posibles de un experimento aleato
 </ol>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#cb83-1" aria-hidden="true" tabindex="-1"></a>pp<span class="ot">&lt;-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span></span>
 <span id="cb83-2"><a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#cb83-2" aria-hidden="true" tabindex="-1"></a>pp</span></code></pre></div>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14
-## [15] 15 16 17 18 19 20 21 22 23 24 25 26 27 28
-## [29] 29 30</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10
+## [11] 11 12 13 14 15 16 17 18 19 20
+## [21] 21 22 23 24 25 26 27 28 29 30</code></pre>
 <p><span class="math display">\[30C4=\frac{30!}{(30-4)!4!}=27405\]</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Si existen 20 mujeres y 10 hombres, elegir 2 mujeres y 2 hombres. (Combinatoria)</li>
@@ -325,10 +329,52 @@ Es un conjunto que agrupa todos los resultados posibles de un experimento aleato
 <p><span class="math display">\[P(\text{mayor a 0})=1\]</span></p>
 <p><span class="math display">\[P(\varnothing)=0\]</span>
 Ejemplo, al lanzar un dado.</p>
-<p><span class="math display">\[P(\text{menor a 0})=0\]</span></p>
+<p><span class="math display">\[P(\text{menor a 0})=0\]</span>
+## Eventos mutuamente excluyentes</p>
+<p>Si dos eventos (A,B) son <strong>mutuamente excluyentes</strong> (son conjuntos disjuntos). Se cumple:</p>
+<p><span class="math display">\[P(A \cup B)=P(A\text{ ó }B)=P(A)+P(B)\]</span></p>
+<blockquote>
+<p>Ejemplo.</p>
+</blockquote>
+<p>Se lanza un dado, calcular la probabilidad que el número sea par:</p>
+<p><span class="math display">\[P(par)=P(2\cup4\cup6)=P(2)+P(4)+P(6)=\frac{1}{6}+\frac{1}{6}+\frac{1}{6}=\frac{1}{2}\]</span>
+¿Qué pasa cuando los eventos no son mutuamente excluyentes?</p>
+<p><span class="math display">\[P(A\cup B)=P(A)+P(B)-P(A\cap B)\]</span></p>
+<p><span class="math display">\[P(par \text{ ó } &lt;4)=P(par \cup&lt;4)=P(par)+P(&lt;4)-P(par \cap &lt;4)=\]</span></p>
+<p><span class="math display">\[=\frac{1}{2}+\frac{1}{2}-P(2)=1-\frac{1}{6}=\frac{5}{6}\]</span></p>
+<p><span class="math display">\[(2,4,6)\cup (1,2,3)=1,2,3,4,6\]</span></p>
+<p><span class="math display">\[P(par \text{ ó } &lt;4)=\frac{5}{6}\]</span></p>
+<blockquote>
+<p>Ejercicio.</p>
+</blockquote>
+<p>Un juego de cartas se compone de 52 cartas, teniendo 4 figuras; espada, diamante, trébol, corazón. Cada figura con 13 cartas; A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q (reina), K (rey).</p>
+<p>Si se selecciona al azar una carta:</p>
+<p><span class="math display">\[P(espada)=\frac{13}{52}=\frac{1}{4}\]</span></p>
+<p><span class="math display">\[P(Q)=P(Q_{e}\cup Q_{d} \cup Q_t\cup Q_c)=\frac{4}{52}=\frac{1}{13}\]</span></p>
+<p><span class="math display">\[P(espada \cup Q)=\frac{16}{52}\]</span>
+<span class="math display">\[P(espada \cup Q)=P(espada)+P(Q)-P(espada\cap Q)=\]</span>
+<span class="math display">\[P(espada)+P(Q)-P(Q_e)=\frac{13}{52}+\frac{4}{52}-\frac{1}{52}=\frac{16}{52}=\frac{4}{13}\]</span></p>
 </div>
-<div id="probabilidad-condicional" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Probabilidad condicional<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#probabilidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="independencia-en-eventos" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Independencia en eventos<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#independencia-en-eventos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cuando realizamos eventos sucesivos/simultáneos y estos eventos son independientes entre ellos (un evento anterior no afecta al posterior). En esos casos podemos escribir la probabilidad de la siguiente forma:</p>
+<p><span class="math display">\[P(A\cap B)=P(A \text{ y } B)=P(AB)=P(A)P(B)\]</span>
+También decimos que A y B son eventos independientes.</p>
+<blockquote>
+<p>Ejemplo:</p>
+</blockquote>
+<p>Se lanza una moneda 4 veces, cuál es la probabilidad de obtener cara en los 4 lanzamientos.</p>
+<p><span class="math display">\[P(C_1\cap C_2\cap C_3\cap C_4 )=P(C_1)*P(C_2)*P(C_3)*P(C_4)=\frac{1}{2^4}=\frac{1}{16}\]</span></p>
+<blockquote>
+<p>Ejercicio</p>
+</blockquote>
+<p>Un estudiante decide responder al <strong>azar</strong> un examen de 100 preguntas de falso/verdadero. Calcular la probabilidad de que el estudiante acierte todas las preguntas.</p>
+<p>Solución, imaginemos cualquier pregunta. Por ejemplo la pregunta <span class="math inline">\(i-esima\)</span>.</p>
+<p><span class="math display">\[P(C_i)=\frac{1}{2}\]</span></p>
+<p><span class="math display">\[P(C_1\cap C_2\cap \ldots \cap C_{100})=P(C_1)*P(C_2)*\ldots*P(C_{100})=\frac{1}{2^{100}}\]</span></p>
+</div>
+<div id="probabilidad-condicional" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Probabilidad condicional<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#probabilidad-condicional" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li>Evaluamos dos eventos o más simultaneamente</li>
 <li>Conocer como se altera o cambia la probabilidad de un evento a partir de la ocurrencia de otro</li>
@@ -340,7 +386,22 @@ Ejemplo, al lanzar un dado.</p>
 </ul>
 <p><span class="math display">\[P(Aprobar)=P(51 \cup52 \cup \ldots\cup 100)=\frac{50}{101}\]</span></p>
 <p>Suponer que se dio el primer parcial y el segundo parcial, ambos representan en conjunto el 60% de la nota, las notas de un estudiante en estos dos parciales es de 14/30 y 13/30 respectivamente. ¿Cuál es la probabilidad que el estudiante pase la materia?</p>
-<p><span class="math display">\[P(Aprobar/27puntos)=TAREA\]</span></p>
+<p><span class="math display">\[P(Aprobar/27puntos)=\frac{17}{41}=0.415\]</span></p>
+<div id="definición" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Definición<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html#definición" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Sean dos eventos A y B, la probabilidad condicional de A dado B, se escribe como:</p>
+<p><span class="math display">\[P(A/B)=\frac{P(A\cap B)}{P(B)}\]</span>
+&gt; Ejemplo</p>
+<p>En el ejemplo de las cartas calcular:</p>
+<p><span class="math display">\[P(Q/espada)=\frac{P(Q\cap espada)}{P(espada)}=\frac{\frac{1}{52}}{\frac{13}{52}}=\frac{1}{13}\]</span></p>
+<p><span class="math display">\[P(espada/Q)=\frac{P(espada \cap Q)}{P(Q)}=\frac{\frac{1}{52}}{\frac{4}{52}}=\frac{1}{4}\]</span></p>
+<p>Nota:</p>
+<p><span class="math display">\[P(A \cap B)=P(B \cap A)\]</span></p>
+<p><span class="math display">\[P(A \cup B)=P(B \cup A)\]</span>
+<span class="math display">\[P(A/B) \neq P(B/A) \]</span>
+Si A y B son independientes</p>
+<p><span class="math display">\[P(A/B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)*P(B)}{P(B)}=P(A)\]</span></p>
+<p>Tarea: Investigar que es la distribución normal y su uso en la biología.</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">
@@ -357,6 +418,7 @@ Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis
 </div>
 <div class="csl-entry">
 Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
+</div>
 </div>
 </div>
 </div>
