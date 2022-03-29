@@ -39,3 +39,6 @@ propiedades-de-las-probabilidades
 independencia-en-eventos
 probabilidad-condicional
 definición
+variable-aleatoria
+distribución-normal
+distribución-normal-estándar

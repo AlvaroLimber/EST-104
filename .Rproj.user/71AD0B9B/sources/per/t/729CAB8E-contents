@@ -201,3 +201,38 @@ Si A y B son independientes
 $$P(A/B)=\frac{P(A\cap B)}{P(B)}=\frac{P(A)*P(B)}{P(B)}=P(A)$$
 
 Tarea: Investigar que es la distribución normal y su uso en la biología.
+
+## Variable aleatoria
+
+
+
+# Distribución normal
+
+$$f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\left(\frac{x-\mu}{\sigma}\right)^2}$$
+
+```{r}
+curve(dnorm(x,20,5),xlim=c(0,40))
+```
+
+## Distribución normal estándar
+
+Sea 
+
+$$Z\sim N(\mu=0,\sigma=1)=N(0,1)$$
+Entonces, se dice que $Z$ se distribuye como una normal estándar. Con su función de densidad:
+
+$$f(z)=\frac{1}{\sqrt{2\pi}} e^{-z^2}$$
+
+Se recurre a la normal estándar debido a que existen tablas de probabilidad construidas para esta, ya que la integración convencional de la función $f(z)$ no es directa. 
+
+```{r}
+curve(dnorm(x,0,1),xlim=c(-4,4),main="Normal estándar")
+```
+
+$$P(Z<0)=0.5$$
+Tarea: Buscar como se usa una tabla Normal Estándar.
+
+
+
+
+

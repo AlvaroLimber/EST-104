@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Estadística</title>
+  <title>3 Distribución normal | Estadística</title>
   <meta name="description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Estadística" />
+  <meta property="og:title" content="3 Distribución normal | Estadística" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="github-repo" content="alvarolimber/EST-104" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Estadística" />
+  <meta name="twitter:title" content="3 Distribución normal | Estadística" />
   
   <meta name="twitter:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="probabilidad-y-distribuciones-de-variables-aleatorias.html"/>
 
-<link rel="next" href="tema-1-estadística-descriptiva.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -245,70 +245,40 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Estadística</h1>
-<h2 class="subtitle"><em>EST-104</em></h2>
-<p class="author"><em>MSc. Alvaro Chirino Gutierrez</em></p>
-<p class="date"><em>2022-03-29</em></p>
-</div>
-<div id="prefacio" class="section level1 unnumbered hasAnchor">
-<h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><a href="https://www.crcpress.com/product/isbn/9781138700109" target="_blank"><img src="images/cover.png" style="display: block; margin: auto;" /></a></p>
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este documento de <a href="https://twiiter/alvarochirinog">Alvaro Chirino</a> esta bajo la licencia de <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-<div id="audiencia" class="section level2 unnumbered hasAnchor">
-<h2>Audiencia<a href="index.html#audiencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El libro fue diseñado originalmente para los estudiantes de la materia de Estadística, una materia del pregrado de la carrera de Biología de la Universidad Mayor de San Ándres.</p>
-</div>
-<div id="estructura-del-libro" class="section level2 unnumbered hasAnchor">
-<h2>Estructura del libro<a href="index.html#estructura-del-libro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>El libro incluye 4 capítulos, estos son:</p>
-<ul>
-<li>Estadística descriptiva</li>
-<li>Probabilidad y distribuciones teóricas</li>
-<li>Muestreo</li>
-<li>Distribución bivariante, regresión</li>
-</ul>
-</div>
-<div id="software-y-acuerdos" class="section level2 unnumbered hasAnchor">
-<h2>Software y acuerdos<a href="index.html#software-y-acuerdos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.1.3 (2022-03-10)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19044)
-## 
-## Matrix products: default
-## 
-## locale:
-## [1] LC_COLLATE=English_United States.1252 
-## [2] LC_CTYPE=English_United States.1252   
-## [3] LC_MONETARY=English_United States.1252
-## [4] LC_NUMERIC=C                          
-## [5] LC_TIME=English_United States.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets 
-## [6] methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.25   digest_0.6.29   R6_2.5.1       
-##  [4] jsonlite_1.8.0  magrittr_2.0.2  evaluate_0.15  
-##  [7] highr_0.9       stringi_1.7.6   rlang_1.0.2    
-## [10] cli_3.2.0       rstudioapi_0.13 jquerylib_0.1.4
-## [13] bslib_0.3.1     rmarkdown_2.13  tools_4.1.3    
-## [16] stringr_1.4.0   xfun_0.30       yaml_2.3.5     
-## [19] fastmap_1.1.0   compiler_4.1.3  htmltools_0.5.2
-## [22] knitr_1.38      sass_0.4.1</code></pre>
-</div>
-<div id="bases-de-datos" class="section level2 unnumbered hasAnchor">
-<h2>Bases de datos<a href="index.html#bases-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En este documento se emplearan las siguientes bases de datos</p>
-<p>En construcción</p>
-<p>Estas bases de datos se encuentran disponibles en formato <span class="math inline">\(.RData\)</span> en el repositorio de Github del texto.</p>
-</div>
-<div id="agradecimiento" class="section level2 unnumbered hasAnchor">
-<h2>Agradecimiento<a href="index.html#agradecimiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En construcción</p>
+<div id="distribución-normal" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Distribución normal<a href="distribución-normal.html#distribución-normal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><span class="math display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\left(\frac{x-\mu}{\sigma}\right)^2}\]</span></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="distribución-normal.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">20</span>,<span class="dv">5</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<div id="distribución-normal-estándar" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Distribución normal estándar<a href="distribución-normal.html#distribución-normal-estándar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sea</p>
+<p><span class="math display">\[Z\sim N(\mu=0,\sigma=1)=N(0,1)\]</span>
+Entonces, se dice que <span class="math inline">\(Z\)</span> se distribuye como una normal estándar. Con su función de densidad:</p>
+<p><span class="math display">\[f(z)=\frac{1}{\sqrt{2\pi}} e^{-z^2}\]</span></p>
+<p>Se recurre a la normal estándar debido a que existen tablas de probabilidad construidas para esta, ya que la integración convencional de la función <span class="math inline">\(f(z)\)</span> no es directa.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="distribución-normal.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">main=</span><span class="st">&quot;Normal estándar&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><span class="math display">\[P(Z&lt;0)=0.5\]</span>
+Tarea: Buscar como se usa una tabla Normal Estándar.</p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Gentleman, Robert, Kurt Hornik, and Giovanni G Parmigiani. 2008. <em><span class="nocase">Biostatistics with R</span></em>. <a href="https://doi.org/10.1007/978-0-387-78171-6">https://doi.org/10.1007/978-0-387-78171-6</a>.
+</div>
+<div class="csl-entry">
+Jerrold, Zar. 2010. <span>“<span>Biostatistical Analysis</span>.”</span>
+</div>
+<div class="csl-entry">
+Lawrence L., Kupper, Brian Neelon H., and Sean Obrien M. 2011. <span>“<span class="nocase">Exercises and Solutions in Biostatistical Theory</span>.”</span>
+</div>
+<div class="csl-entry">
+Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis Using R: A Practical Guide</span></em>. <a href="https://doi.org/10.1002/9781444319620">https://doi.org/10.1002/9781444319620</a>.
+</div>
+<div class="csl-entry">
+Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -316,8 +286,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
+<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="tema-1-estadística-descriptiva.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -3,7 +3,7 @@
     "path": "~/GitHub/EST-104/2_probabilidad.Rmd",
     "project_path": "2_probabilidad.Rmd",
     "type": "r_markdown",
-    "hash": "2193186113",
+    "hash": "2175799244",
     "contents": "",
     "dirty": false,
     "created": 1648210837166.0,
@@ -13,15 +13,15 @@
         "chunk_output_type": "console",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "202,72",
-        "scrollLine": "195"
+        "cursorPosition": "232,52",
+        "scrollLine": "226"
     },
     "folds": "",
-    "lastKnownWriteTime": 1648216760,
+    "lastKnownWriteTime": 1648569414,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1648216760605,
+    "last_content_update": 1648569414827,
     "read_only": false,
     "read_only_alternatives": []
 }
