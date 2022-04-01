@@ -23,7 +23,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-03-29" />
+<meta name="date" content="2022-04-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -259,8 +259,41 @@ Entonces, se dice que <span class="math inline">\(Z\)</span> se distribuye como 
 <p>Se recurre a la normal estándar debido a que existen tablas de probabilidad construidas para esta, ya que la integración convencional de la función <span class="math inline">\(f(z)\)</span> no es directa.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="distribución-normal.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">main=</span><span class="st">&quot;Normal estándar&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p><span class="math display">\[P(Z&lt;0)=0.5\]</span>
-Tarea: Buscar como se usa una tabla Normal Estándar.</p>
+<p><span class="math display">\[P(Z&lt;0)=0.5\]</span></p>
+<p>El uso de la tabla: la tabla devuelve las probabilidades acumuladas hasta un punto <span class="math inline">\(t\)</span></p>
+<p><span class="math display">\[P(Z&lt;t)=\phi(t)\]</span></p>
+<p><span class="math display">\[P(Z&lt;1.5)=\phi(1.5)=0.9332\]</span></p>
+<p><span class="math display">\[P(Z&lt;0.5)=\phi(0.5)=0.6915\]</span></p>
+<p><span class="math display">\[P(Z&lt;-0.76)=\phi(-0.76)=0.2236\]</span>
+<span class="math display">\[P(Z&lt; -1.56)=\phi(-1.56)=0.0594\]</span></p>
+<p><span class="math display">\[P(Z&lt; 2.89)=\phi(2.89)=0.9981\]</span></p>
+<p>Cuando se pide este tipo de probabilidades:</p>
+<p><span class="math display">\[P(Z&gt;t)=1-P(Z\leq t)=1-\phi(t)\]</span>
+<span class="math display">\[P(a&lt;Z&lt;b)=\phi(b)-\phi(a), \quad b&gt;a\]</span></p>
+<p><span class="math display">\[P(Z&gt;1.87)=1-\phi(1.87)=1-0.9693=0.0307\]</span></p>
+<p><span class="math display">\[P(Z&gt;1.5)=1-\phi(1.5)=1-0.9332=0.0668\]</span>
+<span class="math display">\[P(-1.89&lt;Z&lt;2.57)=\phi(2.57)-\phi(-1.89)=0.9949-0.0294=0.9655\]</span></p>
+<p>Para trabajar sobre cualquier variable <span class="math inline">\(X\)</span> que se distribuya normal y obtener sus probabilidades, es necesario hacer el proceso que se denomina estandarización:</p>
+<p><span class="math display">\[Z=\frac{X-\mu}{\sigma}\]</span>
+Así, <span class="math inline">\(Z\sim N(0,1)\)</span>.</p>
+<p>Ejemplo, sea <span class="math inline">\(X\)</span> que se distribuye como una <strong>normal</strong> con media <span class="math inline">\(\mu=24\)</span> y desviación estándar de <span class="math inline">\(\sigma=4\)</span>, calcular las probabilidades:</p>
+<p><span class="math display">\[P(X&lt;30)=P\left(\frac{X-\mu}{\sigma} &lt; \frac{30-24}{4} \right)=P(Z&lt;1.5)=\phi(1.5)=0.9332\]</span>
+<span class="math display">\[P(X&gt;29)=P(Z&gt;1.25)=1-\phi(1.25)=1-0.8944=0.1056\]</span>
+<span class="math display">\[P(20&lt;X&lt;31)=P\left(\frac{20-24}{4} &lt;\frac{X-\mu}{\sigma} &lt;\frac{31-24}{4} \right)=P(-1&lt;Z&lt;1.75)=\]</span></p>
+<p><span class="math display">\[=\phi(1.75)-\phi(-1)=0.9599-0.1587=0.8012\]</span></p>
+<blockquote>
+<p>Ejercicio, sea X la altura en centimetros de un grupo de estudiantes, de tal forma que esta altura de distribuye de forma normal, con media 164 y desviación estándar de 10:</p>
+</blockquote>
+<ul>
+<li>si se elige un estudiante al azar, calcular la probabilidad que este estudiante tenga una altura mayor a 170.</li>
+<li>Suponer que existen 60 estudiantes, estimar cuántos estudiantes tendrán una altura entre 160 y 170</li>
+</ul>
+<p>Solución, <span class="math inline">\(X\sim N(\mu=164,\sigma=10)\)</span></p>
+<p><span class="math display">\[P(X&gt;170)=P(Z&gt;0.6)=1-\phi(0.6)=1-0.7257=0.2743\]</span></p>
+<p><span class="math display">\[P(160&lt;X&lt;170)=P(-0.4&lt;Z&lt;0.6)=\phi(0.6)-\phi(-04)=\]</span>
+<span class="math display">\[=0.7257- 0.3446=0.3811\]</span></p>
+<p>Qué pasara con 60 estudiantes? <span class="math inline">\(n*Pr(.)\)</span></p>
+<p><span class="math display">\[n*P(160&lt;X&lt;170)=60*0.3811=22.866\approx 23\]</span></p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">
