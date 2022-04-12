@@ -1,0 +1,66 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Muestreo y estimaciones
+
+## Conceptos 
+
+  - **Población (universo)** ($U$): La colección completa de los elementos de interés.
+  - **Muestra** ($s$): Un subcobjunto de la población de interés o el universo.
+  
+$$s \subset U$$
+
+  - **Muestreo**: El mecanismo utilizado para extraer la muestra del universo, en la estadística se valora principalmente a un **mecanismo aleatorio**, esto debido a las propiedades que este genera (*Muestra valida estadísticamente*).
+  - **Inferencia**: Es un área de la estadística que busca a partir de una muestra estadísticamente valida *describir* a la población de estudio. Mediante la inferencia descriptiva, inferencia predictiva y la inferencia causal. 
+  - **Parámetro**: Una función sobre la población
+  
+$$\theta=f(U,X)$$
+
+  - **Estadística:** Una función sobre la muestra
+  
+$$Estadística=f(s,X)$$
+
+  - **Estimador**: Es una estadística, que tiene el objetivo de aproximar a un parámetro
+  
+$$\hat{\theta}=f(s,X)$$  
+  
+Ejemplo.
+
+En una población de estudiantes de tamaño $N=10$, se tiene el gasto en transporte a la universidad en un día común. Se extrae una muestra de tamaño 4, proponer estimadores para el total del gasto en transporte.
+
+
+```{r}
+x<-c(2,4,5,5,2,10,15,7,4,2)
+sum(x)#parámetro del total
+
+s<-sample(x,4)
+s<-c(5,5,2,7)
+
+s2<-sample(x,4)
+s2<-c(10,5,5,15)
+```
+
+$$\hat{\theta}_1=\sum_s x_i+n*N =5+5+2+7+40=\{59,75\}$$
+
+$$\hat{\theta}_2=n\sum_{s,<>}x_i=(5+2+7)*4=\{56,120\}$$
+
+$$\hat{\theta}_3=\frac{1}{x_{max}}\prod_s x_i= \frac{5*5*2*7}{7}=\{50,250\}$$
+$$\hat{\theta}_4=\frac{N\sum_s x_i}{n}=\frac{10*(5+5+2+7)}{4}=\{47.5,87.5\}$$
+
+> ¿Cuántas muestras posibles se pueden construir en el ejercicio anterior?
+
+Si las muestras son sin reposición la cantidad de muestras posibles es determinada por:
+
+$$NCn=10C4=\frac{10!}{6!*4!}=210$$
+
+```{r}
+combn(x,4)
+```
+
+## Distribuciones muestrales
+
+Es la forma o el comportamiento de las muestras posibles respecto algún estimador, su importancia se debe a la posibilidad de estudiar el fenómeno completo e identificar patrones.
+
+

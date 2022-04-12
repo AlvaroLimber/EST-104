@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Distribución normal | Estadística</title>
+  <title>4 Muestreo y estimaciones | Estadística</title>
   <meta name="description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Distribución normal | Estadística" />
+  <meta property="og:title" content="4 Muestreo y estimaciones | Estadística" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="github-repo" content="alvarolimber/EST-104" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Distribución normal | Estadística" />
+  <meta name="twitter:title" content="4 Muestreo y estimaciones | Estadística" />
   
   <meta name="twitter:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="probabilidad-y-distribuciones-de-variables-aleatorias.html"/>
-<link rel="next" href="muestreo-y-estimaciones.html"/>
+<link rel="prev" href="distribución-normal.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -250,56 +250,266 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="distribución-normal" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">3</span> Distribución normal<a href="distribución-normal.html#distribución-normal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><span class="math display">\[f(x)=\frac{1}{\sigma \sqrt{2\pi}} e^{-\left(\frac{x-\mu}{\sigma}\right)^2}\]</span></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="distribución-normal.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">20</span>,<span class="dv">5</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">40</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<div id="distribución-normal-estándar" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Distribución normal estándar<a href="distribución-normal.html#distribución-normal-estándar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sea</p>
-<p><span class="math display">\[Z\sim N(\mu=0,\sigma=1)=N(0,1)\]</span>
-Entonces, se dice que <span class="math inline">\(Z\)</span> se distribuye como una normal estándar. Con su función de densidad:</p>
-<p><span class="math display">\[f(z)=\frac{1}{\sqrt{2\pi}} e^{-z^2}\]</span></p>
-<p>Se recurre a la normal estándar debido a que existen tablas de probabilidad construidas para esta, ya que la integración convencional de la función <span class="math inline">\(f(z)\)</span> no es directa.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="distribución-normal.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">main=</span><span class="st">&quot;Normal estándar&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
-<p><span class="math display">\[P(Z&lt;0)=0.5\]</span></p>
-<p>El uso de la tabla: la tabla devuelve las probabilidades acumuladas hasta un punto <span class="math inline">\(t\)</span></p>
-<p><span class="math display">\[P(Z&lt;t)=\phi(t)\]</span></p>
-<p><span class="math display">\[P(Z&lt;1.5)=\phi(1.5)=0.9332\]</span></p>
-<p><span class="math display">\[P(Z&lt;0.5)=\phi(0.5)=0.6915\]</span></p>
-<p><span class="math display">\[P(Z&lt;-0.76)=\phi(-0.76)=0.2236\]</span>
-<span class="math display">\[P(Z&lt; -1.56)=\phi(-1.56)=0.0594\]</span></p>
-<p><span class="math display">\[P(Z&lt; 2.89)=\phi(2.89)=0.9981\]</span></p>
-<p>Cuando se pide este tipo de probabilidades:</p>
-<p><span class="math display">\[P(Z&gt;t)=1-P(Z\leq t)=1-\phi(t)\]</span>
-<span class="math display">\[P(a&lt;Z&lt;b)=\phi(b)-\phi(a), \quad b&gt;a\]</span></p>
-<p><span class="math display">\[P(Z&gt;1.87)=1-\phi(1.87)=1-0.9693=0.0307\]</span></p>
-<p><span class="math display">\[P(Z&gt;1.5)=1-\phi(1.5)=1-0.9332=0.0668\]</span>
-<span class="math display">\[P(-1.89&lt;Z&lt;2.57)=\phi(2.57)-\phi(-1.89)=0.9949-0.0294=0.9655\]</span></p>
-<p>Para trabajar sobre cualquier variable <span class="math inline">\(X\)</span> que se distribuya normal y obtener sus probabilidades, es necesario hacer el proceso que se denomina estandarización:</p>
-<p><span class="math display">\[Z=\frac{X-\mu}{\sigma}\]</span>
-Así, <span class="math inline">\(Z\sim N(0,1)\)</span>.</p>
-<p>Ejemplo, sea <span class="math inline">\(X\)</span> que se distribuye como una <strong>normal</strong> con media <span class="math inline">\(\mu=24\)</span> y desviación estándar de <span class="math inline">\(\sigma=4\)</span>, calcular las probabilidades:</p>
-<p><span class="math display">\[P(X&lt;30)=P\left(\frac{X-\mu}{\sigma} &lt; \frac{30-24}{4} \right)=P(Z&lt;1.5)=\phi(1.5)=0.9332\]</span>
-<span class="math display">\[P(X&gt;29)=P(Z&gt;1.25)=1-\phi(1.25)=1-0.8944=0.1056\]</span>
-<span class="math display">\[P(20&lt;X&lt;31)=P\left(\frac{20-24}{4} &lt;\frac{X-\mu}{\sigma} &lt;\frac{31-24}{4} \right)=P(-1&lt;Z&lt;1.75)=\]</span></p>
-<p><span class="math display">\[=\phi(1.75)-\phi(-1)=0.9599-0.1587=0.8012\]</span></p>
-<blockquote>
-<p>Ejercicio, sea X la altura en centimetros de un grupo de estudiantes, de tal forma que esta altura de distribuye de forma normal, con media 164 y desviación estándar de 10:</p>
-</blockquote>
+<div id="muestreo-y-estimaciones" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Muestreo y estimaciones<a href="muestreo-y-estimaciones.html#muestreo-y-estimaciones" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="conceptos-1" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Conceptos<a href="muestreo-y-estimaciones.html#conceptos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>si se elige un estudiante al azar, calcular la probabilidad que este estudiante tenga una altura mayor a 170.</li>
-<li>Suponer que existen 60 estudiantes, estimar cuántos estudiantes tendrán una altura entre 160 y 170</li>
+<li><strong>Población (universo)</strong> (<span class="math inline">\(U\)</span>): La colección completa de los elementos de interés.</li>
+<li><strong>Muestra</strong> (<span class="math inline">\(s\)</span>): Un subcobjunto de la población de interés o el universo.</li>
 </ul>
-<p>Solución, <span class="math inline">\(X\sim N(\mu=164,\sigma=10)\)</span></p>
-<p><span class="math display">\[P(X&gt;170)=P(Z&gt;0.6)=1-\phi(0.6)=1-0.7257=0.2743\]</span></p>
-<p><span class="math display">\[P(160&lt;X&lt;170)=P(-0.4&lt;Z&lt;0.6)=\phi(0.6)-\phi(-04)=\]</span>
-<span class="math display">\[=0.7257- 0.3446=0.3811\]</span></p>
-<p>Qué pasara con 60 estudiantes? <span class="math inline">\(n*Pr(.)\)</span></p>
-<p><span class="math display">\[n*P(160&lt;X&lt;170)=60*0.3811=22.866\approx 23\]</span></p>
+<p><span class="math display">\[s \subset U\]</span></p>
+<ul>
+<li><strong>Muestreo</strong>: El mecanismo utilizado para extraer la muestra del universo, en la estadística se valora principalmente a un <strong>mecanismo aleatorio</strong>, esto debido a las propiedades que este genera (<em>Muestra valida estadísticamente</em>).</li>
+<li><strong>Inferencia</strong>: Es un área de la estadística que busca a partir de una muestra estadísticamente valida <em>describir</em> a la población de estudio. Mediante la inferencia descriptiva, inferencia predictiva y la inferencia causal.</li>
+<li><strong>Parámetro</strong>: Una función sobre la población</li>
+</ul>
+<p><span class="math display">\[\theta=f(U,X)\]</span></p>
+<ul>
+<li><strong>Estadística:</strong> Una función sobre la muestra</li>
+</ul>
+<p><span class="math display">\[Estadística=f(s,X)\]</span></p>
+<ul>
+<li><strong>Estimador</strong>: Es una estadística, que tiene el objetivo de aproximar a un parámetro</li>
+</ul>
+<p><span class="math display">\[\hat{\theta}=f(s,X)\]</span></p>
+<p>Ejemplo.</p>
+<p>En una población de estudiantes de tamaño <span class="math inline">\(N=10\)</span>, se tiene el gasto en transporte a la universidad en un día común. Se extrae una muestra de tamaño 4, proponer estimadores para el total del gasto en transporte.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="muestreo-y-estimaciones.html#cb87-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">7</span>,<span class="dv">4</span>,<span class="dv">2</span>)</span>
+<span id="cb87-2"><a href="muestreo-y-estimaciones.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(x)<span class="co">#parámetro del total</span></span></code></pre></div>
+<pre><code>## [1] 56</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="muestreo-y-estimaciones.html#cb89-1" aria-hidden="true" tabindex="-1"></a>s<span class="ot">&lt;-</span><span class="fu">sample</span>(x,<span class="dv">4</span>)</span>
+<span id="cb89-2"><a href="muestreo-y-estimaciones.html#cb89-2" aria-hidden="true" tabindex="-1"></a>s<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">7</span>)</span>
+<span id="cb89-3"><a href="muestreo-y-estimaciones.html#cb89-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-4"><a href="muestreo-y-estimaciones.html#cb89-4" aria-hidden="true" tabindex="-1"></a>s2<span class="ot">&lt;-</span><span class="fu">sample</span>(x,<span class="dv">4</span>)</span>
+<span id="cb89-5"><a href="muestreo-y-estimaciones.html#cb89-5" aria-hidden="true" tabindex="-1"></a>s2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">15</span>)</span></code></pre></div>
+<p><span class="math display">\[\hat{\theta}_1=\sum_s x_i+n*N =5+5+2+7+40=\{59,75\}\]</span></p>
+<p><span class="math display">\[\hat{\theta}_2=n\sum_{s,&lt;&gt;}x_i=(5+2+7)*4=\{56,120\}\]</span></p>
+<p><span class="math display">\[\hat{\theta}_3=\frac{1}{x_{max}}\prod_s x_i= \frac{5*5*2*7}{7}=\{50,250\}\]</span>
+<span class="math display">\[\hat{\theta}_4=\frac{N\sum_s x_i}{n}=\frac{10*(5+5+2+7)}{4}=\{47.5,87.5\}\]</span></p>
+<blockquote>
+<p>¿Cuántas muestras posibles se pueden construir en el ejercicio anterior?</p>
+</blockquote>
+<p>Si las muestras son sin reposición la cantidad de muestras posibles es determinada por:</p>
+<p><span class="math display">\[NCn=10C4=\frac{10!}{6!*4!}=210\]</span></p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="muestreo-y-estimaciones.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">combn</span>(x,<span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+## [1,]    2    2    2    2    2    2    2
+## [2,]    4    4    4    4    4    4    4
+## [3,]    5    5    5    5    5    5    5
+## [4,]    5    2   10   15    7    4    2
+##      [,8] [,9] [,10] [,11] [,12] [,13]
+## [1,]    2    2     2     2     2     2
+## [2,]    4    4     4     4     4     4
+## [3,]    5    5     5     5     5     5
+## [4,]    2   10    15     7     4     2
+##      [,14] [,15] [,16] [,17] [,18] [,19]
+## [1,]     2     2     2     2     2     2
+## [2,]     4     4     4     4     4     4
+## [3,]     2     2     2     2     2    10
+## [4,]    10    15     7     4     2    15
+##      [,20] [,21] [,22] [,23] [,24] [,25]
+## [1,]     2     2     2     2     2     2
+## [2,]     4     4     4     4     4     4
+## [3,]    10    10    10    15    15    15
+## [4,]     7     4     2     7     4     2
+##      [,26] [,27] [,28] [,29] [,30] [,31]
+## [1,]     2     2     2     2     2     2
+## [2,]     4     4     4     5     5     5
+## [3,]     7     7     4     5     5     5
+## [4,]     4     2     2     2    10    15
+##      [,32] [,33] [,34] [,35] [,36] [,37]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     5     5     5
+## [3,]     5     5     5     2     2     2
+## [4,]     7     4     2    10    15     7
+##      [,38] [,39] [,40] [,41] [,42] [,43]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     5     5     5
+## [3,]     2     2    10    10    10    10
+## [4,]     4     2    15     7     4     2
+##      [,44] [,45] [,46] [,47] [,48] [,49]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     5     5     5
+## [3,]    15    15    15     7     7     4
+## [4,]     7     4     2     4     2     2
+##      [,50] [,51] [,52] [,53] [,54] [,55]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     5     5     5
+## [3,]     2     2     2     2     2    10
+## [4,]    10    15     7     4     2    15
+##      [,56] [,57] [,58] [,59] [,60] [,61]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     5     5     5
+## [3,]    10    10    10    15    15    15
+## [4,]     7     4     2     7     4     2
+##      [,62] [,63] [,64] [,65] [,66] [,67]
+## [1,]     2     2     2     2     2     2
+## [2,]     5     5     5     2     2     2
+## [3,]     7     7     4    10    10    10
+## [4,]     4     2     2    15     7     4
+##      [,68] [,69] [,70] [,71] [,72] [,73]
+## [1,]     2     2     2     2     2     2
+## [2,]     2     2     2     2     2     2
+## [3,]    10    15    15    15     7     7
+## [4,]     2     7     4     2     4     2
+##      [,74] [,75] [,76] [,77] [,78] [,79]
+## [1,]     2     2     2     2     2     2
+## [2,]     2    10    10    10    10    10
+## [3,]     4    15    15    15     7     7
+## [4,]     2     7     4     2     4     2
+##      [,80] [,81] [,82] [,83] [,84] [,85]
+## [1,]     2     2     2     2     2     4
+## [2,]    10    15    15    15     7     5
+## [3,]     4     7     7     4     4     5
+## [4,]     2     4     2     2     2     2
+##      [,86] [,87] [,88] [,89] [,90] [,91]
+## [1,]     4     4     4     4     4     4
+## [2,]     5     5     5     5     5     5
+## [3,]     5     5     5     5     5     2
+## [4,]    10    15     7     4     2    10
+##      [,92] [,93] [,94] [,95] [,96] [,97]
+## [1,]     4     4     4     4     4     4
+## [2,]     5     5     5     5     5     5
+## [3,]     2     2     2     2    10    10
+## [4,]    15     7     4     2    15     7
+##      [,98] [,99] [,100] [,101] [,102]
+## [1,]     4     4      4      4      4
+## [2,]     5     5      5      5      5
+## [3,]    10    10     15     15     15
+## [4,]     4     2      7      4      2
+##      [,103] [,104] [,105] [,106] [,107]
+## [1,]      4      4      4      4      4
+## [2,]      5      5      5      5      5
+## [3,]      7      7      4      2      2
+## [4,]      4      2      2     10     15
+##      [,108] [,109] [,110] [,111] [,112]
+## [1,]      4      4      4      4      4
+## [2,]      5      5      5      5      5
+## [3,]      2      2      2     10     10
+## [4,]      7      4      2     15      7
+##      [,113] [,114] [,115] [,116] [,117]
+## [1,]      4      4      4      4      4
+## [2,]      5      5      5      5      5
+## [3,]     10     10     15     15     15
+## [4,]      4      2      7      4      2
+##      [,118] [,119] [,120] [,121] [,122]
+## [1,]      4      4      4      4      4
+## [2,]      5      5      5      2      2
+## [3,]      7      7      4     10     10
+## [4,]      4      2      2     15      7
+##      [,123] [,124] [,125] [,126] [,127]
+## [1,]      4      4      4      4      4
+## [2,]      2      2      2      2      2
+## [3,]     10     10     15     15     15
+## [4,]      4      2      7      4      2
+##      [,128] [,129] [,130] [,131] [,132]
+## [1,]      4      4      4      4      4
+## [2,]      2      2      2     10     10
+## [3,]      7      7      4     15     15
+## [4,]      4      2      2      7      4
+##      [,133] [,134] [,135] [,136] [,137]
+## [1,]      4      4      4      4      4
+## [2,]     10     10     10     10     15
+## [3,]     15      7      7      4      7
+## [4,]      2      4      2      2      4
+##      [,138] [,139] [,140] [,141] [,142]
+## [1,]      4      4      4      5      5
+## [2,]     15     15      7      5      5
+## [3,]      7      4      4      2      2
+## [4,]      2      2      2     10     15
+##      [,143] [,144] [,145] [,146] [,147]
+## [1,]      5      5      5      5      5
+## [2,]      5      5      5      5      5
+## [3,]      2      2      2     10     10
+## [4,]      7      4      2     15      7
+##      [,148] [,149] [,150] [,151] [,152]
+## [1,]      5      5      5      5      5
+## [2,]      5      5      5      5      5
+## [3,]     10     10     15     15     15
+## [4,]      4      2      7      4      2
+##      [,153] [,154] [,155] [,156] [,157]
+## [1,]      5      5      5      5      5
+## [2,]      5      5      5      2      2
+## [3,]      7      7      4     10     10
+## [4,]      4      2      2     15      7
+##      [,158] [,159] [,160] [,161] [,162]
+## [1,]      5      5      5      5      5
+## [2,]      2      2      2      2      2
+## [3,]     10     10     15     15     15
+## [4,]      4      2      7      4      2
+##      [,163] [,164] [,165] [,166] [,167]
+## [1,]      5      5      5      5      5
+## [2,]      2      2      2     10     10
+## [3,]      7      7      4     15     15
+## [4,]      4      2      2      7      4
+##      [,168] [,169] [,170] [,171] [,172]
+## [1,]      5      5      5      5      5
+## [2,]     10     10     10     10     15
+## [3,]     15      7      7      4      7
+## [4,]      2      4      2      2      4
+##      [,173] [,174] [,175] [,176] [,177]
+## [1,]      5      5      5      5      5
+## [2,]     15     15      7      2      2
+## [3,]      7      4      4     10     10
+## [4,]      2      2      2     15      7
+##      [,178] [,179] [,180] [,181] [,182]
+## [1,]      5      5      5      5      5
+## [2,]      2      2      2      2      2
+## [3,]     10     10     15     15     15
+## [4,]      4      2      7      4      2
+##      [,183] [,184] [,185] [,186] [,187]
+## [1,]      5      5      5      5      5
+## [2,]      2      2      2     10     10
+## [3,]      7      7      4     15     15
+## [4,]      4      2      2      7      4
+##      [,188] [,189] [,190] [,191] [,192]
+## [1,]      5      5      5      5      5
+## [2,]     10     10     10     10     15
+## [3,]     15      7      7      4      7
+## [4,]      2      4      2      2      4
+##      [,193] [,194] [,195] [,196] [,197]
+## [1,]      5      5      5      2      2
+## [2,]     15     15      7     10     10
+## [3,]      7      4      4     15     15
+## [4,]      2      2      2      7      4
+##      [,198] [,199] [,200] [,201] [,202]
+## [1,]      2      2      2      2      2
+## [2,]     10     10     10     10     15
+## [3,]     15      7      7      4      7
+## [4,]      2      4      2      2      4
+##      [,203] [,204] [,205] [,206] [,207]
+## [1,]      2      2      2     10     10
+## [2,]     15     15      7     15     15
+## [3,]      7      4      4      7      7
+## [4,]      2      2      2      4      2
+##      [,208] [,209] [,210]
+## [1,]     10     10     15
+## [2,]     15      7      7
+## [3,]      4      4      4
+## [4,]      2      2      2</code></pre>
+</div>
+<div id="distribuciones-muestrales" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Distribuciones muestrales<a href="muestreo-y-estimaciones.html#distribuciones-muestrales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Es la forma o el comportamiento de las muestras posibles respecto algún estimador, su importancia se debe a la posibilidad de estudiar el fenómeno completo e identificar patrones.</p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Gentleman, Robert, Kurt Hornik, and Giovanni G Parmigiani. 2008. <em><span class="nocase">Biostatistics with R</span></em>. <a href="https://doi.org/10.1007/978-0-387-78171-6">https://doi.org/10.1007/978-0-387-78171-6</a>.
+</div>
+<div class="csl-entry">
+Jerrold, Zar. 2010. <span>“<span>Biostatistical Analysis</span>.”</span>
+</div>
+<div class="csl-entry">
+Lawrence L., Kupper, Brian Neelon H., and Sean Obrien M. 2011. <span>“<span class="nocase">Exercises and Solutions in Biostatistical Theory</span>.”</span>
+</div>
+<div class="csl-entry">
+Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis Using R: A Practical Guide</span></em>. <a href="https://doi.org/10.1002/9781444319620">https://doi.org/10.1002/9781444319620</a>.
+</div>
+<div class="csl-entry">
+Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -307,8 +517,8 @@ Así, <span class="math inline">\(Z\sim N(0,1)\)</span>.</p>
           </div>
         </div>
       </div>
-<a href="probabilidad-y-distribuciones-de-variables-aleatorias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="muestreo-y-estimaciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distribución-normal.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

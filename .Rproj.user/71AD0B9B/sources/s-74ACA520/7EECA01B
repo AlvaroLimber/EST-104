@@ -1,0 +1,28 @@
+{
+    "id": "7EECA01B",
+    "path": "~/GitHub/EST-104/3_estimaciones.Rmd",
+    "project_path": "3_estimaciones.Rmd",
+    "type": "r_markdown",
+    "hash": "946150873",
+    "contents": "",
+    "dirty": false,
+    "created": 1649773182332.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "63,146",
+        "scrollLine": "52",
+        "chunk_output_type": "console"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1649779132,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1649779132874,
+    "read_only": false,
+    "read_only_alternatives": []
+}
