@@ -45,3 +45,11 @@ distribución-normal-estándar
 muestreo-y-estimaciones
 conceptos-1
 distribuciones-muestrales
+media
+diferencia-de-medias
+proporción
+teorema-del-limite-central
+distribución-muestral-de-la-media-para-muestras-de-30-o-más
+intervalo-de-confianza-límites-de-confianza
+pruebas-de-hipótesis
+prueba-de-hipótesis-para-la-media
