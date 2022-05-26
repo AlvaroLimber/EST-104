@@ -1,0 +1,48 @@
+# Relación entre dos más variables 
+
+Hasta el tema 3 todo el análisis estaba concentrado en el estudio de una sola variable, sus características, como resumirle, como aproximarla mediante una muestra aleatoria. En esta apartado ahora se estudiara el comportamiento simultaneo de 2 o más variables.
+
+La importancia de estudiar el comportamiento de dos o más variables radica en que las unidades de análisis son unidades que presentan múltiples características y comprender como estas se relacionan ayuda a un mejor análisis estadístico.  
+
+Existen varios métodos que permiten enteder la relación que existe entre las variables, desde métodos muy simples que solo describen la relación, hasta métodos más complejos que permiten predecir el comportamiento de una variable usando a otra. 
+
+Alguno de estos métodos son:
+
+  * *Correlación o covarianza*: Permite medir la relación (lineal) entre 2 variables cuantitativas 
+  * *Tablas de contigencia* (test de independencia, chi-cuadrado): Permite medir la relación entre 2 variables cualitativas, es posible trabajar con una relación mixta (cuanti-cuali)
+  * Diseño experimental: Plantea identificar el efecto causal de una variable sobre otro, mediante la realización de un experimento basado en asignaciones aleatorias. 
+  * *Regresiones*: es un método que permite entender como una variable $Y$ es afectada por otras variables $X_1,X_2, \ldots$. 
+    + Regresión simple (2 variables) (Y cuanti, X mixta)
+    + Regresión múltiple (2 o más variables) (Y cuanti, X mixta)
+    + Regresión de respuesta binaria: Probit, Logit (Y binaria, X Mixtas)
+    + Regresión de respuesta discreta: Poisson (Y discreta, X mixta)
+    + Regresión multinivel. 
+  * Métodos multivariantes (Minería de datos/Machine learning)
+    + Reducción de variables, componentes principales
+    + Agrupamiento
+    + Clasificación
+    + Minería de texto
+    + Regresión
+
+## Correlación versus Causalidad
+
+  * Diferencia entre correlación y causalidad
+    - Correlación no implica causalidad
+    - La causalidad busca entender de forma clara la causa y efecto entre dos variables $X\rightarrow Y \leftarrow Z \leftarrow W$
+  * Métodos estadísticos para identificar la causalidad
+    - *Diseños experimentales:* Poblaciones altamente controladas (laboratorio) 
+    - Diseños cuasi-experimentales: No cuenta con mucho control sobre la población de interés
+      * Diferencia en diferencia
+      * Regresión discontinua
+      * Variables instrumentales
+      * Emparejamiento
+    - Métodos estructurales. (Modelar la varianza de los datos)
+  * Ejemplos de interés sobre causalidad en Biología
+    - Dietas sobre animales, hábitos basados en juegos
+    - Tratamiento vinculado a cultivos. (Fertilizantes, tipo de riego, variedad del cultivo, etc)
+    
+## Covarianza y Correlacion 
+
+## Tablas de contigencia 
+
+## Aplicación de una Regresión en R

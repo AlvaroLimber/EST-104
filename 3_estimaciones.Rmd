@@ -409,10 +409,309 @@ Al momento de tomar una decisión con base al estadístico de prueba y las regio
   * Error de tipo I: ($\alpha$) también conocido como un falso positivo. Rechazar algo verdadero
   * Error de tipo II: ($\beta$) también conocido como falso negativo. Aceptando algo falso
   
+### Pasos para una prueba de hipótesis
+
+  1. Establecer la hipótesis nula ($H_0$) y la hipótesis alternativa ($H_1$, $H_A$). La $H_A$ puede ser de dos o una cola
+  2. Definir el nivel de significancia $\alpha$. (el tamaño de la región de rechazo)
+  3. Recolectar los datos de la muestra y calcular el estadístico de prueba ($Z$).
+  4. Comparar el estadístico de prueba según las regiones críticas, esto es, la región de aceptación y la región de rechazo
+    + $Z \in RA \rightarrow \sim RH_0 (AH_0)$
+    + $Z \notin RA \rightarrow RH_0$
+  5. Calcular el P-valor. "La probabilidad que la hipótesis nula sea verdadera". Tradicionalmente:
+    + $P-valor>\alpha \rightarrow \sim RH_0 (AH_0)$
+    + $P-valor<\alpha \rightarrow RH_0$
+  6. Calcular el intervalo de confianza del parámetro de estudio
+  7. Realizar las conclusiones respectivas y analizar los resultados.
+  
 ### Prueba de hipótesis para la media 
 
+Vamos a suponer que los datos de interés se distribuyen como una normal o al menos que el tamaño de muestra ($n$), de la muestra aleatoria para el estadístico de prueba es *grande*. Por lo tanto es posible utilizar el teorema del limite central. Existen dos variaciones de la prueba de hipótesis sobre la media; cuando **se conoce la varianza** y cuando **no se conoce la varianza** de los datos ($\sigma^2$). 
+
+#### Con varianza $\sigma^2$ conocida
+
+  1. Hipótesis
+  
+$$H_0: \mu=\mu_0$$
+
+$$H_A: \mu \neq \mu_0$$
+  2. *Nivel de significancia:* Este es $\alpha$ y el tipo de prueba dado la $H_A$ es bilateral o de dos colas, esto significa que existen dos regiones de rechazo, cada región de tamaño $\alpha/2$
+  3. *Estadístico de prueba:* Se cuenta con una muestra aleatoria ($X_1,X_2,\ldots,X_n$) estas son independientes e idénticamente distribuidas. La estadística de prueba es:
+  
+$$Z_0=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$  
+Si la hipótesis nula es cierta entonces se puede garantizar que $Z_0\sim N(0,1)$, esto significa que: 
+
+$$E[\bar{x}]=\mu=\mu_0$$
+  4. *Regiones de aceptación y rechazo:* dependen del nivel de significancia $\alpha$
+  
+```{r}
+# alpha=0.1 (10%)
+curve(dnorm(x),xlim = c(-4,4),main="Significancia al 10%")
+abline(v=c(-1.64,1.64),col="red",lty=2)
+text(c(-3.5,0,3.5),rep(0.2,3),c("Rechazo","Aceptación","Rechazo"))
+# alpha=0.05 (5%)
+curve(dnorm(x),xlim = c(-4,4),main="Significancia al 5%")
+abline(v=c(-1.96,1.96),col="red",lty=2)
+text(c(-3.5,0,3.5),rep(0.2,3),c("Rechazo","Aceptación","Rechazo"))
+# alpha=0.01 (1%)
+curve(dnorm(x),xlim = c(-4,4),main="Significancia al 1%")
+abline(v=c(-2.58,2.58),col="red",lty=2)
+text(c(-3.5,0,3.5),rep(0.2,3),c("Rechazo","Aceptación","Rechazo"))
+```
+  
+  * La decisión; Se rechaza la $H_0$ cuando:
+  
+$$Z_0> Z_{\alpha/2} \quad ó \quad Z_0< -Z_{\alpha/2}$$  
+
+Los valores más usuales para el $Z_{\alpha/2}$ son:
+
+  * al 10% de significancia $Z_{\alpha/2}=Z_{0.05}=1.64$
+  * al 5% de significancia $Z_{\alpha/2}=Z_{0.025}=1.96$
+  * al 1% de significancia $Z_{\alpha/2}=Z_{0.005}=2.58$
+  
+> Ejercicio, se tiene un curso de estadística con su evaluación final sobre 100 puntos, se sabe por información pasada que la desviación estándar es alrededor de 10 pts. Se debe probar la hipótesis que el grupo tiene una nota promedio de 65 pts, tomar un nivel de significancia del 5%. Para realizar la prueba se obtuvo una muestra de 20 estudiantes, con las siguientes mediciones:
+
+```{r}
+set.seed(905)
+x<-round(runif(20,45,75))
+x
+```
+
+$$H_0: \mu= 65$$
+$$H_A: \mu\neq 65$$  
+  
+$$Z_0=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}=\frac{61.5-65}{\frac{10}{\sqrt{20}}}=-1.565$$
+La decisión, si se cumple alguna de las siguientes desigualdades se rechaza la hipótesis nula:
+
+$$-1.565> 1.96 (F) \quad ó \quad -1.565< -1.96 (F)$$
+
+Por lo tanto, no se rechaza la hipótesis nula. De manera gráfica:
+
+```{r}
+# alpha=0.05 (5%)
+curve(dnorm(x),xlim = c(-4,4),main="Significancia al 5%")
+abline(v=c(-1.96,1.96),col="red",lty=2)
+text(c(-3.5,0,3.5),rep(0.2,3),c("Rechazo","Aceptación","Rechazo"))
+abline(v=-1.565,col="blue",lty=3)
+text(x=-1.565,y=0.05,"Z0")
+```
+
+##### Para pruebas unilaterales
+
+Se utiliza el mismo estadístico de prueba $Z_0$, lo que se modifica son las regiones críticas.
+
+$$H_A: \mu>\mu_0$$
+Se rechaza $H_0$ si:
+
+$$Z_0>Z_{\alpha}$$
+En el otro caso:
+
+$$H_A: \mu<\mu_0$$
+Se rechaza $H_0$ si:
+
+$$Z_0< -Z_{\alpha}$$
+Los valores mas usuales de $Z_\alpha$ para pruebas unilaterales son:
+
+  * 10% $Z_{0.1}=1.28$ 
+  * 5% $Z_{0.05}=1.64$
+  * 1% $Z_{0.01}=2.33$
+
+```{r}
+# "<"
+curve(dnorm(x),xlim = c(-4,4),main="Pruebas unilaterales <")
+abline(v=c(-1.28,-1.64,-2.33),col="red",lty=2)
+text(c(-3.5,2),rep(0.2,2),c("Rechazo","Aceptación"))
+text(c(-1.28,-1.64,-2.33),y=0.3,c("10%","5%","1%"),cex=0.8)
+
+# ">"
+curve(dnorm(x),xlim = c(-4,4),main="Pruebas unilaterales >")
+abline(v=c(1.28,1.64,2.33),col="red",lty=2)
+text(c(-2,3.5),rep(0.2,2),c("Aceptación","Rechazo"))
+text((-1)*c(-1.28,-1.64,-2.33),y=0.3,c("10%","5%","1%"),cex=0.8)
+```
+
+#### Con varianza desconocida
+
+Si el tamaño de muestra es mayor a 30, todo lo visto anteriormente se mantiene, el único cambio se da en el estadístico de prueba, donde en lugar de $\sigma$ se toma la variabilidad muestral ($\hat{S}$). Es decir:
+
+$$\sigma^2=\frac{\sum_U (x_i-\mu)^2}{N}$$
+
+$$\hat{S}^2=\frac{\sum_s (x_i-\bar{x})^2}{n-1}$$
+
+Esto implica que:
+
+$$Z_0=\frac{\bar{x}-\mu_0}{\frac{\hat{S}}{\sqrt{n}}}$$
+
+Si la muestra no es mayor a 30, podemos hacer un supuesto de normalidad y la aproximación para las regiones críticas se la trabaja con la distribución $t-student$
+
+```{r}
+curve(dnorm(x),xlim=c(-4,4),lwd=2)
+for(i in 1:30){
+curve(dt(x,i),xlim=c(-4,4),lty=2,col="red",add=T)
+}
+```
+
+Hasta ahora se tienen 3 casos para la prueba de hipótesis sobre la media.
+
+$$H_0: \mu=\mu_0$$
+
+  1. Cuando la varianza es conocida, se utiliza la distribución normal y el estadístico de prueba es:
+  
+$$Z_0=\frac{\bar{x}-\mu_0}{\frac{\sigma}{\sqrt{n}}}$$
+$$Z_0\sim N(0,1)$$
+Para: 
+
+$$H_A: \mu \neq\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 < -Z_{\alpha/2}\quad  ó \quad Z_0 > Z_{\alpha/2}$$
+
+$$H_A: \mu <\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 < -Z_{\alpha}$$
+
+$$H_A: \mu >\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 > Z_{\alpha}$$
+
+  2. Cuando la varianza es desconocida y la muestra es mayor a 30, se utiliza la distribución normal y el estadístico de prueba es:
+
+$$Z_0=\frac{\bar{x}-\mu_0}{\frac{\hat{S}}{\sqrt{n}}}$$
+
+$$Z_0\sim N(0,1)$$
+
+Para: 
+
+$$H_A: \mu \neq\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 < -Z_{\alpha/2}\quad  ó \quad Z_0 > Z_{\alpha/2}$$
+
+$$H_A: \mu <\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 < -Z_{\alpha}$$
+
+$$H_A: \mu >\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$Z_0 > Z_{\alpha}$$
 
 
+  3. Cuando la varianza es desconocida y la muestra es menor o igual a 30, se utiliza la distribución t-student y el estadístico de prueba es:
+  
+$$t_0=\frac{\bar{x}-\mu_0}{\frac{\hat{S}}{\sqrt{n}}}$$  
+
+$$t_0\sim t(v=n-1)$$
+
+Para: 
+
+$$H_A: \mu \neq\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$t_0 < -t_{\alpha/2,n-1}\quad  ó \quad t_0 > t_{\alpha/2,n-1}$$
+
+$$H_A: \mu <\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$t_0 < -t_{\alpha,n-1}$$
+
+$$H_A: \mu >\mu_0$$
+Se rechaza la $H_0$ cuando:
+
+$$t_0 > t_{\alpha,n-1}$$
+
+Ejemplo, Se tiene el peso en kilogramos de una muestra aleatoria de tamaño 5 de un determinado animal, estos datos son: 4.5, 6.7, 5.0, 4.0 y 6.1. Se piensa que estos animales tienen problemas de nutrición y se busca verificar esto mediante la muestra recolectada. Se acepta que existen problemas de nutrición si el peso es inferior a 4.2 kg. Realice la prueba de hipótesis correspondiente para verificar esto. 
+
+Solución,
+
+$$H_0: \mu=4.2 \quad ; \quad H_A: \mu<4.2$$
+
+$$t_0=\frac{\bar{x}-\mu_0}{\frac{\hat{S}}{\sqrt{n}}}=\frac{5.26-4.2}{\frac{1.12}{\sqrt{5}}}=2.12$$
+
+(Vamos a utilizar un nivel de significancia del 5%) Se rechaza la $H_0$ cuando la siguiente desigualdad se cumpla:
 
 
+$$2.12 < -t_{0.05,4}=-2.1318$$
 
+Por lo tanto, como no se cumple la desigualdad, se concluye que no existe evidencia estadística suficiente para rechazar la hipótesis nula. Esto implica que posiblemente la población de animales estudiados no tengan problemas de nutrición. 
+
+Ejercicio, Se considera que un determinado fruto esta maduro cuando su árbol supera la altura de 175 centímetros, para verificar si ya se puede cosechar la fruta se toma una muestra aleatoria de 7 árboles, teniendo los siguientes resultados:
+140, 200, 178, 167, 170, 180, 192. ¿Será que ya se puede realizar la cosecha?
+
+Solución,
+
+$$H_0: \mu=175 \quad ; \quad H_A: \mu>175$$
+
+$$t_0=\frac{\bar{x}-\mu_0}{\frac{\hat{S}}{\sqrt{n}}}=\frac{175.29-175}{\frac{19.41}{\sqrt{7}}}=0.0395$$
+
+Se rechaza la $H_0$ cuando se cumple la siguiente desigualdad:
+
+$$t_0 > t_{0.05,6}$$
+Suponiendo un $\alpha=0.05$ (5%)
+
+$$0.0395 > 1.9432 (F)$$
+Por lo tanto, como la desigualdad no se cumple; no es posible rechazar la hipótesis nula, esto implica que no se recomienda iniciar con la cosecha.
+
+### Tamaño de muestra a partir del margen de error
+
+Recordar el intervalo de confianza de la media:
+
+$$\bar{x} \pm z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\quad ; \quad \bar{x} \pm \epsilon$$
+
+Imaginemos que queremos controlar el ancho del intervalo de confianza, a ese ancho lo vamos a denominar margen de error ($\epsilon$), entonces:
+
+$$\epsilon=z_{\alpha/2}\frac{\sigma}{\sqrt{n}}$$
+
+Ahora, es posible delimitar a priori el margen de error, el nivel de confiabilidad y aproximar $\sigma$ con base a un estudio pasado o una prueba piloto. De esta forma es posible tener una formula para el tamaño de muestra $n$, en función de $\epsilon$, $z_{\alpha/2}$ y $\sigma$. Esta es:
+
+$$n=\left(\frac{z_{\alpha/2}* \sigma}{\epsilon}\right)^2\approx \left(\frac{z_{\alpha/2}* \hat{\sigma}}{\epsilon}\right)^2$$
+
+Ejemplo, para el caso de los árboles y la cosecha, calcular el tamaño de muestra necesario si se fija un margen de error de 5 cm, un nivel de confiabilidad del 95%, usar como aproximación de $\sigma$ el dato de los 7 árboles. 
+
+$$n= \left(\frac{z_{\alpha/2}* \hat{\sigma}}{\epsilon}\right)^2=\left(\frac{1.96* 19.41}{5}\right)^2=57.89\approx58$$
+
+### Tamaño de muestra a partir de los errores de tipo I y II
+
+Cuando se trabaja con tamaños de muestra basados en los errores de tipo I y II, se debe predefinir 3 aspectos:
+
+  * El tamaño del error de tipo I: $\alpha$, $0.01, 0.05, 0.1$
+  * El tamaño del error de tipo II: $\beta$, $0.1, 0.2$
+  * Efecto de tamaño: 
+
+$$\delta=|\mu_0-\mu_A|$$
+
+$$n=\left[\frac{\hat{\sigma} *(z_{\alpha}+z_\beta)}{\delta}\right]^2=\frac{\hat{\sigma}^2 *(z_{\alpha}+z_\beta)^2}{\delta^2}$$  
+Los valores más comunes:
+
+  * $z_{\alpha=0.05}=1.64$
+  * $z_{\alpha=0.01}=2.33$
+  * $z_{\alpha=0.1}=1.28$
+  * $z_{\beta=0.1}=1.28$
+  * $z_{\beta=0.2}=0.84$
+
+> Ejemplo
+
+¿Cuán grande debe ser el tamaño de muestra si de define un nivel de significancia del 5%, un error de tipo II del 10%, debiendo detectar una diferencia al promedio de al menos 1. Teniendo una varianza de 1.57.
+
+Solución, $\delta=1$
+
+$$n=\frac{\hat{\sigma}^2 *(z_{\alpha}+z_\beta)^2}{\delta^2}=\frac{1.57 *(1.64+1.28)^2}{1}=13.38\approx 14$$
+
+> Ejercicio
+
+Para el ejemplo de los árboles, se sabe que $\hat{\sigma}=19.41$, si se quiere obtener el tamaño de muestra necesario tomando en cuenta una distancia mínima de 5 centímetros. Calcular el tamaño de muestra necesario, tomar un $\alpha$ del 5% y un $\beta$ del 20%.
+
+$$n=\left[\frac{\hat{\sigma} *(z_{\alpha}+z_\beta)}{\delta}\right]^2=\left[\frac{19.41 *(1.64+0.84)}{5}\right]^2=92.69\approx 93$$
+
+  * $z_{\alpha=0.05}=1.64$
+  * $z_{\alpha=0.01}=2.33$
+  * $z_{\alpha=0.1}=1.28$
+  * $z_{\beta=0.1}=1.28$
+  * $z_{\beta=0.2}=0.84$
+
+$$n=\left[\frac{(z_{\alpha}+z_\beta)}{\frac{\delta}{\hat{\sigma}}}\right]^2$$
+
+$$EMD=\frac{\delta}{\hat{\sigma}}=\frac{|\mu_0-\mu_A|}{\hat{\sigma}}$$
+Se conoce como el efecto mínimo detectable, que mide la diferencia entre en términos de desviaciones estándar. Existen valores sugeridos para este EMD, varían de 0.15 a 0.25.
