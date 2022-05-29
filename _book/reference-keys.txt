@@ -61,6 +61,5 @@ tamaño-de-muestra-a-partir-del-margen-de-error
 tamaño-de-muestra-a-partir-de-los-errores-de-tipo-i-y-ii
 relación-entre-dos-más-variables
 correlación-versus-causalidad
-covarianza-y-correlacion
-tablas-de-contigencia
-aplicación-de-una-regresión-en-r
+covarianza-y-correlación
+relación-entre-variables-cualitativas

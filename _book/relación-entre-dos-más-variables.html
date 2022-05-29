@@ -23,7 +23,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-05-24" />
+<meta name="date" content="2022-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -251,9 +251,8 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html"><i class="fa fa-check"></i><b>5</b> Relación entre dos más variables<span></span></a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#correlación-versus-causalidad"><i class="fa fa-check"></i><b>5.1</b> Correlación versus Causalidad<span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#covarianza-y-correlacion"><i class="fa fa-check"></i><b>5.2</b> Covarianza y Correlacion<span></span></a></li>
-<li class="chapter" data-level="5.3" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#tablas-de-contigencia"><i class="fa fa-check"></i><b>5.3</b> Tablas de contigencia<span></span></a></li>
-<li class="chapter" data-level="5.4" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#aplicación-de-una-regresión-en-r"><i class="fa fa-check"></i><b>5.4</b> Aplicación de una Regresión en R<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#covarianza-y-correlación"><i class="fa fa-check"></i><b>5.2</b> Covarianza y Correlación<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="relación-entre-dos-más-variables.html"><a href="relación-entre-dos-más-variables.html#relación-entre-variables-cualitativas"><i class="fa fa-check"></i><b>5.3</b> Relación entre variables cualitativas<span></span></a></li>
 </ul></li>
 </ul>
 
@@ -326,14 +325,46 @@ div.csl-indent {
 </ul></li>
 </ul>
 </div>
-<div id="covarianza-y-correlacion" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Covarianza y Correlacion<a href="relación-entre-dos-más-variables.html#covarianza-y-correlacion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="covarianza-y-correlación" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Covarianza y Correlación<a href="relación-entre-dos-más-variables.html#covarianza-y-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Estas dos medidas son exclusivas cuando las variables de interés son ambas cuantitativas, la covarianza es una medida que mantiene las unidades de medida de los datos, mientras que la correlación es una medida relativa, es decir, carece de unidades de medida y también es acotada ya que se mueve entre -1 y 1.</p>
+<p>Sean las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, ambas variables cuantitativas (continuas o discretas), la covarianza en la población de interés se define como:</p>
+<p><span class="math display">\[\sigma_{xy}=\frac{\sum_U(x_i-\mu_{x})(y_i-\mu_{y})}{N}\]</span></p>
+<p>Como casi siempre se trabaja con muestras aleatorias, la covarianza muestral esta dada por:</p>
+<p><span class="math display">\[S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}\]</span></p>
+<p>Para la interpretación de la covarianza, notar que esta puede tomar valores positivos y negativos, en cuanto al valor que se obtenga, este depende de la naturaleza de los datos. La interpretación del valor de la covarianza no es tan útil, lo que que normalmente es su signo y cuando alcanza el cero:</p>
+<ul>
+<li><span class="math inline">\(S_{xy}&gt;0\)</span>: Esto implica que existe una relación directa, es decir, mientras una variable crece la otra también crece, una baja la otra también baja. Ej. La edad con la estatura hasta los 25 años.<br />
+</li>
+<li><span class="math inline">\(S_{xy}&lt;0\)</span>: La relación es opuesta/inversa, mientras una sube la otra baja y viceversa. La edad con la estatura a partir de una edad adulta mayor.</li>
+<li><span class="math inline">\(S_{xy}=0\)</span>: No existe una relación lineal</li>
+</ul>
+<p>Una medida más útil es la correlación, esta se define para la población como:</p>
+<p><span class="math display">\[r=\frac{\sigma_{xy}}{\sigma_x \sigma_y}\]</span></p>
+<p>Para la muestra:</p>
+<p><span class="math display">\[\rho=\frac{S_{xy}}{S_x S_y}\]</span>
+La interpretación respecto el signo, mantiene la idea de la covarianza. Pero ahora se puede interpretar el valor:</p>
+<ul>
+<li><span class="math inline">\(\rho \rightarrow 1\)</span> que la relación directa es muy fuerte</li>
+<li><span class="math inline">\(\rho \rightarrow -1\)</span> que la relación inversa es muy fuerte</li>
+<li><span class="math inline">\(\rho \rightarrow 0\)</span> existe una fuerte sospecha de independencia lineal (no existe relación lineal)</li>
+</ul>
 </div>
-<div id="tablas-de-contigencia" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Tablas de contigencia<a href="relación-entre-dos-más-variables.html#tablas-de-contigencia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-</div>
-<div id="aplicación-de-una-regresión-en-r" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Aplicación de una Regresión en R<a href="relación-entre-dos-más-variables.html#aplicación-de-una-regresión-en-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="relación-entre-variables-cualitativas" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Relación entre variables cualitativas<a href="relación-entre-dos-más-variables.html#relación-entre-variables-cualitativas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cuando ambas variables son cualitativas nominales</p>
+<p>En este caso se puede usar el coeficiente Chi-cuadrado:</p>
+<p><span class="math display">\[\chi^2 = \sum_{i=1}^p\sum_{j=1}^q \frac{\left(n_{ij}-\frac{n_{x_i}n_{y_j}}{n}\right)^2}{\frac{n_{x_i}n_{y_j}}{n}}=\sum_{fc}\frac{(O-E)^2}{E}\]</span>
+Se debe construir una tabla de contingencia.</p>
+<p>El valor que se obtenga no es muy útil para la interpretación, principalmente nos sirve para saber o sospechar de la no existencia de relación, esto sucede cuando el valor es cercano a 0. Sin embargo, una alternativa para interpretar el valor es el coeficiente de contingencia, que tiene la forma de:</p>
+<p><span class="math display">\[C = \sqrt{\frac{\chi^2}{\chi^2+n}}\]</span>
+Este coeficiente se define en:</p>
+<p><span class="math display">\[0\leq C &lt; 1\]</span>
+Donde si C es más cercano a 0 implica una falta de relación entre las variables y si es más cercano a 1 implica una relación fuerte.</p>
+<p>En realidad el máximo valor que puede alcanzar C es:</p>
+<p><span class="math display">\[C_{max}=\sqrt{\frac{k-1}{k}}, \quad k=min(\#filas, \# columnas)\]</span></p>
+<p>Tarea para el examen, Sperman-Ordinal</p>
+<p><span class="math display">\[r_s = 1-\frac{6\sum_s d_i^2}{n(n^2-1)}\]</span></p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">

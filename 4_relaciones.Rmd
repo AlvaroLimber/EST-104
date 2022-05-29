@@ -41,8 +41,59 @@ Alguno de estos métodos son:
     - Dietas sobre animales, hábitos basados en juegos
     - Tratamiento vinculado a cultivos. (Fertilizantes, tipo de riego, variedad del cultivo, etc)
     
-## Covarianza y Correlacion 
+## Covarianza y Correlación 
 
-## Tablas de contigencia 
+Estas dos medidas son exclusivas cuando las variables de interés son ambas cuantitativas, la covarianza es una medida que mantiene las unidades de medida de los datos, mientras que la correlación es una medida relativa, es decir, carece de unidades de medida y también es acotada ya que se mueve entre -1 y 1.
 
-## Aplicación de una Regresión en R
+Sean las variables $X$ e $Y$, ambas variables cuantitativas (continuas o discretas), la covarianza en la población de interés se define como:
+
+$$\sigma_{xy}=\frac{\sum_U(x_i-\mu_{x})(y_i-\mu_{y})}{N}$$
+
+Como casi siempre se trabaja con muestras aleatorias, la covarianza muestral esta dada por:
+
+$$S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}$$
+
+Para la interpretación de la covarianza, notar que esta puede tomar valores positivos y negativos, en cuanto al valor que se obtenga, este depende de la naturaleza de los datos. La interpretación del valor de la covarianza no es tan útil, lo que que normalmente es su signo y cuando alcanza el cero:
+
+  * $S_{xy}>0$: Esto implica que existe una relación directa, es decir, mientras una variable crece la otra también crece, una baja la otra también baja. Ej. La edad con la estatura hasta los 25 años.   
+  * $S_{xy}<0$: La relación es opuesta/inversa, mientras una sube la otra baja y viceversa. La edad con la estatura a partir de una edad adulta mayor. 
+  * $S_{xy}=0$:  No existe una relación lineal
+
+Una medida más útil es la correlación, esta se define para la población como:
+
+$$r=\frac{\sigma_{xy}}{\sigma_x \sigma_y}$$
+
+Para la muestra:
+
+$$\rho=\frac{S_{xy}}{S_x S_y}$$
+La interpretación respecto el signo, mantiene la idea de la covarianza. Pero ahora se puede interpretar el valor:
+
+  * $\rho \rightarrow 1$ que la relación directa es muy fuerte
+  * $\rho \rightarrow -1$ que la relación inversa es muy fuerte
+  * $\rho \rightarrow 0$ existe una fuerte sospecha de independencia lineal (no existe relación lineal)
+
+
+## Relación entre variables cualitativas
+
+Cuando ambas variables son cualitativas nominales
+
+En este caso se puede usar el coeficiente Chi-cuadrado:
+
+$$\chi^2 = \sum_{i=1}^p\sum_{j=1}^q \frac{\left(n_{ij}-\frac{n_{x_i}n_{y_j}}{n}\right)^2}{\frac{n_{x_i}n_{y_j}}{n}}=\sum_{fc}\frac{(O-E)^2}{E}$$
+Se debe construir una tabla de contingencia.
+
+El valor que se obtenga no es muy útil para la interpretación, principalmente nos sirve para saber o sospechar de la no existencia de relación, esto sucede cuando el valor es cercano a 0. Sin embargo, una alternativa para interpretar el valor es el coeficiente de contingencia, que tiene la forma de:
+
+$$C = \sqrt{\frac{\chi^2}{\chi^2+n}}$$
+Este coeficiente se define en:
+
+$$0\leq C < 1$$
+Donde si C es más cercano a 0 implica una falta de relación entre las variables y si es más cercano a 1 implica una relación fuerte.
+
+En realidad el máximo valor que puede alcanzar C es:
+
+$$C_{max}=\sqrt{\frac{k-1}{k}}, \quad k=min(\#filas, \# columnas)$$
+
+Tarea para el examen, Sperman-Ordinal
+
+$$r_s = 1-\frac{6\sum_s d_i^2}{n(n^2-1)}$$
