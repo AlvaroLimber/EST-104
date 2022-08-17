@@ -1,0 +1,114 @@
+# Introducción a la estadística y estadística descriptiva
+
+## Definición de la estadística
+
+> El arte de contar una historia con datos
+
+  * La información, los datos, son la fuente primaria para la estadística.
+  * La estadística  cubre los métodos, técnicas detrás de:
+    + **Recolección** de información
+    + **Procesar** la información (limpieza, depuración, coherencia, etc.)
+    + **Análisis** de la información
+    + **Visualización** de la información
+  * Es una ciencia transversal
+  
+> La estadística es la gramática de las ciencia
+> La estadística es la ciencia que estudia el error/azar
+
+## Aréas de las estadística
+
+  * Estadística descriptiva: **Describir** una población o una muestra
+  * Inferencia estadística: Realizar análisis de una población mediante una **muestra estadística**
+  * Inferencia causal: Explora o revela como una variable puede causar otra $Y \leftarrow X$
+  
+## Historia de la estadística
+
+  * **Censo:** En la antiguedad se listaba de forma completa una determinada población, con el fin de conocer características. (<1900)
+    + Censos población y vivienda; 2012, 2001, 1992, 1976, 1950, etc.
+    + **Muestra e inferencia:** Tiene el objetivo de explicar a una población mediante una muestra; probabilidad, variables aleatorias, los diseños experimentales (>1900)
+    + **Exploración de conocimiento:** Nace con la aparición y capacidad de los ordenadores/computadoras; Minería de datos, big data, machine learning, ciencia de datos. (>2000)
+
+> Problema 1: Cómo se puede contar(aproximar) la cantidad de hormigas en un hormiguero.
+> Problema 2: Cómo se puede contar(aproximar) la cantidad de árboles en Pura Pura.
+> Problema 3: Cómo se puede contar(aproximar) la cantidad de perros callejeros en El Alto
+
+## Mecanismos de recolección de información
+
+  * **Muestreo estadístico**: Es un sub conjunto de una población, sobre la cual se puede hacer inferencia, siempre y cuando la muestra sea obtenida mediante un proceso aleatorio. Un censo es un caso particular de un muestreo. $n=N$. Los resultados se pueden generalizar.
+  * **Estudios observacionales:** (estudios de caso/sondeo) Se trata de una muestra que fue seleccionada con un criterio definido por el investigador y que no tiene un componente de azar (Muestra intencionada/voluntaria). Los resultados no se pueden generalizar, son propios de la muestra definida. Se recomienda este tipo de estudios en poblacionés dificiles de acceder o vulnerables
+  * **Diseños experimentales:** Están dentro de la inferencia causal y tienen el objetivo de identificar el efecto de un tratamiento/intervención sobre una *población controlada*. Pueden tener componentes éticos. La particularidad principal de un experimento es que el tratamiento se asigna de forma aleatoria y anónima. 
+  
+Actividad (15 minutos)
+
+  * Indagar que tipo de poblaciones se estudian con más frecuencia en Biología en Carrera / Bolivia / Mundo
+  * Qué bases de datos existen Carrera/Bolivia vinculado a la Biología?.
+
+## Población y muestra
+
+$$U=\{u_1,u_2,\ldots, u_N \}$$
+$$s=\{u_1,u_2,\ldots, u_n \}$$
+
+$$s \subset U$$
+
+Donde normalmente $n\leq N$
+
+## Ámbitos de estudio
+
+  * Temporal (cuando)
+  * Espaciales (donde)
+  * Temáticos (que)
+
+## Tipos de unidades estadísticas
+
+  * investigación/análisis
+  * información
+  * muestreo (elementales/agregadas)
+
+## Tipos de variables
+
+  * Cualitativas (cualidad)
+    + Nominal (sin orden)
+    + Ordinal (orden)
+  * Cuantitativas (cantidad)
+    + Continua (no numerables)
+    + Discreta (numerable)
+    
+## Conteo, frecuencias y porcentajes
+
+### Tipos de ordenamiento de los datos
+
+  * Elementos simples (primitivos). Mejor alternativa
+  * Tabla de frecuencias simples
+  * Tabla de frecuencias en intervalos clases
+  
+### Conteo
+
+Simplemente se refiere al proceso de contar los elementos de similar característica
+
+### Frecuencias
+
+  * Frecuencia absoluta ($f_i$): Se refiere simplemente al proceso de conteo
+
+Si estamos trabajando sobre la muestra:
+  
+$$\sum_{i=1}^k f_i=n$$  
+Si estamos trabajando sobre el universo:
+  
+$$\sum_{i=1}^k f_i=N$$  
+
+  * Frecuencia absoluta acumulada ($F_i$)
+  
+$$F_j=\sum_{i=1}^j f_i$$
+  * Frecuencia relativa
+  
+$$r_i=\frac{f_i}{n} \quad Muestra; \quad r_i=\frac{f_i}{N} \quad Universo$$
+  * Porcentaje
+  
+$$r_i\%=r_i*100x$$  
+  
+  
+
+
+  
+
+

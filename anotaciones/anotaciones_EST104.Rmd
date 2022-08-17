@@ -1,0 +1,44 @@
+---
+title: "Estadística EST-104"
+author: "MSc. Alvaro Chirino Gutierrez"
+date: '2022-07-27'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Horario
+  
+  - Martes de 10:00 - 12:00 (aula 6)
+  - Miercoles de 17:00 - 19:00 (aula 6)
+
+# Temas
+
+  * Estadística descriptiva 
+  * Probabilidad 
+  * Muestreo 
+  * Principios de los diseños experimentales (Test hipótesis)
+
+# Libro Guía
+
+  * Bioestadística: Principios y Procedimientos. Robert G. D. Steel, James H. Torrie. Editorial McGraw Hill de México. (1-6, 10)
+
+# Herramientas
+
+  * Calculadora estudiantil 
+  * Regla 
+
+# Evaluación
+
+  * 30 Primer parcial  
+  * 30 Segundo Parcial
+  * 30 Final
+  * 10 Auxiliatura
+
+Mejorar su nota, siempre y cuando con la evaluación formal superen los 50  
+  
+  * 5 Tareas virtules
+  * 5 Práctica
+  * 10 Poster estadístico (grupal). Competencia Nacional. https://islp-bolivia.github.io/

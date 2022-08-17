@@ -63,3 +63,11 @@ relación-entre-dos-más-variables
 correlación-versus-causalidad
 covarianza-y-correlación
 relación-entre-variables-cualitativas
+medidas-de-tendencia-central-para-tablas-de-frecuencias-por-intervalo
+eventos-mutuamente-excluyentes
+total
+horario
+temas
+libro-guía
+herramientas
+evaluación
