@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Introducción a la estadística y estadística descriptiva
 
 ## Definición de la estadística
@@ -106,9 +111,148 @@ $$r_i=\frac{f_i}{n} \quad Muestra; \quad r_i=\frac{f_i}{N} \quad Universo$$
   
 $$r_i\%=r_i*100x$$  
   
+## Medidas de tendencia central
+
+Estas medidas son funciones que tienen el objetivo de resumir la información en un solo número "**Representante**". Esto permite rápidamente conocer las características de una variable en una determinada muestra o población
+
+Ejemplo:
+
+Sea la siguiente serie de números (edad):
+
+18 21 18 18 17 19 19 22 19 19 20 22 24 24 22 19 20 22 19 18 19 21
   
+¿Qué número es buen candidato a representar a este conjunto de números? ¿Por qué?
+
+  * 19 ya que es el que más se repite
+  * Promedio=20 ¿?
+  * 20 ya que esta al centro de todos
+  
+Típicamente hay tres medidas muy usuales para encontrar un representante:
+
+  * **Moda ($Mo$)**: Es el valor que más se repite, es posible que existan mas de una moda en un conjunto de datos. 
+  * **Mediana ($Me$)**: Es el valor que se encuentra en el centro de los datos ordenados, de tal forma que deja la misma cantidad de información a la derecha y a la izquierda
+  * **Media o promedio aritmético** ($\mu$ población, $\bar{Y}$ muestra)
+
+$$\mu=\frac{Y_1+Y_2+\ldots+ Y_N}{N}=\frac{\sum_{i=1}^N Y_i}{N}$$
+  
+$$\bar{Y}=\frac{Y_1+Y_2+\ldots+ Y_n}{n}=\frac{Y_1}{n}+\frac{Y_2}{n}+\ldots+\frac{Y_n}{n}=\frac{\sum_{i=1}^n Y_i}{n}$$
+Para calcular la mediana, se debe tener en cuenta si $n$ es par o es impar
+
+Ejemplo, calcular la mediana:
+
+  * 1 2 3 4 5 $Me=3$
+  * 1 2 3 4 5 6 $Me=3.5$
+
+De manera formal:
+
+Si $n$ es par, una vez ordenado los datos:
+
+$$Me=\frac{Y_{n/2}+Y_{n/2+1}}{2}$$
+Si $n$ es impar, una vez ordenado los datos:
+
+$$Me=Y_{||n/2||+1}$$
+Donde el símbolo $$||x||$$ representa la parte entera. Una alternativa a esta formula es:
+
+$$Me=Y_{\lceil n/2 \rceil}$$
+Donde el símbolo $$\lceil x \rceil$$ representa la función techo que exige un redondeo al entero inmediato.
+
+Para el ejemplo:
+
+```{r}
+y<-c(18, 21, 18, 18, 17, 19, 19, 22, 19, 19, 20, 22, 24, 24, 22, 19, 20, 22, 19, 18, 19, 21)
+sort(y)
+```
+
+  * $Mo=19$
+  * $Me=19$
+  
+$$Me=\frac{Y_{22/2}+Y_{22/2+1}}{2}=\frac{Y_{11}+Y_{12}}{2}=\frac{19+19}{2}=19$$
+  * $\bar{Y}=20$
+
+$$\bar{Y}=\frac{\sum_{i=1}^n Y_i}{n}=\frac{17+18+18+\ldots+24}{22}=\frac{440}{22}=20$$
+
+Debilidades de las medidas de tendencia central
+
+  * La moda no siempre se puede calcular
+  * La mediana puede no reflejar una buena representatividad cuando hay muchos datos cargados a los extremos. (2 2 2 2 20 80 80 80 80)
+  * La media es sensible a una fuerte variación en los datos
+  * La media es sensible a números atípicos (extremos). (5 5 5 5 5 5 500 $\bar{Y}=75$).
+  
+## Medidas de variabilidad
+
+### Rango:
+
+$$R=Max(y_i)-Min(y_i)$$
+### Varianza muestral:
+
+$$s^2=\frac{\sum_{i=1}^n(y_i-\bar{y})^2}{n-1}$$
+### Desviación estándar:
+
+$$s=\sqrt{s^2}$$
+### Varianza Poblacional:
+
+$$\sigma^2=\frac{\sum_{i=1}^N(y_i-\mu)^2}{N}$$
+
+### Formula corta de la varianza muestral
+
+$$s^2=\frac{\sum_{i=1}^n(y_i-\bar{y})^2}{n-1}=\frac{\sum_{i=1}^n y_i^2-n\bar{y}^2}{n-1}=\frac{SC}{gl}$$
+> Ejercicio: 
+
+Dada las siguientes edades de una muestra, calcular la media, mediana, moda, rango, varianza y desviación estándar:
+
+26 30 27 32 28 27 22 19 19 19 32 32 23 27 18
+
+  * Media:
+  
+$$\bar{y}=\frac{381}{15}=25.4$$  
+  * Mediana: 27
+  * Moda: 19, 27, 32
+  * Rango: 14
+  * Varianza: 25,83
+  * Desviación estándar: 5.08
+
+$$s^2=\frac{\sum_{i=1}^n y_i^2-n\bar{y}^2}{n-1}=\frac{10039-15*25.4^2}{15-1}=25.83$$
+
+Coeficiente de variación:
+
+$$cv(y)=\frac{s}{|\bar{y}|}$$
+Este coeficiente es una medida relativa, que nos sirve para entender cuan representativa es la media dentro del conjunto de datos. Normalmente esta medida se encuentra entre 0 y 1, pero es posible en algunos casos que supere la unidad. 
+
+  * Mientras el $cv$ sea más cercano a 0, significa baja variabilidad, por lo tanto, la media es un buen representante. 
+  * Por otro lado, si el $cv$ se acerca al 1 o lo sobre pasa implica una fuerte variabilidad, por lo tanto, la media no es un buen representante. 
+
+Ejemplo, en el ejercicio anterior:
+
+$$cv(y)=\frac{s}{|\bar{y}|}=\frac{5.08}{|25.4|}=\frac{5.08}{25.4}=0.2$$
+Se interpreta que la media es un buen representante en este conjunto de datos.
+
+Otra manera de interpretar al $cv$ es multiplicarlo por 100 y el valor obtenido se interpreta como el porcentaje de observaciones que no se sienten representado por la media.
+
+### Desviación media  
+
+### Medidas de dispersión para tablas de frecuencia
+
+### Algunas otras medidas de tendencia central
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-
+  
+  
 
