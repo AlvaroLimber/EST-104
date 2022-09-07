@@ -1,0 +1,73 @@
+# Probabilidades
+
+  + *Experimento aleatorio:* Proceso del cual no sabemos el resultado a menos que este experimento se realice. 
+  + *Espacio muestral:* Colección de los resultados posibles 
+  
+$$\Omega$$
+  + *Evento:* es un sub conjunto del espacio muestral. ($E$)
+  
+$$E \subset \Omega$$  
+  
+  + *Probabilidad:* Es una función que otorga una medida (número) a los distintos eventos del espacio muestral.
+  
+$$Pr(E)=\#$$
+## Axiomas de la probabilidad
+
+Sea $E$ un evento de $\Omega$, entonces:
+
+$$0\leq Pr(E) \leq 1$$
+$$Pr(\Omega)=1$$
+Si dos eventos son mutuamente excluyentes, entonces:
+
+$$Pr(E_i \cup E_j)=Pr(E_i)+Pr(E_j)$$
+## Concepto de probabilidad
+
+  - Probabilidad teórica
+  
+$$Pr(E)=\frac{\#E}{\#\Omega}=\frac{\text{Casos favorables}}{\text{Casos Totales}}$$  
+  
+  - Probabilidad frecuentista
+
+$$Pr(E)=lim_{n\rightarrow \infty}\frac{\#E}{n}=\frac{\text{Número de éxitos}}{\text{Total de ensayos}}$$
+
+> Ejercicio: Sea el experimento aleatorio, la nota final de un estudiante en estadística. Se pide:
+  + Presentar el espacio muestral
+  + Calcular la probabilidad que el estudiante obtenga una nota menor a 20
+  + Calcular la probabilidad que el estudiante apruebe la materia
+
+Solución,
+
+$$\Omega=\{x \in \mathbb Z, 0\leq x \leq 100 \}$$
+$$Pr(\text{nota sea menor a 20})=\frac{20}{101}=0.198$$
+$$E=\{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19\}$$
+$$Pr(Aprobar)=\frac{50}{101}=0.495$$
+> Ejercicio: Sea el experimento aleatorio lanzar dos dados, se pide calcular:
+  - La probabilidad de que la suma de los dados sea igual a 12
+  - La probabilidad de que la suma de los dados sea 1
+  - La probabilidad de que la suma sea 7
+  
+$$Pr(12)=\frac{1}{36}=0.028$$
+$$Pr(1)=\frac{0}{36}=0$$
+$$Pr(7)=\frac{6}{36}=0.167$$
+## Variable aleatoria
+
+Es una función que otorga un número a los eventos del espacio muestral, esto, según la definición que se de para la variable aleatoria. 
+
+Por ejemplo: Sea el experimento aleatorio, lanzar dos monedas, y definamos la variable aleatoria como el número de caras obtenidas. 
+
+$$\Omega=\{CC,CS,SC,SS\}$$
+$$X=\{2,1,1,0\}$$  
+Una variable aleatoria tiene su dominio o recorrido en función de los valores que puede tomar.  
+
+Por ejemplo para el caso de las monedas:
+
+$$R_x=\{0,1,2\}$$
+Una variable aleatoria tiene su **distribución de probabilidad**, esto significa, que los valores del recorrido de la variable tienen asociada una probabilidad.
+
+$$\sum_{Rx}Pr(X=x_i)=1$$
+Ejemplo: Sea la variable aleatoria la suma de dos dados, establecer la distribución de probabilidades.
+
+Al igual que en el anterior tema, si bien es cierto sabemos los posibles resultados y sus probabilidades sería muy útil conocer el *valor más esperado* (promedio/mediana/moda). A este concepto en probabilidades se le conoce como la Esperanza de la variable aleatoria, esta se define como:
+
+$$E[X]=\sum_{Rx} x*Pr(X=x)$$
+## Distribución Binomial

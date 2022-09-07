@@ -18,3 +18,4 @@ formula-corta-de-la-varianza-muestral
 desviación-media
 medidas-de-dispersión-para-tablas-de-frecuencia
 algunas-otras-medidas-de-tendencia-central
+probabilidades

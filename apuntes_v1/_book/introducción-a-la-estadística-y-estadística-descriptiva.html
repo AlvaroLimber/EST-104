@@ -23,7 +23,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-08-24" />
+<meta name="date" content="2022-09-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="probabilidades.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -188,6 +188,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.11.5" data-path="introducción-a-la-estadística-y-estadística-descriptiva.html"><a href="introducción-a-la-estadística-y-estadística-descriptiva.html#algunas-otras-medidas-de-tendencia-central"><i class="fa fa-check"></i><b>1.11.5</b> Algunas otras medidas de tendencia central</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="probabilidades.html"><a href="probabilidades.html"><i class="fa fa-check"></i><b>2</b> Probabilidades</a></li>
 </ul>
 
       </nav>
@@ -373,9 +374,9 @@ Donde el símbolo <span class="math display">\[\lceil x \rceil\]</span> represen
 <p>Para el ejemplo:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="introducción-a-la-estadística-y-estadística-descriptiva.html#cb3-1" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">21</span>, <span class="dv">18</span>, <span class="dv">18</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">19</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">24</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">21</span>)</span>
 <span id="cb3-2"><a href="introducción-a-la-estadística-y-estadística-descriptiva.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(y)</span></code></pre></div>
-<pre><code>##  [1] 17 18 18 18 18 19 19 19 19 19
-## [11] 19 19 20 20 21 21 22 22 22 22
-## [21] 24 24</code></pre>
+<pre><code>##  [1] 17 18 18 18 18 19 19 19
+##  [9] 19 19 19 19 20 20 21 21
+## [17] 22 22 22 22 24 24</code></pre>
 <ul>
 <li><span class="math inline">\(Mo=19\)</span></li>
 <li><span class="math inline">\(Me=19\)</span></li>
@@ -440,23 +441,6 @@ Se interpreta que la media es un buen representante en este conjunto de datos.</
 <div id="algunas-otras-medidas-de-tendencia-central" class="section level3 hasAnchor" number="1.11.5">
 <h3><span class="header-section-number">1.11.5</span> Algunas otras medidas de tendencia central<a href="introducción-a-la-estadística-y-estadística-descriptiva.html#algunas-otras-medidas-de-tendencia-central" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Gentleman, Robert, Kurt Hornik, and Giovanni G Parmigiani. 2008. <em><span class="nocase">Biostatistics with R</span></em>. <a href="https://doi.org/10.1007/978-0-387-78171-6">https://doi.org/10.1007/978-0-387-78171-6</a>.
-</div>
-<div class="csl-entry">
-Jerrold, Zar. 2010. <span>“<span>Biostatistical Analysis</span>.”</span>
-</div>
-<div class="csl-entry">
-Lawrence L., Kupper, Brian Neelon H., and Sean Obrien M. 2011. <span>“<span class="nocase">Exercises and Solutions in Biostatistical Theory</span>.”</span>
-</div>
-<div class="csl-entry">
-Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis Using R: A Practical Guide</span></em>. <a href="https://doi.org/10.1002/9781444319620">https://doi.org/10.1002/9781444319620</a>.
-</div>
-<div class="csl-entry">
-Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -465,8 +449,8 @@ Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probabilidades.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
