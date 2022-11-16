@@ -84,7 +84,9 @@ Se tiene las notas de una muestra de 7 estudiantes, con respecto a las materias 
 
 Se pide determinar la relación que existe entre las dos materias. Es decir, calcular la covarianza y la correlación y analizar los resultados.
 
-$$S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}  \quad \rho=\frac{S_{xy}}{S_x S_y}$$
+$$S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}=\frac{395.71}{6}=65.95$$
+
+$$\rho=\frac{S_{xy}}{S_x S_y}=\frac{65.95}{16.31*12.07}=0.34$$
 
 ## Relación entre variables cualitativas
 
@@ -95,15 +97,16 @@ En este caso se puede usar el coeficiente Chi-cuadrado:
 $$\chi^2 = \sum_{i=1}^p\sum_{j=1}^q \frac{\left(n_{ij}-\frac{n_{x_i}n_{y_j}}{n}\right)^2}{\frac{n_{x_i}n_{y_j}}{n}}=\sum_{fc}\frac{(O-E)^2}{E}$$
 Se debe construir una tabla de contingencia.
 
-El valor que se obtenga no es muy útil para la interpretación, principalmente nos sirve para saber o sospechar de la no existencia de relación, esto sucede cuando el valor es cercano a 0. Sin embargo, una alternativa para interpretar el valor es el coeficiente de contingencia, que tiene la forma de:
+El valor que se obtenga no es muy útil para la interpretación, principalmente nos sirve para saber o sospechar de la no existencia de relación, esto sucede cuando el valor es cercano a 0. Sin embargo, una alternativa para interpretar el valor es el **coeficiente de contingencia**, que tiene la forma de:
 
 $$C = \sqrt{\frac{\chi^2}{\chi^2+n}}$$
 Este coeficiente se define en:
 
-$$0\leq C < 1$$
-Donde si C es más cercano a 0 implica una falta de relación entre las variables y si es más cercano a 1 implica una relación fuerte.
+$$0\leq C < C_{max} < 1$$
 
-En realidad el máximo valor que puede alcanzar C es:
+Donde si C es más cercano a 0 implica una **falta de relación** entre las variables y si es más cercano a 1 implica una **relación fuerte**.
+
+En realidad el máximo valor que puede alcanzar $C$ es:
 
 $$C_{max}=\sqrt{\frac{k-1}{k}}, \quad k=min(\#filas, \# columnas)$$
 

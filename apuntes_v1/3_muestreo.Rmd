@@ -1,0 +1,202 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# Muestreo estadístico
+
+Algunas definiciones:
+
+  * Población objetivo (Universo): Es el conjunto de todos los elementos o unidades de análisis. ($U$)
+  * Muestra: Es un subconjunto del universo. ($s$)
+  
+$$s \subset U$$
+
+  * *Muestra aleatoria (estadística):* Es un subconjunto del universo, sin embargo, esta muestra fue obtenida mediante un proceso aleatorio (azar/sorteo). En este tipo de muestras se usa el principio de las probabilidades. 
+  * *Inferencia estadística:* Es el área de la estadística que se encarga de analizar o describir a una población (universo) a partir de una muestra estadística. 
+  
+> Ejemplo, si el universo de estudio son los estudiantes inscritos en la materia de estadística (66), los estudiantes que participan en la clase virtual (13) ¿son una muestra estadística?  
+  
+Solución, no es una muestra estadística, ya que las características del grupo presente en las clases virtuales no necesariamente son las mismas del grupo que no esta presente. 
+
+Algunos conceptos mas
+
+  * El tamaño del universo se denota por N.
+    + Obs. En ciertas poblaciones no es posible determinar su tamaño.
+  * El tamaño de la muestra se denota por n.
+    + Obs. Este tamaño siempre se puede definir.
+  * *Parámetro*: Es una función sobre las variables y el universo. ($\theta$)
+  * *Estimador*: Es una función sobre las variables y la muestra, cuyo objetivo es estimar de la mejor forma el parámetro poblacional. ($\hat{\theta}$)
+
+$$\hat{\theta}\rightarrow \theta$$
+Los parámetros de estudio a lo largo de estos próximos capítulos, serán:
+
+  - Media poblacional
+  
+$$\mu=\frac{\sum_{i=1}^N y_i}{N}=\frac{\sum_U y_i}{N}$$
+
+  - Varianza poblacional
+
+$$\sigma^2=\frac{\sum_{i=1}^N (y_i-\mu)^2}{N}$$
+
+Ahora nuestro interés es plantear medidas sobre la muestra que aproximen los parámetros poblacionales.
+
+A estas medidas se las denomina estimadores, un estimador para la media poblacional $\mu$ es la media muestral. 
+
+$$\bar{y}=\frac{\sum_{i=1}^n y_i}{n}$$
+$$\bar{y}\rightarrow \mu$$
+ Y además, la medida para estimar la varianza poblacional es la varianza muestral.
+ 
+ $$s^2=\frac{\sum_{i=1}^n(y_i-\bar{y})^2}{n-1}$$
+$$s^2 \rightarrow \sigma^2$$
+
+## Distribución muestral de la media
+
+> Ejemplo: Se esta estudiando a los estudiantes hombres de la materia de estadística del semestre II-2022. Se explora la variable: Tiempo en minutos desde su casa a Cota Cota. Para ello se cuenta con los datos de los 8 estudiantes. 
+
+  - $N=8$
+  - Los datos: 60, 70, 60, 30, 75, 5, 40, 110
+
+Dado un tamaño de muestra existen diferentes muestra posibles, para cada muestra se puede calcular la media y la mediana. Sea $n=3$
+
+Muestras posibles, la cantidad de muestras posibles se obtiene resolviendo:
+
+$${N \choose n} =\frac{N!}{(N-n)!n!}$$
+$${8 \choose 3} =\frac{8!}{5!3!}=\frac{8*7*6*5!}{5!*3*2*1}=56$$
+```{r}
+x<-c(60, 70, 60, 30, 75, 5, 40, 110)
+ss<-combn(x,3)
+ss
+```
+
+La distribución muestral de la media, corresponde a las medias calculadas para cada muestra posible.
+
+```{r}
+ybar<-apply(ss,2,mean)
+ybar
+```
+
+La distribución muestral de la mediana, corresponde a las medianas calculadas para cada muestra posible.
+
+```{r}
+ymedian<-apply(ss,2,median)
+ymedian
+```
+
+Si todas las estimaciones tienen su centro al parámetro, ese estimador se dice que es insesgado (sin sesgo)
+
+$$E[\bar{y}]=\sum_{R\bar{y}} \bar{y}_i*\frac{1}{56}=\sum_{R\bar{y}}\frac{\bar{y}_i}{56}=56.25=\mu$$
+
+Veamos para la mediana:
+
+$$E[\bar{y}_{Me}]=56.61 \neq 56.25=\mu$$
+Veamos un histograma para las distribuciones muestrales:
+
+```{r}
+par(mfrow=c(1,2))
+hist(ybar)
+abline(v=mean(x),col="red")
+hist(ymedian)
+abline(v=mean(x),col="red")
+```
+
+A parte de estudiar el centro de las estimaciones de las muestras posibles, es importante estudiar la variabilidad dentro de las estimaciones. Esto medida nos sirve para conocer el nivel de error muestral estadístico de la muestra obtenida. 
+
+La varianza de la media muestral es:
+
+$$V(\bar{y})=\frac{s^2}{n}$$
+Por lo tanto para la media muestral, sabemos que:
+
+$$\bar{y}\sim .(E[\bar{y}]=\mu, V(\bar{y})=s^2/n)$$
+En estadística la raíz cuadrada de la varianza de un estimador se conoce como el error estándar.
+
+$$\sqrt{V(\bar{y})}=\text{Error Estándar}$$
+
+## Teorema del límite central
+
+Este teorema es el más importante de la inferencia estadística y su principal uso es poder pasar de *estudiar todas las muestras posibles* a trabajar con un *distribución normal*, las principales características:
+
+  + Es un teorema exclusivo para la *media muestral* o estimadores con una estructura similar a la media (diferencia de  medias, proporciones)
+  + Esta propiedad requiere una muestra "grande" ($n>30$)
+  + El teorema asume que la población de interés es una población muy grande $N\rightarrow \infty$
+
+De manera formal, el teorema del limite central estable:
+
+Dada una muestra aleatoria de una población, si el tamaño de muestra supera 30 unidades, se puede afirmar que la distribución de la media muestral tiene un comportamiento Normal, tal que:
+
+$$n>30 \rightarrow \bar{y}\sim N(E[\bar{y}]=\mu, V(\bar{y})=s^2/n)$$
+Ejemplo:
+
+Se recolectó la edad en meses de una muestra aleatoria de un grupo de 50 árboles en una zona forestal, se obtuvo que la media de estos 50 árboles es de 75.7, también, se sabe que la varianza muestral es de 35.8. Se pide calcular la probabilidad que el estimador de la media muestral sea mayor a 77 meses.
+
+Solución, como información se tiene:
+
+$$n=50 \quad \bar{y}=75.7 \quad s^2=35.8$$
+Ya que la muestra es mayor a 30, por el teorema del límite central se puede afirmar que:
+
+$$\bar{y}\sim N(75.7, 35.8/50)=N(75.7,0.716)$$
+$$Pr(\bar{y}>77)=Pr\left(\frac{\bar{y}-\mu}{s/\sqrt{n}}>\frac{77-75.7}{0.846} \right)=$$
+
+$$=Pr(z>1.53)=1-Pr(z \leq 1.53)=1-\phi(1.53)=$$
+$$=1-0.9379=0.0621$$
+
+## Una simulación del teorema del limite central
+
+Para entender "convencernos" del teorema del limite central, se plantea la siguiente simulación:
+
+  + Suponer una población de 100000 sujetos
+  + De esta población se extrae una muestra de 30 sujetos, de forma aleatoria
+  + Vamos a suponer que se estudia el promedio de edad como medida de interés
+  
+```{r}
+#población/universo
+N<-100000
+set.seed(610)
+edad_U<-round(runif(N,0,95))
+mu<-mean(edad_U)#parámetro
+mu
+# ahora la muestra
+n<-30
+ss<-sample(edad_U,n)
+ss
+mean(ss)
+# Cuantas posibles muestras existen en este ejercicio
+format(choose(100000,30),scientific = F) # 100000C30
+# Vamos a simular que obtenemos 10000 muestras posibles
+ybar<-NULL
+for(i in 1:10000){
+  print(i)
+  ss<-sample(edad_U,n)
+  ybar<-c(ybar,mean(ss))
+}
+mean(ybar)#E[ybar]
+hist(ybar)
+abline(v=mu,col="red")
+plot(density(ybar))
+abline(v=mu,col="red")
+curve(dnorm(x,mu,sd(edad_U)/sqrt(n)),add = T,col="blue")
+```
+
+## La importancia del tamaño muestral y la varianza de los datos
+
+Por el teorema del limite central sabemos:
+
+$$n>30 \rightarrow \bar{y}\sim N(E[\bar{y}]=\mu, V(\bar{y})=s^2/n)$$
+Bajo este teorema es importante entender el rol de la varianza de los datos y el tamaño de muestra. Algunos comentarios:
+
+  + No tenemos control sobre la varianza de los datos $s^2$
+  + Si tenemos algo de control sobre el tamaño de muestra
+
+Como ejemplo, para el ejercicio anterior suponer que el tamaño de muestra era de 30, 100, 500 y 1000.
+
+```{r}
+curve(dnorm(x,mu,sd(edad_U)/sqrt(30)),add = F,col="blue",xlim=c(25,70),ylim=c(0,0.3))
+abline(v=mu,col="red")
+curve(dnorm(x,mu,sd(edad_U)/sqrt(100)),add = T,col="red")
+curve(dnorm(x,mu,sd(edad_U)/sqrt(500)),add = T,col="darkgreen")
+curve(dnorm(x,mu,sd(edad_U)/sqrt(1000)),add = T,col="black",lwd=2)
+```
+
+## Intervalo de confianza para la media
+
+## Tamaño de muestra para la media 

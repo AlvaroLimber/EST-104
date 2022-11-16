@@ -19,3 +19,14 @@ desviación-media
 medidas-de-dispersión-para-tablas-de-frecuencia
 algunas-otras-medidas-de-tendencia-central
 probabilidades
+muestreo-estadístico
+distribución-muestral-de-la-media
+teorema-del-límite-central
+una-simulación-del-teorema-del-limite-central
+la-importancia-del-tamaño-muestral-y-la-varianza-de-los-datos
+intervalo-de-confianza-para-la-media
+tamaño-de-muestra-para-la-media
+relación-entre-dos-variables
+correlación-versus-causalidad
+covarianza-y-correlación
+relación-entre-variables-cualitativas

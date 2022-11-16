@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Probabilidades | Estadística</title>
+  <title>4 Relación entre dos variables | Estadística</title>
   <meta name="description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Probabilidades | Estadística" />
+  <meta property="og:title" content="4 Relación entre dos variables | Estadística" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   <meta name="github-repo" content="alvarolimber/EST-104" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Probabilidades | Estadística" />
+  <meta name="twitter:title" content="4 Relación entre dos variables | Estadística" />
   
   <meta name="twitter:description" content="Este libro esta destinado a la materia de Estadística de la carrera de Biología de la Universidad Mayor de San Andres." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="introducción-a-la-estadística-y-estadística-descriptiva.html"/>
-<link rel="next" href="muestreo-estadístico.html"/>
+<link rel="prev" href="muestreo-estadístico.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -221,97 +221,133 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="probabilidades" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Probabilidades<a href="probabilidades.html#probabilidades" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="relación-entre-dos-variables" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Relación entre dos variables<a href="relación-entre-dos-variables.html#relación-entre-dos-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Hasta el tema 3 todo el análisis estaba concentrado en el estudio de una sola variable, sus características, como resumirle, como aproximarla mediante una muestra aleatoria. En esta apartado ahora se estudiara el comportamiento simultaneo de <em>2 variables</em>.</p>
+<p>La importancia de estudiar el comportamiento de dos o más <em>variables</em> radica en que las unidades de análisis son unidades que presentan múltiples características y comprender como estas se <em>relacionan</em> ayuda a un mejor análisis estadístico.</p>
+<p>Existen varios métodos que permiten entender la relación que existe entre las variables, desde métodos muy simples que solo describen la relación, hasta métodos más complejos que permiten <em>predecir el comportamiento de una variable usando a otra</em>.</p>
+<p>Alguno de estos métodos son:</p>
 <ul>
-<li><em>Experimento aleatorio:</em> Proceso del cual no sabemos el resultado a menos que este experimento se realice.</li>
-<li><em>Espacio muestral:</em> Colección de los resultados posibles</li>
+<li><em>Correlación o covarianza</em>: Permite medir la relación (lineal) entre 2 variables <em>cuantitativas</em></li>
+<li><em>Tablas de contingencia</em> (test de independencia, chi-cuadrado): Permite medir la relación entre 2 variables cualitativas, es posible trabajar con una relación mixta (cuanti-cuali)</li>
+<li><em>Diseño experimental:</em> Plantea identificar el efecto causal de una variable sobre otra, mediante la realización de un experimento basado en asignaciones aleatorias.</li>
+<li><em>Regresiones</em>: es un método que permite entender como una variable <span class="math inline">\(Y\)</span> es afectada por otras variables <span class="math inline">\(X_1,X_2, \ldots\)</span>.</li>
 </ul>
-<p><span class="math display">\[\Omega\]</span>
-+ <em>Evento:</em> es un sub conjunto del espacio muestral. (<span class="math inline">\(E\)</span>)</p>
-<p><span class="math display">\[E \subset \Omega\]</span></p>
+<p><span class="math display">\[Y=f(X_1,X_2, \ldots)\]</span><br />
++ Regresión simple (2 variables) (Y cuanti, X mixta)
++ Regresión múltiple (2 o más variables) (Y cuanti, X mixta)
++ Regresión de respuesta binaria: Probit, Logit (Y binaria, X Mixtas)
++ Regresión de respuesta discreta: Poisson (Y discreta, X mixta)
++ Regresión multinivel.
+* Métodos multivariantes (Minería de datos/Machine learning)
++ Reducción de variables, componentes principales
++ Agrupamiento
++ Clasificación
++ Minería de texto
++ Regresión</p>
+<div id="correlación-versus-causalidad" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Correlación versus Causalidad<a href="relación-entre-dos-variables.html#correlación-versus-causalidad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><em>Probabilidad:</em> Es una función que otorga una medida (número) a los distintos eventos del espacio muestral.</li>
-</ul>
-<p><span class="math display">\[Pr(E)=\#\]</span>
-## Axiomas de la probabilidad</p>
-<p>Sea <span class="math inline">\(E\)</span> un evento de <span class="math inline">\(\Omega\)</span>, entonces:</p>
-<p><span class="math display">\[0\leq Pr(E) \leq 1\]</span>
-<span class="math display">\[Pr(\Omega)=1\]</span>
-Si dos eventos son mutuamente excluyentes, entonces:</p>
-<p><span class="math display">\[Pr(E_i \cup E_j)=Pr(E_i)+Pr(E_j)\]</span>
-## Concepto de probabilidad</p>
+<li>Diferencia entre correlación y causalidad
 <ul>
-<li>Probabilidad teórica</li>
-</ul>
-<p><span class="math display">\[Pr(E)=\frac{\#E}{\#\Omega}=\frac{\text{Casos favorables}}{\text{Casos Totales}}\]</span></p>
+<li>Correlación no implica causalidad</li>
+<li>La causalidad busca entender de forma clara la causa y efecto entre dos variables <span class="math inline">\(X\rightarrow Y \leftarrow Z \leftarrow W\)</span></li>
+</ul></li>
+<li>Métodos estadísticos para identificar la causalidad
 <ul>
-<li>Probabilidad frecuentista</li>
+<li><em>Diseños experimentales:</em> Poblaciones altamente controladas (laboratorio)</li>
+<li><em>Diseños cuasi-experimentales:</em> No cuenta con mucho control sobre la población de interés
+<ul>
+<li>Diferencia en diferencia</li>
+<li>Regresión discontinua</li>
+<li>Variables instrumentales</li>
+<li>Emparejamiento</li>
+</ul></li>
+<li><em>Métodos estructurales:</em>. (Modelar la varianza de los datos)</li>
+</ul></li>
+<li>Ejemplos de interés sobre causalidad en Biología
+<ul>
+<li>Dietas sobre animales, hábitos basados en juegos</li>
+<li>Tratamiento vinculado a cultivos. (Fertilizantes, tipo de riego, variedad del cultivo, etc)</li>
+</ul></li>
 </ul>
-<p><span class="math display">\[Pr(E)=lim_{n\rightarrow \infty}\frac{\#E}{n}=\frac{\text{Número de éxitos}}{\text{Total de ensayos}}\]</span></p>
-<blockquote>
-<p>Ejercicio: Sea el experimento aleatorio, la nota final de un estudiante en estadística. Se pide:
-+ Presentar el espacio muestral
-+ Calcular la probabilidad que el estudiante obtenga una nota menor a 20
-+ Calcular la probabilidad que el estudiante apruebe la materia</p>
-</blockquote>
-<p>Solución,</p>
-<p><span class="math display">\[\Omega=\{x \in \mathbb Z, 0\leq x \leq 100 \}\]</span>
-<span class="math display">\[Pr(\text{nota sea menor a 20})=\frac{20}{101}=0.198\]</span>
-<span class="math display">\[E=\{0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19\}\]</span>
-<span class="math display">\[Pr(Aprobar)=\frac{50}{101}=0.495\]</span>
-&gt; Ejercicio: Sea el experimento aleatorio lanzar dos dados, se pide calcular:
-- La probabilidad de que la suma de los dados sea igual a 12
-- La probabilidad de que la suma de los dados sea 1
-- La probabilidad de que la suma sea 7</p>
-<p><span class="math display">\[Pr(12)=\frac{1}{36}=0.028\]</span>
-<span class="math display">\[Pr(1)=\frac{0}{36}=0\]</span>
-<span class="math display">\[Pr(7)=\frac{6}{36}=0.167\]</span>
-## Variable aleatoria</p>
-<p>Es una función que otorga un número a los eventos del espacio muestral, esto, según la definición que se de para la variable aleatoria.</p>
-<p>Por ejemplo: Sea el experimento aleatorio, lanzar dos monedas, y definamos la variable aleatoria como el número de caras obtenidas.</p>
-<p><span class="math display">\[\Omega=\{CC,CS,SC,SS\}\]</span>
-<span class="math display">\[X=\{2,1,1,0\}\]</span><br />
-Una variable aleatoria tiene su dominio o recorrido en función de los valores que puede tomar.</p>
-<p>Por ejemplo para el caso de las monedas:</p>
-<p><span class="math display">\[R_x=\{0,1,2\}\]</span>
-Una variable aleatoria tiene su <strong>distribución de probabilidad</strong>, esto significa, que los valores del recorrido de la variable tienen asociada una probabilidad.</p>
-<p><span class="math display">\[\sum_{Rx}Pr(X=x_i)=1\]</span>
-Ejemplo: Sea la variable aleatoria la suma de dos dados, establecer la distribución de probabilidades.</p>
-<p>Al igual que en el anterior tema, si bien es cierto sabemos los posibles resultados y sus probabilidades sería muy útil conocer el <em>valor más esperado</em> (promedio/mediana/moda). A este concepto en probabilidades se le conoce como la Esperanza de la variable aleatoria, esta se define como:</p>
-<p><span class="math display">\[E[X]=\sum_{Rx} x*Pr(X=x)\]</span>
-## Distribución Binomial</p>
-<p>Tiene el objetivo de modelar la cantidad de éxitos en varios experimentos (n) Bernoulli. La forma de la distribución de probabilidades de la Binomial queda como:</p>
-<p><span class="math display">\[Pr(X=x)={n \choose x} p^x (1-p)^{n-x}\]</span>
-Donde <span class="math inline">\(p\)</span> representa la probabilidad de éxito y <span class="math inline">\(n\)</span> representa la cantidad de experimentos Bernoullis. Así, la variable aleatoria es <span class="math inline">\(x\)</span> que tiene un recorrido definido por:</p>
-<p><span class="math display">\[Rx=\{0,1,2,3,\ldots,n\}\]</span>
-&gt; Problema: Se realizaron 8 pruebas a canes con la finalidad de detectar si tienen rabia o no. Se sabe que la probabilidad de tener rabia en una determinada población de canes es de 3/10. Construya la tabla de probabilidades para la variable aleatoria: Número de canes con rabia.</p>
-<p>Solución, se recomienda iniciar identificando la información disponible. <span class="math inline">\(n=8\)</span>, <span class="math inline">\(p=\frac{3}{10}\)</span>, <span class="math inline">\(Rx=\{0,1,2,3,4,5,6,7,8\}\)</span></p>
-<p><span class="math display">\[Pr(X=x)={8 \choose x} 0.3^x 0.7^{8-x}\]</span>
-<span class="math display">\[Pr(X=0)={8 \choose 0} 0.3^0 0.7^{8-0}=\frac{8!}{(8-0)!0!}=0.3^0 0.7^{8-0}=\]</span>
-<span class="math display">\[=\frac{8!}{8!}1*0.7^8=0.05764801\approx 0.058\]</span>
-<span class="math display">\[Pr(X=1)={8 \choose 1} 0.3^1 0.7^{8-1}=0.198\]</span></p>
-<p><span class="math display">\[Pr(X=2)={8 \choose 2} 0.3^2 0.7^{8-2}=0.296\]</span>
-<span class="math display">\[Pr(X=3)={8 \choose 3} 0.3^3 0.7^{8-3}=0.254\]</span>
-&gt; Problema: Un examen tiene 6 preguntas de elección múltiple. Cada una de las preguntas tiene 5 opciones, donde solo 1 es la correcta. Un estudiante se propone adivinar las respuestas y marcar de forma aleatoria las preguntas del examen. ¿Cuál es la probabilidad que el estudiante falle en todas las preguntas?, ¿Cuál es la probabilidad que el estudiante responda de forma correcta todas las preguntas?, finalmente; calcular el valor esperado de preguntas correctas.</p>
-<p>Solución, el experimento Bernoulli es marcar la respuesta al azar en una determinada pregunta. <span class="math inline">\(n=6\)</span>, <span class="math inline">\(p=\frac{1}{5}\)</span>. Así la variable aleatoria lo podemos definir como la cantidad de aciertos en las preguntas.</p>
-<p><span class="math display">\[Pr(X=x)={6 \choose x} 0.2^x 0.8^{6-x}\]</span></p>
-<p><span class="math display">\[Pr(X=0)={6 \choose 0} 0.2^0 0.8^{6-0}=1*1*0.8^6=0.2621\]</span></p>
-<p><span class="math display">\[Pr(X=6)={6 \choose 6} 0.2^6 0.8^{6-6}=1*0.2^6*0.8^0=0.000064\]</span>
-Ahora el valor esperado, para esto podemos usar una propiedad de la distribución Binomial que dice:</p>
-<p><span class="math display">\[E[X]=\sum_{Rx}xPr(X=x)= n*p\]</span>
-Entonces, para el ejercicio:</p>
-<p><span class="math display">\[E[X]=n*p=6*0.2=1.2\]</span>
-## Distribución Normal</p>
+</div>
+<div id="covarianza-y-correlación" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Covarianza y Correlación<a href="relación-entre-dos-variables.html#covarianza-y-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Son medidas de relación entre dos variables cuantitativas.</p>
+<p>Estas dos medidas son exclusivas cuando las variables de interés son ambas <em>cuantitativas</em>, la covarianza es una medida que mantiene las unidades de medida de los datos, mientras que la <em>correlación</em> es una medida relativa, es decir, carece de unidades de medida y también es acotada ya que se mueve entre <em>-1 y 1</em>.</p>
+<p>Sean las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, ambas variables cuantitativas (continuas o discretas), la covarianza en la población (universo) de interés se define como:</p>
+<p><span class="math display">\[\sigma_{xy}=\frac{\sum_U(x_i-\mu_{x})(y_i-\mu_{y})}{N}\]</span></p>
+<p>Como casi siempre se trabaja con muestras aleatorias, la covarianza muestral esta dada por:</p>
+<p><span class="math display">\[S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}\]</span></p>
+<p>Para la interpretación de la covarianza, notar que esta puede tomar valores positivos y negativos, en cuanto al valor que se obtenga, este depende de la naturaleza de los datos. La interpretación del valor de la covarianza no es tan útil, lo que que normalmente es su signo y cuando alcanza el cero:</p>
+<ul>
+<li><span class="math inline">\(S_{xy}&gt;0\)</span>: Esto implica que existe una relación directa, es decir, mientras una variable crece la otra también crece, una baja la otra también baja. Ej. La edad con la estatura hasta los 25 años.<br />
+</li>
+<li><span class="math inline">\(S_{xy}&lt;0\)</span>: La relación es opuesta/inversa, mientras una sube la otra baja y viceversa. Ej. A más materias inscritas menos horas de sueño.</li>
+<li><span class="math inline">\(S_{xy}=0\)</span>: No existe una relación lineal</li>
+</ul>
+<p>Una medida más útil es la correlación, esta se define para la población como:</p>
+<p><span class="math display">\[r=\frac{\sigma_{xy}}{\sigma_x \sigma_y}\]</span></p>
+<p>Para la muestra:</p>
+<p><span class="math display">\[\rho=\frac{S_{xy}}{S_x S_y}\]</span>
+La interpretación respecto el signo, mantiene la idea de la covarianza. Pero ahora se puede interpretar el valor:</p>
+<ul>
+<li><span class="math inline">\(\rho \rightarrow 1\)</span> que la relación directa es muy fuerte</li>
+<li><span class="math inline">\(\rho \rightarrow -1\)</span> que la relación inversa es muy fuerte</li>
+<li><span class="math inline">\(\rho \rightarrow 0\)</span> existe una fuerte sospecha de independencia lineal (no existe relación lineal)</li>
+</ul>
+<p>Ejercicio</p>
+<p>Se tiene las notas de una muestra de 7 estudiantes, con respecto a las materias de matemática y literatura. Los datos son los siguientes:</p>
+<ul>
+<li>(M,L), (90,70) (67,60) (59,90) (51,70) (79,52) (55,69) (90,90)</li>
+</ul>
+<p>Se pide determinar la relación que existe entre las dos materias. Es decir, calcular la covarianza y la correlación y analizar los resultados.</p>
+<p><span class="math display">\[S_{xy}=\frac{\sum_s(x_i-\bar{x})(y_i-\bar{y})}{n-1}=\frac{395.71}{6}=65.95\]</span></p>
+<p><span class="math display">\[\rho=\frac{S_{xy}}{S_x S_y}=\frac{65.95}{16.31*12.07}=0.34\]</span></p>
+</div>
+<div id="relación-entre-variables-cualitativas" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Relación entre variables cualitativas<a href="relación-entre-dos-variables.html#relación-entre-variables-cualitativas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Cuando ambas variables son cualitativas nominales</p>
+<p>En este caso se puede usar el coeficiente Chi-cuadrado:</p>
+<p><span class="math display">\[\chi^2 = \sum_{i=1}^p\sum_{j=1}^q \frac{\left(n_{ij}-\frac{n_{x_i}n_{y_j}}{n}\right)^2}{\frac{n_{x_i}n_{y_j}}{n}}=\sum_{fc}\frac{(O-E)^2}{E}\]</span>
+Se debe construir una tabla de contingencia.</p>
+<p>El valor que se obtenga no es muy útil para la interpretación, principalmente nos sirve para saber o sospechar de la no existencia de relación, esto sucede cuando el valor es cercano a 0. Sin embargo, una alternativa para interpretar el valor es el <strong>coeficiente de contingencia</strong>, que tiene la forma de:</p>
+<p><span class="math display">\[C = \sqrt{\frac{\chi^2}{\chi^2+n}}\]</span>
+Este coeficiente se define en:</p>
+<p><span class="math display">\[0\leq C &lt; C_{max} &lt; 1\]</span></p>
+<p>Donde si C es más cercano a 0 implica una <strong>falta de relación</strong> entre las variables y si es más cercano a 1 implica una <strong>relación fuerte</strong>.</p>
+<p>En realidad el máximo valor que puede alcanzar <span class="math inline">\(C\)</span> es:</p>
+<p><span class="math display">\[C_{max}=\sqrt{\frac{k-1}{k}}, \quad k=min(\#filas, \# columnas)\]</span></p>
+<p>Tarea para el examen, Sperman-Ordinal</p>
+<p><span class="math display">\[r_s = 1-\frac{6\sum_s d_i^2}{n(n^2-1)}\]</span></p>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Gentleman, Robert, Kurt Hornik, and Giovanni G Parmigiani. 2008. <em><span class="nocase">Biostatistics with R</span></em>. <a href="https://doi.org/10.1007/978-0-387-78171-6">https://doi.org/10.1007/978-0-387-78171-6</a>.
+</div>
+<div class="csl-entry">
+Jerrold, Zar. 2010. <span>“<span>Biostatistical Analysis</span>.”</span>
+</div>
+<div class="csl-entry">
+Lawrence L., Kupper, Brian Neelon H., and Sean Obrien M. 2011. <span>“<span class="nocase">Exercises and Solutions in Biostatistical Theory</span>.”</span>
+</div>
+<div class="csl-entry">
+Logan, Murray. 2009. <em><span class="nocase">Biostatistical Design and Analysis Using R: A Practical Guide</span></em>. <a href="https://doi.org/10.1002/9781444319620">https://doi.org/10.1002/9781444319620</a>.
+</div>
+<div class="csl-entry">
+Seefeld, Kim, M Ed, Ernst Linder, and D Ph. 2007. <span>“<span class="nocase">Statistics Using R with Biological Examples</span>,”</span> no. May: 1–325. <a href="papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496">papers://79d157ac-b426-41b2-8160-93abb913f5dd/Paper/p1496</a>.
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="introducción-a-la-estadística-y-estadística-descriptiva.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="muestreo-estadístico.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="muestreo-estadístico.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

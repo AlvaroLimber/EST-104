@@ -23,7 +23,7 @@
 <meta name="author" content="MSc. Alvaro Chirino Gutierrez" />
 
 
-<meta name="date" content="2022-09-07" />
+<meta name="date" content="2022-11-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -189,6 +189,21 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="probabilidades.html"><a href="probabilidades.html"><i class="fa fa-check"></i><b>2</b> Probabilidades</a></li>
+<li class="chapter" data-level="3" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html"><i class="fa fa-check"></i><b>3</b> Muestreo estadístico</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#distribución-muestral-de-la-media"><i class="fa fa-check"></i><b>3.1</b> Distribución muestral de la media</a></li>
+<li class="chapter" data-level="3.2" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#teorema-del-límite-central"><i class="fa fa-check"></i><b>3.2</b> Teorema del límite central</a></li>
+<li class="chapter" data-level="3.3" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#una-simulación-del-teorema-del-limite-central"><i class="fa fa-check"></i><b>3.3</b> Una simulación del teorema del limite central</a></li>
+<li class="chapter" data-level="3.4" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#la-importancia-del-tamaño-muestral-y-la-varianza-de-los-datos"><i class="fa fa-check"></i><b>3.4</b> La importancia del tamaño muestral y la varianza de los datos</a></li>
+<li class="chapter" data-level="3.5" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#intervalo-de-confianza-para-la-media"><i class="fa fa-check"></i><b>3.5</b> Intervalo de confianza para la media</a></li>
+<li class="chapter" data-level="3.6" data-path="muestreo-estadístico.html"><a href="muestreo-estadístico.html#tamaño-de-muestra-para-la-media"><i class="fa fa-check"></i><b>3.6</b> Tamaño de muestra para la media</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="relación-entre-dos-variables.html"><a href="relación-entre-dos-variables.html"><i class="fa fa-check"></i><b>4</b> Relación entre dos variables</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="relación-entre-dos-variables.html"><a href="relación-entre-dos-variables.html#correlación-versus-causalidad"><i class="fa fa-check"></i><b>4.1</b> Correlación versus Causalidad</a></li>
+<li class="chapter" data-level="4.2" data-path="relación-entre-dos-variables.html"><a href="relación-entre-dos-variables.html#covarianza-y-correlación"><i class="fa fa-check"></i><b>4.2</b> Covarianza y Correlación</a></li>
+<li class="chapter" data-level="4.3" data-path="relación-entre-dos-variables.html"><a href="relación-entre-dos-variables.html#relación-entre-variables-cualitativas"><i class="fa fa-check"></i><b>4.3</b> Relación entre variables cualitativas</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -210,7 +225,7 @@ div.csl-indent {
 <h1 class="title">Estadística</h1>
 <h2 class="subtitle"><em>EST-104</em></h2>
 <p class="author"><em>MSc. Alvaro Chirino Gutierrez</em></p>
-<p class="date"><em>2022-09-07</em></p>
+<p class="date"><em>2022-11-16</em></p>
 </div>
 <div id="prefacio" class="section level1 unnumbered hasAnchor">
 <h1>Prefacio<a href="index.html#prefacio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -235,7 +250,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.0 (2022-04-22 ucrt)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 10 x64 (build 19044)
+## Running under: Windows 10 x64 (build 19045)
 ## 
 ## Matrix products: default
 ## 
@@ -247,34 +262,22 @@ div.csl-indent {
 ## [5] LC_TIME=English_United States.utf8    
 ## 
 ## attached base packages:
-## [1] stats     graphics 
-## [3] grDevices utils    
-## [5] datasets  methods  
-## [7] base     
+## [1] stats     graphics  grDevices utils    
+## [5] datasets  methods   base     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] bookdown_0.27  
-##  [2] digest_0.6.29  
-##  [3] R6_2.5.1       
-##  [4] jsonlite_1.8.0 
-##  [5] magrittr_2.0.3 
-##  [6] evaluate_0.15  
-##  [7] highr_0.9      
-##  [8] stringi_1.7.6  
-##  [9] rlang_1.0.2    
-## [10] cli_3.3.0      
-## [11] jquerylib_0.1.4
-## [12] bslib_0.3.1    
-## [13] rmarkdown_2.14 
-## [14] tools_4.2.0    
-## [15] stringr_1.4.0  
-## [16] xfun_0.31      
-## [17] yaml_2.3.5     
-## [18] fastmap_1.1.0  
-## [19] compiler_4.2.0 
-## [20] htmltools_0.5.2
-## [21] knitr_1.39     
-## [22] sass_0.4.1</code></pre>
+##  [1] bookdown_0.27   digest_0.6.29  
+##  [3] R6_2.5.1        jsonlite_1.8.0 
+##  [5] magrittr_2.0.3  evaluate_0.15  
+##  [7] highr_0.9       stringi_1.7.6  
+##  [9] rlang_1.0.2     cli_3.3.0      
+## [11] rstudioapi_0.14 jquerylib_0.1.4
+## [13] bslib_0.3.1     rmarkdown_2.14 
+## [15] tools_4.2.0     stringr_1.4.0  
+## [17] xfun_0.31       yaml_2.3.5     
+## [19] fastmap_1.1.0   compiler_4.2.0 
+## [21] htmltools_0.5.2 knitr_1.39     
+## [23] sass_0.4.1</code></pre>
 </div>
 <div id="bases-de-datos" class="section level2 unnumbered hasAnchor">
 <h2>Bases de datos<a href="index.html#bases-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
